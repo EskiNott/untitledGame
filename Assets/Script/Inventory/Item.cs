@@ -27,7 +27,6 @@ public enum ItemType
 {
     Weapon,
     Consumable,
-    Herb,
     Gems,
     Material
 }
