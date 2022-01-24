@@ -16,11 +16,10 @@ public class Weapon : Item
         Skill = skill;
         wpType = wptype;
     }
-}
-
-public enum WeaponType
-{
-    Dagger,
-    Axe,
-    Sword
+    public enum WeaponType
+    {
+        Dagger,
+        Axe,
+        Sword
+    }
 }

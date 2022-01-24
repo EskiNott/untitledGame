@@ -21,12 +21,11 @@ public class Item
         Type = type;
         Sprite = sprite;
     }
-}
-
-public enum ItemType
-{
-    Weapon,
-    Consumable,
-    Gems,
-    Material
+    public enum ItemType
+    {
+        Weapon,
+        Consumable,
+        Gems,
+        Materials
+    }
 }
