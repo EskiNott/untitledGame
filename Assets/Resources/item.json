@@ -1,0 +1,68 @@
+[
+    {
+        "id": 1,
+        "name": "小恢复剂",
+        "description": "恢复50HP",
+        "capacity": 1024,
+        "type": "Consumable",
+        "effect": 1,
+        "buyprice": 100,
+        "sprite": "Sprites/Items/consumable"
+    },
+    {
+        "id": 2,
+        "name": "公爵海棠",
+        "description": "是花捏",
+        "capacity": 1024,
+        "type": "Materials",
+        "mtype": "Herb",
+        "buyprice": 50,
+        "sprite": "Sprites/Items/materials"
+    },
+    {
+        "id": 3,
+        "name": "泰坦心脏宝石",
+        "description": "扩大最大治疗量上限",
+        "capacity": 1,
+        "type": "Gems",
+        "gtype": "Head",
+        "skill": 18,
+        "buyprice": 2000,
+        "sprite": "Sprites/Items/headgem"
+    },
+    {
+        "id": 4,
+        "name": "暴击强化宝石",
+        "description": "强化暴击几率",
+        "capacity": 1,
+        "type": "Gems",
+        "gtype": "Helper",
+        "skill": 19,
+        "buyprice": 500,
+        "sprite": "Sprites/Items/helpergem"
+    },
+    {
+        "id": 5,
+        "name": "最后终结宝石",
+        "description": "一次性造成大量伤害的攻击",
+        "capacity": 1,
+        "type": "Gems",
+        "gtype": "Dagger",
+        "skill": 20,
+        "buyprice": 500,
+        "sprite": "Sprites/Items/daggergem"
+    },
+    {
+        "id": 6,
+        "name": "木柄匕首",
+        "description": "普通的匕首，用作防身",
+        "capacity": 1,
+        "type": "Weapon",
+        "gtype": "Dagger",
+        "damage": 5,
+        "criticalchance": 0.05,
+        "Slot": 3,
+        "buyprice": 20,
+        "sprite": "Sprites/Items/dagger"
+    }
+]
