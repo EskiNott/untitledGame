@@ -4,14 +4,10 @@ using UnityEngine;
 
 public class Consumable: Item
 {
-    public int HealthPoint { get; set; }
-    public int MagicPoint { get; set; }
-    public bool[] SpecialEffect { get; set; }
-    public Consumable(int id, string name, string description, int capacity, ItemType type, string sprite, int healthpoint, int magicpoint, bool[] speacialeffect)
-    : base(id, name, description, capacity, type, sprite)
+    public bool Effects { get; set; }
+    public Consumable(int id, string name, string description, int capacity, ItemType type, double buyprice, string sprite, bool effects)
+    : base(id, name, description, capacity, type, buyprice, sprite)
     {
-        HealthPoint = healthpoint;
-        MagicPoint = magicpoint;
-        SpecialEffect = speacialeffect;
+        Effects = effects;
     }
 }
