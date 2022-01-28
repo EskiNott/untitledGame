@@ -61,7 +61,7 @@
         "gtype": "Dagger",
         "damage": 5,
         "criticalchance": 0.05,
-        "Slot": 3,
+        "slot": 3,
         "buyprice": 20,
         "sprite": "Sprites/Items/dagger"
     }

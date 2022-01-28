@@ -5,7 +5,7 @@ using UnityEngine;
 public class Materials : Item
 {
     public MaterialType mType;
-    public Materials(int id, string name, string description, int capacity, ItemType type, double buyprice, string sprite, MaterialType mtype)
+    public Materials(int id, string name, string description, int capacity, ItemType type, int buyprice, string sprite, MaterialType mtype)
         : base(id, name, description, capacity, type, buyprice, sprite)
     {
         mType = mtype;

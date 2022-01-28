@@ -9,11 +9,11 @@ public class Item
     public string Description { get; set; }
     public int Capacity { get; set; }
     public ItemType Type { get; set; }
-    public double buyPrice { get; set; }
+    public int buyPrice { get; set; }
     public string Sprite { get; set; }
 
     public Item() { }
-    public Item(int id, string name, string description, int capacity, ItemType type, double buyprice, string sprite)
+    public Item(int id, string name, string description, int capacity, ItemType type, int buyprice, string sprite)
     {
         ID = id;
         Name = name;

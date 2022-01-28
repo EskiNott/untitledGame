@@ -8,7 +8,7 @@ public class Weapon : Item
     public double CriticalChance { get; set; }
     public ushort Slot { get; set; }
     public WeaponType wpType { get; set; }
-    public Weapon(int id, string name, string description, int capacity, ItemType type, double buyprice, string sprite, int damage, double criticalchance, ushort slot, WeaponType wptype)
+    public Weapon(int id, string name, string description, int capacity, ItemType type, int buyprice, string sprite, int damage, double criticalchance, ushort slot, WeaponType wptype)
         : base(id, name, description, capacity, type, buyprice, sprite)
     {
         Damage = damage;

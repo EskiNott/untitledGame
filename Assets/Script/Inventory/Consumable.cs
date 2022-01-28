@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Consumable: Item
 {
-    public bool Effects { get; set; }
-    public Consumable(int id, string name, string description, int capacity, ItemType type, double buyprice, string sprite, bool effects)
+    public ushort Effects { get; set; }
+    public Consumable
+        (int id, string name, string description, int capacity, ItemType type, int buyprice, string sprite, ushort effects)
     : base(id, name, description, capacity, type, buyprice, sprite)
     {
         Effects = effects;
