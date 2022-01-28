@@ -40,21 +40,34 @@ public class InventoryManager : MonoBehaviour
                     int Damage = temp["damage"].intValue;
                     double CriticalChance = temp["criticalchance"].doubleValue;
                     ushort Slot = (ushort)temp["slot"].intValue;
-                    Weapon.WeaponType weaponTempType = (Weapon.WeaponType)System.Enum.Parse(typeof(Weapon.WeaponType), temp["gtype"].ToString());
+                    Weapon.WeaponType weaponTempType = 
+                        (Weapon.WeaponType)System.Enum.Parse(typeof(Weapon.WeaponType), temp["gtype"].ToString());
                     item = new Weapon
                         (ID, Name, Description, Capacity, tempType, buyPrice, Sprite, Damage, CriticalChance, Slot, weaponTempType);
                     break;
+
                 case Item.ItemType.Consumable:
                     ushort Effect = (ushort)temp["effect"].intValue;
                     item = new Consumable
                         (ID, Name, Description, Capacity, tempType, buyPrice, Sprite, Effect);
                     break;
+
                 case Item.ItemType.Gems:
-                    Gems.GemType gemTempType = (Gems.GemType)System.Enum.Parse(typeof(Gems.GemType),temp["gtype"].ToString());
+                    Gems.GemType gemTempType = 
+                        (Gems.GemType)System.Enum.Parse(typeof(Gems.GemType),temp["gtype"].ToString());
+                    ushort Skill = (ushort)temp["skill"].intValue;
+                    item = new Gems
+                        (ID, Name, Description, Capacity, tempType, buyPrice, Sprite, gemTempType, Skill);
                     break;
+
                 case Item.ItemType.Materials:
+                    Materials.MaterialType materialTempType = 
+                        (Materials.MaterialType)System.Enum.Parse(typeof(Materials.MaterialType), temp["mtype"].ToString());
+                    item = new Materials
+                        (ID, Name, Description, Capacity, tempType, buyPrice, Sprite, materialTempType);
                     break;
             }
+            itemList.Add(item);
         }
     }
 }
