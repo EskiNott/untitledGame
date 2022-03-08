@@ -2,7 +2,7 @@
     {
         "id": 1,
         "name": "小恢复剂",
-        "description": "恢复50HP",
+        "description": "恢复少量体力",
         "capacity": 1024,
         "type": "Consumable",
         "effect": 1,
@@ -64,5 +64,45 @@
         "slot": 3,
         "buyprice": 20,
         "sprite": "Sprites/Items/dagger"
+    },
+    {
+        "id": 7,
+        "name": "中恢复剂",
+        "description": "恢复中量体力",
+        "capacity": 1024,
+        "type": "Consumable",
+        "effect": 1,
+        "buyprice": 100,
+        "sprite": "Sprites/Items/consumable"
+    },
+    {
+        "id": 8,
+        "name": "大恢复剂",
+        "description": "恢复大量体力",
+        "capacity": 1024,
+        "type": "Consumable",
+        "effect": 1,
+        "buyprice": 100,
+        "sprite": "Sprites/Items/consumable"
+    },
+    {
+        "id": 9,
+        "name": "超大恢复剂",
+        "description": "恢复超大量体力",
+        "capacity": 1024,
+        "type": "Consumable",
+        "effect": 1,
+        "buyprice": 100,
+        "sprite": "Sprites/Items/consumable"
+    },
+    {
+        "id": 10,
+        "name": "圣灵药",
+        "description": "完全恢复HP",
+        "capacity": 1024,
+        "type": "Consumable",
+        "effect": 1,
+        "buyprice": 100,
+        "sprite": "Sprites/Items/consumable"
     }
 ]
