@@ -5,14 +5,14 @@ using UnityEngine.UI;
 
 public class OpenGame : MonoBehaviour
 {
-    public Camera Camera_Home;
-    public Camera Camera_Door;
+    public GameObject HomeScene;
+    public GameObject DoorScene;
     public GameObject MainMenu;
     // Start is called before the first frame update
     void Start()
     {
-        Camera_Home.enabled = false;
-        Camera_Door.enabled = true;
+        HomeScene.SetActive(false);
+        DoorScene.SetActive(true);
         MainMenu.SetActive(true);
     }
 
