@@ -13,6 +13,6 @@ public class BattleManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        DrawAttackRange.DrawSectorSolid(transform, transform.position, 60, 3);
     }
 }
