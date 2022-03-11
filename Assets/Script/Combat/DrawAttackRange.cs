@@ -1,69 +1,59 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class DrawAttackRange
 {
-    public static GameObject go;
-    public static MeshFilter mf;
-    public static MeshRenderer mr;
-    public static Shader shader;
-    private static GameObject CreateMesh(List<Vector3> vertices)
+    public static GameObject initiateSector(float radius, float innerradius, float angledegree, int segments)
     {
-        int[] triangles;
-        Mesh mesh = new Mesh();
-
-        int triangleAmount = vertices.Count - 2;
-        triangles = new int[3 * triangleAmount];
-
-        //根据三角形的个数，来计算绘制三角形的顶点顺序（索引）    
-        //顺序必须为顺时针或者逆时针    
-        for (int i = 0; i < triangleAmount; i++)
-        {
-            triangles[3 * i] = 0;//固定第一个点    
-            triangles[3 * i + 1] = i + 1;
-            triangles[3 * i + 2] = i + 2;
-        }
-
-        if (go == null)
-        {
-            go = new GameObject("AttackRange");
-            go.transform.position = new Vector3(0, 0.1f, 0);//让绘制的图形上升一点，防止被地面遮挡
-            mf = go.AddComponent<MeshFilter>();
-            mr = go.AddComponent<MeshRenderer>();
-            //shader = Shader.Find("Unlit/Color");
-        }
-
-        mesh.vertices = vertices.ToArray();
-        mesh.triangles = triangles;
-
-        mf.mesh = mesh;
-        mr.material.shader = shader;
-        mr.material.color = Color.red;
-
+        GameObject go = new GameObject();
+        go.AddComponent<MeshFilter>();
+        go.AddComponent<MeshRenderer>();
+        go.GetComponent<MeshFilter>().mesh = CreateMesh(radius, innerradius, angledegree, segments);
         return go;
     }
-    public static GameObject DrawSectorSolid(Camera cam, Transform t, Vector3 center, float angle, float radius)
+    private static Mesh CreateMesh(float radius, float innerradius, float angledegree, int segments)
     {
-        int pointAmount = 100;//点的数目，值越大曲线越平滑
-        float eachAngle = angle / pointAmount;
-
-        Vector3 screenPos = cam.WorldToScreenPoint(t.position);
-        Vector3 mousePosOnScreen = Input.mousePosition;
-        mousePosOnScreen.z = screenPos.z;
-        Vector3 mousePosInWorld = cam.ScreenToWorldPoint(mousePosOnScreen);
-        
-        Vector3 forward = new Vector3(mousePosInWorld.x - t.position.x, 0, mousePosInWorld.z - t.position.z).normalized;
-
-        List<Vector3> vertices = new List<Vector3>();
-        vertices.Add(center);
-
-        for (int i = 1; i < pointAmount - 1; i++)
+        //vertices(顶点):
+        int vertices_count = segments * 2 + 2;              //因为vertices(顶点)的个数与triangles（索引三角形顶点数）必须匹配
+        Vector3[] vertices = new Vector3[vertices_count];
+        float angleRad = Mathf.Deg2Rad * angledegree;
+        float angleCur = angleRad;
+        float angledelta = angleRad / segments;
+        for (int i = 0; i < vertices_count; i += 2)
         {
-            Vector3 pos = Quaternion.Euler(0f, -angle / 2 + eachAngle * (i - 1), 0f) * forward * radius + center;
-            vertices.Add(pos);
+            float cosA = Mathf.Cos(angleCur);
+            float sinA = Mathf.Sin(angleCur);
+
+            vertices[i] = new Vector3(radius * cosA, 0, radius * sinA);
+            vertices[i + 1] = new Vector3(innerradius * cosA, 0, innerradius * sinA);
+            angleCur -= angledelta;
         }
 
-        return CreateMesh(vertices);
+        //triangles:
+        int triangle_count = segments * 6;
+        int[] triangles = new int[triangle_count];
+        for (int i = 0, vi = 0; i < triangle_count; i += 6, vi += 2)
+        {
+            triangles[i] = vi;
+            triangles[i + 1] = vi + 3;
+            triangles[i + 2] = vi + 1;
+            triangles[i + 3] = vi + 2;
+            triangles[i + 4] = vi + 3;
+            triangles[i + 5] = vi;
+        }
+
+        //uv:
+        Vector2[] uvs = new Vector2[vertices_count];
+        for (int i = 0; i < vertices_count; i++)
+        {
+            uvs[i] = new Vector2(vertices[i].x / radius / 2 + 0.5f, vertices[i].z / radius / 2 + 0.5f);
+        }
+
+        //负载属性与mesh
+        Mesh mesh = new Mesh();
+        mesh.vertices = vertices;
+        mesh.triangles = triangles;
+        mesh.uv = uvs;
+        return mesh;
     }
 }
