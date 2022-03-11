@@ -51,6 +51,7 @@ public class DrawAttackRange
 
         //∏∫‘ÿ Ù–‘”Îmesh
         Mesh mesh = new Mesh();
+        mesh.name = ("AttackRange");
         mesh.vertices = vertices;
         mesh.triangles = triangles;
         mesh.uv = uvs;

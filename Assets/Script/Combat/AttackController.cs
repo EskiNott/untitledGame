@@ -8,11 +8,13 @@ public class AttackController : MonoBehaviour
     public Camera cam;
     public Material beforeAttack;
     public Material afterAttack;
-    public float Angle = 60.0f;
-    public float Radius = 3.0f;
+    private float Angle = 180.0f;
+    public float thick = 3.0f;
+    public float innerRadius = 0.0f;
+    public int segmentsCount = 2;
 
     private GameObject AttackRange;
-    private bool isTriggered;
+    public bool isTriggered;
     public float attackCooldown;
     private bool isCooldowned;
 
@@ -26,15 +28,12 @@ public class AttackController : MonoBehaviour
         //Debug.DrawLine(t.position, mousePosInWorld, Color.cyan);
         return mouseVector;
     }
-
     // Start is called before the first frame update
     void Start()
     {
         isTriggered = false;
         isCooldowned = true;
-        AttackRange = DrawAttackRange.initiateSector(Radius, transform.localScale.x, Angle, 2);
-        AttackRange.GetComponent<MeshRenderer>().shadowCastingMode = ShadowCastingMode.Off;
-        AttackRange.tag = "AttackRange";
+        AttackRange = _createAttackObject();
     }
 
     // Update is called once per frame
@@ -50,7 +49,7 @@ public class AttackController : MonoBehaviour
             {
                 isTriggered = true;
                 isCooldowned = false;
-                Invoke("_turnoffFlag", 0.15f);
+                Invoke("_turnoffFlag", 0.1f);
                 Invoke("_Cooldowned", attackCooldown);
             }
         }
@@ -67,5 +66,18 @@ public class AttackController : MonoBehaviour
     private void _Cooldowned()
     {
         isCooldowned = true;
+    }
+    private GameObject _createAttackObject()
+    {
+        GameObject go;
+        go = DrawAttackRange.initiateSector(transform.localScale.x + thick + innerRadius, transform.localScale.x + innerRadius, Angle, segmentsCount);
+        go.GetComponent<MeshRenderer>().shadowCastingMode = ShadowCastingMode.Off;
+        go.tag = "AttackRange";
+        go.AddComponent<MeshCollider>();
+        go.GetComponent<MeshCollider>().convex = true;
+        go.GetComponent<MeshCollider>().isTrigger = true;
+        go.AddComponent<Rigidbody>().useGravity = false;
+        go.GetComponent<MeshCollider>().sharedMesh = go.GetComponent<MeshFilter>().mesh;
+        return go;
     }
 }
