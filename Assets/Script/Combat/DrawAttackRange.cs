@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DrawAttackRange : MonoBehaviour
+public class DrawAttackRange
 {
     public static GameObject go;
     public static MeshFilter mf;
@@ -31,7 +31,7 @@ public class DrawAttackRange : MonoBehaviour
             go.transform.position = new Vector3(0, 0.1f, 0);//让绘制的图形上升一点，防止被地面遮挡
             mf = go.AddComponent<MeshFilter>();
             mr = go.AddComponent<MeshRenderer>();
-            shader = Shader.Find("Unlit/Color");
+            //shader = Shader.Find("Unlit/Color");
         }
 
         mesh.vertices = vertices.ToArray();
@@ -43,15 +43,17 @@ public class DrawAttackRange : MonoBehaviour
 
         return go;
     }
-    public static void DrawSectorSolid(Transform t, Vector3 center, float angle, float radius)
+    public static GameObject DrawSectorSolid(Camera cam, Transform t, Vector3 center, float angle, float radius)
     {
         int pointAmount = 100;//点的数目，值越大曲线越平滑
         float eachAngle = angle / pointAmount;
-        Vector3 screenPos = Camera.main.WorldToScreenPoint(t.position);
+
+        Vector3 screenPos = cam.WorldToScreenPoint(t.position);
         Vector3 mousePosOnScreen = Input.mousePosition;
         mousePosOnScreen.z = screenPos.z;
-        Vector3 mousePosInWorld = Camera.main.ScreenToWorldPoint(mousePosOnScreen);
-        Vector3 forward = new Vector3(Input.mousePosition.x - t.position.x, 0, Input.mousePosition.z - t.position.z);
+        Vector3 mousePosInWorld = cam.ScreenToWorldPoint(mousePosOnScreen);
+        
+        Vector3 forward = new Vector3(mousePosInWorld.x - t.position.x, 0, mousePosInWorld.z - t.position.z).normalized;
 
         List<Vector3> vertices = new List<Vector3>();
         vertices.Add(center);
@@ -62,6 +64,6 @@ public class DrawAttackRange : MonoBehaviour
             vertices.Add(pos);
         }
 
-        CreateMesh(vertices);
+        return CreateMesh(vertices);
     }
 }
