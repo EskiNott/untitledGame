@@ -11,6 +11,7 @@ public class AttackController : MonoBehaviour
     private float Angle = 180.0f;
     public float thick = 3.0f;
     public float innerRadius = 0.0f;
+    public float AttackDelay = 0.15f;
     public int segmentsCount = 2;
 
     private GameObject AttackRange;
@@ -49,7 +50,7 @@ public class AttackController : MonoBehaviour
             {
                 isTriggered = true;
                 isCooldowned = false;
-                Invoke("_turnoffFlag", 0.1f);
+                Invoke("_turnoffFlag", AttackDelay);
                 Invoke("_Cooldowned", attackCooldown);
             }
         }
@@ -76,7 +77,6 @@ public class AttackController : MonoBehaviour
         go.AddComponent<MeshCollider>();
         go.GetComponent<MeshCollider>().convex = true;
         go.GetComponent<MeshCollider>().isTrigger = true;
-        go.AddComponent<Rigidbody>().useGravity = false;
         go.GetComponent<MeshCollider>().sharedMesh = go.GetComponent<MeshFilter>().mesh;
         return go;
     }

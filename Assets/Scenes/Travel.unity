@@ -311,8 +311,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 711412904}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.44, y: -3.19, z: -16.72632}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: 15.44, y: -3.4, z: -16.72632}
+  m_LocalScale: {x: 0.5, y: 0.25, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -330,6 +330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggered: 0
+  materialBeingAttack: {fileID: 2100000, guid: d665761abe4587545b9acd041ef6ba5b, type: 2}
   test: 0
 --- !u!54 &711412910
 Rigidbody:
@@ -466,7 +467,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1489449099}
   m_LocalRotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
-  m_LocalPosition: {x: 0, y: 9.04, z: 0}
+  m_LocalPosition: {x: 0, y: 15.29, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2068832447}
@@ -535,9 +536,9 @@ GameObject:
   - component: {fileID: 2068832450}
   - component: {fileID: 2068832449}
   - component: {fileID: 2068832448}
+  - component: {fileID: 2068832453}
   - component: {fileID: 2068832452}
   - component: {fileID: 2068832451}
-  - component: {fileID: 2068832453}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -553,8 +554,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2068832446}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 16.981644, y: -3.19, z: -16.726322}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: 16.981644, y: -3.4, z: -16.726322}
+  m_LocalScale: {x: 0.5, y: 0.25, z: 0.5}
   m_Children:
   - {fileID: 1489449100}
   m_Father: {fileID: 0}
@@ -569,7 +570,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 2068832446}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
@@ -653,6 +654,7 @@ MonoBehaviour:
   afterAttack: {fileID: 2100000, guid: 5655a3aa0ad52ed4b9fd4814daab2d35, type: 2}
   thick: 0.5
   innerRadius: 0
+  AttackDelay: 0.5
   segmentsCount: 6
   isTriggered: 0
   attackCooldown: 0
