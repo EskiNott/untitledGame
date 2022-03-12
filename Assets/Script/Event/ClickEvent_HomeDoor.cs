@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ClickEvent : MonoBehaviour, IPointerClickHandler
+public class ClickEvent_HomeDoor : MonoBehaviour, IPointerClickHandler
 {
     public GameObject HomeScene;
     public GameObject DoorScene;

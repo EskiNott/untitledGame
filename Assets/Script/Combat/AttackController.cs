@@ -41,6 +41,7 @@ public class AttackController : MonoBehaviour
     void Update()
     {
         Vector3 target = getMouseVectorRelativeToObject(cam, transform);
+        //Vector3 target = new Vector3(Input.GetAxis("VerticalJoy") *transform.position.x, transform.position.y, Input.GetAxis("HorizontalJoy") * transform.position.z).normalized;
         AttackRange.transform.position = transform.position;
         AttackRange.transform.forward = target;
         if (!isTriggered)

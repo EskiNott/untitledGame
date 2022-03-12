@@ -4,13 +4,18 @@ using UnityEngine.EventSystems;
 public class OutlinePointerEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     Outline outlineEffect;
+    GameObject globalManager;
     private void Start()
     {
-        outlineEffect = this.GetComponent<Outline>();
+        outlineEffect = GetComponent<Outline>();
+        globalManager = GameObject.Find("GlobalManager");
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
-        outlineEffect.enabled = true;
+        if (!globalManager.GetComponent<GlobalManager>().isInvestigate)
+        {
+            outlineEffect.enabled = true;
+        }
     }
     public void OnPointerExit(PointerEventData eventData)
     {
