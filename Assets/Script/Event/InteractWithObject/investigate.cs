@@ -5,8 +5,8 @@ using UnityEngine.EventSystems;
 public class investigate : MonoBehaviour,IPointerClickHandler
 {
     private GameObject globalManager;
-    private GameObject tempGo;
-
+    private Vector3 tempPosition;
+    private Quaternion tempRotation;
     private bool thisInvestigate;
     public bool test = false;
     public Camera cam;
@@ -16,9 +16,8 @@ public class investigate : MonoBehaviour,IPointerClickHandler
     void Start()
     {
         thisInvestigate = false;
-        tempGo = new GameObject();
-        tempGo.transform.position = transform.position;
-        tempGo.transform.rotation = transform.rotation;
+        tempPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        tempRotation = new Quaternion(transform.rotation.x, transform.rotation.y, transform.rotation.z, transform.rotation.w);
         globalManager = GameObject.Find("GlobalManager");
     }
 
@@ -34,8 +33,8 @@ public class investigate : MonoBehaviour,IPointerClickHandler
             {
                 if (hit.collider.gameObject != gameObject) 
                 {
-                    transform.position = tempGo.transform.position;
-                    transform.rotation = tempGo.transform.rotation;
+                    transform.position = tempPosition;
+                    transform.rotation = tempRotation;
                     thisInvestigate = false;
                     globalManager.GetComponent<GlobalManager>().isInvestigate = false;
                 }
@@ -52,6 +51,7 @@ public class investigate : MonoBehaviour,IPointerClickHandler
         if (!globalManager.GetComponent<GlobalManager>().isInvestigate)
         {
             thisInvestigate = true;
+            GetComponent<Outline>().enabled = false;
             globalManager.GetComponent<GlobalManager>().isInvestigate = true;
             transform.position = cam.transform.position + cam.transform.forward * distance;
             transform.LookAt(cam.transform.position);
