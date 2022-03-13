@@ -12,13 +12,16 @@ public class ParseTextJSON
         
         string tempName;
         string tempDialog;
+        bool tempExist;
         foreach (JSONObject temp in j.list)
         {
             int tempID = temp["id"].intValue;
+            tempExist = temp["nameExist"].boolValue;
             tempName = temp[language]["ObjectNameText"].stringValue;
             tempDialog = temp[language]["DialogText"].stringValue;
             Dialog d = new Dialog();
             d.id = tempID;
+            d.nameExist = tempExist;
             d.ObjectNameText = tempName;
             d.DialogText = tempDialog;
             Dialogs.Add(d);

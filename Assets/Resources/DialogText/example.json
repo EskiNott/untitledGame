@@ -1,6 +1,7 @@
 [
   {
     "id": 0,
+    "nameExist": true,
     "zh_CN": {
       "ObjectNameText": "大哥",
       "DialogText": "扣1送iphone13ProMax"
@@ -12,6 +13,7 @@
   },
   {
     "id": 1,
+    "nameExist": false,
     "zh_CN": {
       "ObjectNameText": "琥珀玲",
       "DialogText": "111大哥真送吗"
@@ -23,6 +25,7 @@
   },
   {
     "id": 2,
+    "nameExist": true,
     "zh_CN": {
       "ObjectNameText": "一二三",
       "DialogText": "什么是UTF-8"
