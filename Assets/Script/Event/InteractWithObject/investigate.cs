@@ -5,15 +5,15 @@ using UnityEngine.EventSystems;
 public class investigate : MonoBehaviour,IPointerClickHandler
 {
     private GameObject globalManager;
-    private Vector3 tempPosition;
-    private Quaternion tempRotation;
+    private Vector3 prePosition;
+    private Quaternion preRotation;
     private bool thisInvestigate;
     private Vector2 MousePos1;
     private Vector2 MousePos2;
     private Vector3 tempRotationDragging;
     private bool isDragging = false;
+    private Transform transformSelf;
 
-    public bool test = false;
     public Camera cam;
     public float distance = 1.0f;
     // Start is called before the first frame update
@@ -21,8 +21,9 @@ public class investigate : MonoBehaviour,IPointerClickHandler
     void Start()
     {
         thisInvestigate = false;
-        tempPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        tempRotation = new Quaternion(transform.rotation.x, transform.rotation.y, transform.rotation.z, transform.rotation.w);
+        prePosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        preRotation = new Quaternion(transform.rotation.x, transform.rotation.y, transform.rotation.z, transform.rotation.w);
+        transformSelf = transform;
         globalManager = GameObject.Find("GlobalManager");
     }
 
@@ -35,7 +36,7 @@ public class investigate : MonoBehaviour,IPointerClickHandler
             RaycastHit hit;
             if (Input.GetMouseButtonDown(0) && Physics.Raycast(ray, out hit) && (hit.collider.gameObject == gameObject)) 
             {
-                tempRotationDragging = transform.rotation.eulerAngles;
+                tempRotationDragging = transformSelf.rotation.eulerAngles;
                 MousePos1 = Input.mousePosition;
                 isDragging = true;
             }
@@ -43,8 +44,8 @@ public class investigate : MonoBehaviour,IPointerClickHandler
             {
                 if (hit.collider.gameObject != gameObject)
                 {
-                    transform.position = tempPosition;
-                    transform.rotation = tempRotation;
+                    transformSelf.position = prePosition;
+                    transformSelf.rotation = preRotation;
                     thisInvestigate = false;
                     globalManager.GetComponent<GlobalManager>().isInvestigate = false;
                 }
@@ -52,7 +53,7 @@ public class investigate : MonoBehaviour,IPointerClickHandler
             else if (Input.GetMouseButton(0))
             {
                 MousePos2 = Input.mousePosition;
-                transform.eulerAngles = new Vector3(tempRotationDragging.x + MousePos1.y - MousePos2.y, tempRotationDragging.y + +MousePos1.x - MousePos2.x, 0);
+                transformSelf.eulerAngles = new Vector3(tempRotationDragging.x + MousePos1.y - MousePos2.y, tempRotationDragging.y + +MousePos1.x - MousePos2.x, 0);
             }else if (Input.GetMouseButtonUp(0))
             {
                 isDragging = false;
@@ -67,8 +68,8 @@ public class investigate : MonoBehaviour,IPointerClickHandler
             thisInvestigate = true;
             GetComponent<Outline>().enabled = false;
             globalManager.GetComponent<GlobalManager>().isInvestigate = true;
-            transform.position = cam.transform.position + cam.transform.forward * distance;
-            transform.LookAt(cam.transform.position);
+            transformSelf.position = cam.transform.position + cam.transform.forward * distance;
+            transformSelf.LookAt(cam.transform.position);
         }
     }
 }

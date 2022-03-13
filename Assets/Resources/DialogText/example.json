@@ -1,0 +1,35 @@
+[
+  {
+    "id": 0,
+    "zh_CN": {
+      "ObjectNameText": "大哥",
+      "DialogText": "扣1送iphone13ProMax"
+    },
+    "en_US": {
+      "ObjectNameText": "Big Brother",
+      "DialogText": "Press 1 to get iphone13ProMax"
+    }
+  },
+  {
+    "id": 1,
+    "zh_CN": {
+      "ObjectNameText": "琥珀玲",
+      "DialogText": "111大哥真送吗"
+    },
+    "en_US": {
+      "ObjectNameText": "Kohaku Rin",
+      "DialogText": "111 really"
+    }
+  },
+  {
+    "id": 2,
+    "zh_CN": {
+      "ObjectNameText": "一二三",
+      "DialogText": "什么是UTF-8"
+    },
+    "en_US": {
+      "ObjectNameText": "One Two Three",
+      "DialogText": "What is UTF-8"
+    }
+  }
+]
