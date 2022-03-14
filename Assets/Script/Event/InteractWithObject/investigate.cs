@@ -14,6 +14,7 @@ public class investigate : MonoBehaviour,IPointerClickHandler
     private bool isDragging = false;
     private Transform transformSelf;
 
+    public float rotateSpeed = 1.0f;
     public Camera cam;
     public float distance = 1.0f;
     // Start is called before the first frame update
@@ -53,7 +54,7 @@ public class investigate : MonoBehaviour,IPointerClickHandler
             else if (Input.GetMouseButton(0))
             {
                 MousePos2 = Input.mousePosition;
-                transformSelf.eulerAngles = new Vector3(tempRotationDragging.x + MousePos1.y - MousePos2.y, tempRotationDragging.y + +MousePos1.x - MousePos2.x, 0);
+                transformSelf.eulerAngles = new Vector3(tempRotationDragging.x + (MousePos1.y - MousePos2.y) * rotateSpeed * 0.1f, tempRotationDragging.y + (MousePos1.x - MousePos2.x) * rotateSpeed * 0.1f, 0);
             }else if (Input.GetMouseButtonUp(0))
             {
                 isDragging = false;

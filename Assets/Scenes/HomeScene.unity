@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1535489, g: 0.1542539, b: 0.16319549, a: 1}
+  m_IndirectSpecularColor: {r: 0.15381995, g: 0.15452304, b: 0.16344833, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -471,6 +471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8776586794d589f45b18f167962e0c58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotateSpeed: 1
   cam: {fileID: 490026270}
   distance: 1
 --- !u!1 &224938257
@@ -584,6 +585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8776586794d589f45b18f167962e0c58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotateSpeed: 1
   cam: {fileID: 490026270}
   distance: 2
 --- !u!114 &224938263
@@ -1150,6 +1152,7 @@ GameObject:
   - component: {fileID: 490026270}
   - component: {fileID: 490026269}
   - component: {fileID: 490026271}
+  - component: {fileID: 490026272}
   m_Layer: 0
   m_Name: Camera_Home
   m_TagString: Untagged
@@ -1238,6 +1241,20 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 5
   m_MaxRayIntersections: 0
+--- !u!114 &490026272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490026267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc1f79804bc1fa43aaa0266679dee63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 490026270}
+  turnSpeed: 1
 --- !u!1 &529888098
 GameObject:
   m_ObjectHideFlags: 0
@@ -2743,9 +2760,9 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 0.88949907, b: 0.8443396, a: 1}
-  m_Intensity: 0.85
-  m_Range: 39.77
+  m_Color: {r: 1, g: 0.9948822, b: 0.9481132, a: 1}
+  m_Intensity: 0.92
+  m_Range: 56.94
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -2786,7 +2803,7 @@ Light:
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 0.4
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -4034,6 +4051,7 @@ GameObject:
   - component: {fileID: 1299542636}
   - component: {fileID: 1299542635}
   - component: {fileID: 1299542637}
+  - component: {fileID: 1299542638}
   m_Layer: 0
   m_Name: Camera_Door
   m_TagString: Untagged
@@ -4122,6 +4140,20 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_MaxRayIntersections: 0
+--- !u!114 &1299542638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1299542633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc1f79804bc1fa43aaa0266679dee63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 1299542636}
+  turnSpeed: 1
 --- !u!1 &1300634206
 GameObject:
   m_ObjectHideFlags: 0
@@ -6783,6 +6815,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8776586794d589f45b18f167962e0c58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotateSpeed: 2
   cam: {fileID: 490026270}
   distance: 2
 --- !u!114 &919132148709733682
