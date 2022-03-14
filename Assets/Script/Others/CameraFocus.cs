@@ -36,17 +36,17 @@ public class CameraFocus : MonoBehaviour
                 }
                 else
                 {
-                    transform.rotation = Quaternion.Lerp(transform.rotation, tempRotation, Time.deltaTime * turnSpeed * 2);
+                    transform.rotation = Quaternion.Lerp(transform.rotation, tempRotation, Time.deltaTime * turnSpeed);
                 }
             }
             else
             {
-                transform.rotation = Quaternion.Lerp(transform.rotation, tempRotation, Time.deltaTime * turnSpeed * 2);
+                transform.rotation = Quaternion.Lerp(transform.rotation, tempRotation, Time.deltaTime * turnSpeed);
             }
         }
         else
         {
-            transform.rotation = Quaternion.Lerp(transform.rotation, tempRotation, Time.deltaTime * turnSpeed * 2);
+            transform.rotation = Quaternion.Lerp(transform.rotation, tempRotation, Time.deltaTime * turnSpeed);
         }
 
     }
