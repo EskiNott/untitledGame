@@ -95,31 +95,57 @@ public class ItemManager : MonoBehaviour
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            if (Input.GetMouseButtonDown(0) && Physics.Raycast(ray, out hit) && (hit.collider.gameObject == go))
+
+            //拖动开始判定
+            if (Input.GetMouseButtonDown(0) && Physics.Raycast(ray, out hit)
+                && ((hit.collider.gameObject == go) || isRayHitChild(hit, go)))
             {
                 tempRotationDragging = goTrans.rotation.eulerAngles;
                 MousePos1 = Input.mousePosition;
                 isDragging = true;
             }
+
+            //退出检查判定
             else if (Input.GetMouseButtonDown(0) && Physics.Raycast(ray, out hit) && !isDragging)
             {
                 if (hit.collider.gameObject != go)
                 {
-                    goTrans.position = prePosition;
-                    goTrans.rotation = preRotation;
-                    goItem.thisInvestigate = false;
-                    globalManager.GetComponent<GlobalManager>().isInvestigate = false;
+                    if (!isRayHitChild(hit, go))
+                    {
+                        goTrans.position = prePosition;
+                        goTrans.rotation = preRotation;
+                        goItem.thisInvestigate = false;
+                        globalManager.GetComponent<GlobalManager>().isInvestigate = false;
+                    }
                 }
             }
-            else if (Input.GetMouseButton(0))
+
+            //拖动逻辑
+            else if (Input.GetMouseButton(0) && Physics.Raycast(ray, out hit) && (hit.collider.gameObject == go || isRayHitChild(hit, go))) 
             {
                 MousePos2 = Input.mousePosition;
                 goTrans.eulerAngles = new Vector3(tempRotationDragging.x + (MousePos1.y - MousePos2.y) * rotateSpeed, tempRotationDragging.y + (MousePos1.x - MousePos2.x) * rotateSpeed, 0);
             }
+
+            //结束拖动判定
             else if (Input.GetMouseButtonUp(0))
             {
                 isDragging = false;
             }
         }
+    }
+
+    static private bool isRayHitChild(RaycastHit hit, GameObject go)
+    {
+        bool _isColliderHitChild = false;
+        foreach (Transform child in go.GetComponent<Transform>())
+        {
+            if (hit.collider.gameObject == child.gameObject)
+            {
+                _isColliderHitChild = true;
+                break;
+            }
+        }
+        return _isColliderHitChild;
     }
 }

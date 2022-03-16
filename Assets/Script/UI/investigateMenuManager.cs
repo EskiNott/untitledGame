@@ -30,16 +30,19 @@ public class investigateMenuManager : MonoBehaviour
     {
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
+
+        //菜单关闭逻辑
         if (Input.GetMouseButtonDown(0)&& !RaycastUI())
         {
             isMenuOpened = false;
             clearButton();
         }
+        //菜单开启逻辑
         if (Physics.Raycast(ray, out hit) && !isMenuOpened && !gm.isInvestigate)
         {
             if (Input.GetMouseButtonDown(0))
             {
-                hitTransform = hit.collider.gameObject.GetComponent<Transform>();
+                hitTransform = getFatherOrThishasItem(hit).transform;
                 myItemM.go = hitTransform.gameObject;
                 if (hitTransform.gameObject.GetComponent<item>() && hitTransform.gameObject.GetComponent<item>().interact.Length > 0)
                 {
@@ -50,6 +53,7 @@ public class investigateMenuManager : MonoBehaviour
                             investigateMenu[i].SetActive(true);
                         }
                     }
+                    //设置菜单位置
                     menuTransform.position = new Vector3(cam.WorldToScreenPoint(hitTransform.position).x,
                                                          cam.WorldToScreenPoint(hitTransform.position).y,
                                                          cam.WorldToScreenPoint(hitTransform.position).z);
@@ -59,6 +63,7 @@ public class investigateMenuManager : MonoBehaviour
         }
     }
 
+    //菜单关闭
     public void clearButton()
     {
         while (GameObject.FindWithTag("itemInvestigateOption"))
@@ -67,6 +72,7 @@ public class investigateMenuManager : MonoBehaviour
         }
     }
 
+    //检测鼠标是否在UI上
     public static bool RaycastUI()
     {
         if (EventSystem.current == null)
@@ -79,5 +85,22 @@ public class investigateMenuManager : MonoBehaviour
             return results[0].gameObject.CompareTag("itemInvestigateOption");
         else
             return false;
+    }
+
+    private GameObject getFatherOrThishasItem(RaycastHit hit)
+    {
+        GameObject go = hit.collider.gameObject;
+        if (hit.collider.gameObject.GetComponent<item>() == null)
+        {
+            while (go.transform.parent != null)
+            {
+                go = go.transform.parent.gameObject;
+                if (go.GetComponent<item>())
+                {
+                    break;
+                }
+            }
+        }
+        return go;
     }
 }
