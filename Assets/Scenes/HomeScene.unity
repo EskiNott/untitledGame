@@ -1982,12 +1982,12 @@ MonoBehaviour:
   - isFinished: 0
     itemTransStep:
     - go: {fileID: 3224013732919430163}
-      Position: {x: 5, y: 0, z: 0}
+      Position: {x: 20, y: 0, z: 0}
       Rotation: {x: 0, y: 0, z: 0}
       oPosition: {x: 0, y: 0, z: 0}
       oRotation: {x: 0, y: 0, z: 0}
-      RotSpeed: 0
-      PosSpeed: 2
+      RotSpeed: 1
+      PosSpeed: 1
       isFinished: 0
       View: 0
   Schedule: 0

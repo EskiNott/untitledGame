@@ -52,9 +52,10 @@ public class ItemCheckMethod : MonoBehaviour
         {
             if (ScheduleSub < itemTrans[Schedule].itemTransStep.Length)
             {
-                PointerEvent();
-/*                PerformTransformation(itemTrans[Schedule].itemTransStep[ScheduleSub]);
-                ScheduleSub++;*/
+                if (PointerEvent()) {
+                    PerformTransformation(itemTrans[Schedule].itemTransStep[ScheduleSub]);
+                    ScheduleSub++;
+                }
             }
             else
             {
@@ -87,10 +88,11 @@ public class ItemCheckMethod : MonoBehaviour
                 && !itemTrans[Schedule].itemTransStep[ScheduleSub].isFinished)
             {
                 itemTrans[Schedule].itemTransStep[ScheduleSub].go.GetComponent<Outline>().enabled = true;
-            }
-            else
-            {
-                itemTrans[Schedule].itemTransStep[ScheduleSub].go.GetComponent<Outline>().enabled = false;
+                if (Input.GetMouseButtonDown(0))
+                {
+                    isClick = true;
+                    itemTrans[Schedule].itemTransStep[ScheduleSub].go.GetComponent<Outline>().enabled = false;
+                }
             }
         }
         return isClick;
