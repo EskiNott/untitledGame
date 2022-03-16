@@ -4,7 +4,8 @@ using UnityEngine;
 using Defective.JSON;
 public class ParseTextJSON
 {
-    public List<Dialog> ParseDialogJSON(string jsonAddress,string language)
+
+    static public List<Dialog> ParseDialogJSON(string jsonAddress,string language)
     {
         List<Dialog> Dialogs = new List<Dialog>();
         TextAsset ta = Resources.Load<TextAsset>(jsonAddress);

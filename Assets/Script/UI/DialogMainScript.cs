@@ -7,7 +7,6 @@ public class DialogMainScript : MonoBehaviour
 {
     public string jsonAddress = "DialogText\\example";
     public string language = "zh_CN";
-    public bool test = false;
 
     private float id;
     private int index;
@@ -22,35 +21,37 @@ public class DialogMainScript : MonoBehaviour
     {
         id = 0;
         index = 0;
-        pJson = new ParseTextJSON();
         thisTrans = transform;
         dText = GameObject.Find("DialogText").GetComponent<Text>();
         nText = GameObject.Find("ObjectNameText").GetComponent<Text>();
         namePanel = GameObject.Find("ObjectPanel");
+        DialogList = ParseTextJSON.ParseDialogJSON(jsonAddress, language);
     }
 
     // Update is called once per frame
     void Update()
     {
-        DialogList = pJson.ParseDialogJSON(jsonAddress, language);
         index = (int)id;
-        if (id + 1 > DialogList.Count)
+        if(DialogList != null)
         {
-            thisTrans.gameObject.SetActive(false);
+            if (id + 1 > DialogList.Count)
+            {
+                thisTrans.gameObject.SetActive(false);
+            }
+            else
+            {
+                namePanel.SetActive(DialogList[index].nameExist);
+                dText.text = DialogList[index].DialogText;
+                nText.text = DialogList[index].ObjectNameText;
+            }
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                id++;
+            }
+            else if (Input.GetKey(KeyCode.LeftControl))
+            {
+                id = id + 1 * Time.deltaTime * 50;
+            }
         }
-        else
-        {
-            namePanel.SetActive(DialogList[index].nameExist);
-            dText.text = DialogList[index].DialogText;
-            nText.text = DialogList[index].ObjectNameText;
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            id++;
-        }else if (Input.GetKey(KeyCode.LeftControl))
-        {
-            id = id + 1 * Time.deltaTime * 50;
-        }
-
     }
 }
