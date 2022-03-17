@@ -101,7 +101,7 @@ public class ItemCheckMethod : MonoBehaviour
     {
         bool isFinished = false;
         Transform _goTrans = iTS.go.GetComponent<Transform>();
-        _goTrans.position = _goTrans.position + iTS.Position;
+        _goTrans.position = iTS.oPosition + iTS.Position;
         //_goTrans.rotation = Quaternion.Euler(Vector3.Lerp(_goTrans.rotation.eulerAngles, iTS.oRotation + iTS.Rotation, Time.deltaTime * iTS.RotSpeed));
         if(_goTrans.position == iTS.oPosition + iTS.Position)
         {
