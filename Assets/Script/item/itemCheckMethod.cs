@@ -14,7 +14,7 @@ public class ItemCheckMethod : MonoBehaviour
         public GameObject go; //物体对象
         public Vector3 Position; //物体变换的相对位置
         public Vector3 Rotation; //物体相对旋转
-        [HideInInspector]
+//        [HideInInspector]
         public Vector3 oPosition; //变换前位置
         [HideInInspector]
         public Vector3 oRotation; //变换前旋转
@@ -39,6 +39,7 @@ public class ItemCheckMethod : MonoBehaviour
     private Camera cam;
     private int ScheduleSub;
     private item myItem;
+    private bool start;
     private void Start()
     {
         myItem = GetComponent<item>();
@@ -52,9 +53,13 @@ public class ItemCheckMethod : MonoBehaviour
         {
             if (ScheduleSub < itemTrans[Schedule].itemTransStep.Length)
             {
-                if (PointerEvent()) {
+                if (PointerEvent() && !itemTrans[Schedule].itemTransStep[ScheduleSub].isFinished) {
+                    InitializeSubTrans(itemTrans[Schedule].itemTransStep[ScheduleSub]);
+                    start = true;
+                }
+                if (!itemTrans[Schedule].itemTransStep[ScheduleSub].isFinished && start)
+                {
                     PerformTransformation(itemTrans[Schedule].itemTransStep[ScheduleSub]);
-                    ScheduleSub++;
                 }
             }
             else
@@ -65,17 +70,12 @@ public class ItemCheckMethod : MonoBehaviour
             }
         }
     }
-    private void InitializeSubTrans()
+    private void InitializeSubTrans(ItemTransSub iTS)
     {
-        foreach(ItemTransform it in itemTrans)
-        {
-            foreach(ItemTransSub its in it.itemTransStep)
-            {
-                its.oPosition = its.go.GetComponent<Transform>().position;
-                its.oRotation = its.go.GetComponent<Transform>().rotation.eulerAngles;
-                its.isFinished = false;
-            }
-        }
+        iTS.oPosition = iTS.go.GetComponent<Transform>().position;
+        iTS.oRotation = iTS.go.GetComponent<Transform>().rotation.eulerAngles;
+        iTS.isFinished = false;
+
     }
     private bool PointerEvent()
     {
@@ -97,14 +97,18 @@ public class ItemCheckMethod : MonoBehaviour
         }
         return isClick;
     }
-    private void PerformTransformation(ItemTransSub iTS)
+    private bool PerformTransformation(ItemTransSub iTS)
     {
-        if (!iTS.isFinished)
+        bool isFinished = false;
+        Transform _goTrans = iTS.go.GetComponent<Transform>();
+        _goTrans.position = _goTrans.position + iTS.Position;
+        //_goTrans.rotation = Quaternion.Euler(Vector3.Lerp(_goTrans.rotation.eulerAngles, iTS.oRotation + iTS.Rotation, Time.deltaTime * iTS.RotSpeed));
+        if(_goTrans.position == iTS.oPosition + iTS.Position)
         {
-            Transform _goTrans = iTS.go.GetComponent<Transform>();
-            _goTrans.position = Vector3.Lerp(_goTrans.position, iTS.oPosition + iTS.Position * 0.1f, Time.deltaTime * iTS.PosSpeed);
-            _goTrans.rotation = Quaternion.Euler(Vector3.Lerp(_goTrans.rotation.eulerAngles, iTS.oRotation + iTS.Rotation, Time.deltaTime * iTS.RotSpeed));
-            iTS.isFinished = true;
+            ScheduleSub++;
+            isFinished = true;
+            start = false;
         }
+        return isFinished;
     }
 }
