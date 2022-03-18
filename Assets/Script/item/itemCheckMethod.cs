@@ -21,7 +21,7 @@ public class ItemCheckMethod : MonoBehaviour
         public float RotSpeed = 1.0f;
         public float PosSpeed = 1.0f;
         [HideInInspector]
-        public bool isFinished;
+        public scheduleSitu ScheduleSituation = scheduleSitu.initial; //记录物体运动状态
         public bool View; //预览物体变换和转动的结果
     }
 
@@ -40,6 +40,13 @@ public class ItemCheckMethod : MonoBehaviour
     private int ScheduleSub;
     private item myItem;
     private bool start;
+    public enum scheduleSitu
+    {
+        initial,
+        working,
+        finish
+    }
+
     private void Start()
     {
         myItem = GetComponent<item>();
@@ -53,13 +60,15 @@ public class ItemCheckMethod : MonoBehaviour
         {
             if (ScheduleSub < itemTrans[Schedule].itemTransStep.Length)
             {
-                if (PointerEvent() && !itemTrans[Schedule].itemTransStep[ScheduleSub].isFinished) {
-                    InitializeSubTrans(itemTrans[Schedule].itemTransStep[ScheduleSub]);
-                    start = true;
-                }
-                if (!itemTrans[Schedule].itemTransStep[ScheduleSub].isFinished && start)
+                if (PointerEvent()) 
                 {
-                    PerformTransformation(itemTrans[Schedule].itemTransStep[ScheduleSub]);
+                    if(itemTrans[Schedule].itemTransStep[ScheduleSub].ScheduleSituation == scheduleSitu.initial)
+                    {
+                        InitializeSubTrans(itemTrans[Schedule].itemTransStep[ScheduleSub]);
+                    }else if(itemTrans[Schedule].itemTransStep[ScheduleSub].ScheduleSituation == scheduleSitu.working)
+                    {
+                        PerformTransformation(itemTrans[Schedule].itemTransStep[ScheduleSub]);
+                    }
                 }
             }
             else
@@ -72,11 +81,14 @@ public class ItemCheckMethod : MonoBehaviour
     }
     private void InitializeSubTrans(ItemTransSub iTS)
     {
-        iTS.oPosition = iTS.go.GetComponent<Transform>().position;
-        iTS.oRotation = iTS.go.GetComponent<Transform>().rotation.eulerAngles;
-        iTS.isFinished = false;
+        iTS.oPosition = iTS.go.GetComponent<Transform>().localPosition;
+        iTS.oRotation = iTS.go.GetComponent<Transform>().localRotation.eulerAngles;
+        iTS.ScheduleSituation = scheduleSitu.working;
 
     }
+
+    //该函数功能尚未分离，包含描边，检测点击和检测状态的功能
+    //返回的是 点击鼠标左键并处于working状态
     private bool PointerEvent()
     {
         bool isClick = false;
@@ -85,14 +97,20 @@ public class ItemCheckMethod : MonoBehaviour
         if (Physics.Raycast(ray, out hit))
         {
             if(hit.collider.gameObject == itemTrans[Schedule].itemTransStep[ScheduleSub].go
-                && !itemTrans[Schedule].itemTransStep[ScheduleSub].isFinished)
+                && itemTrans[Schedule].itemTransStep[ScheduleSub].ScheduleSituation == scheduleSitu.initial)
             {
                 itemTrans[Schedule].itemTransStep[ScheduleSub].go.GetComponent<Outline>().enabled = true;
-                if (Input.GetMouseButtonDown(0))
-                {
-                    isClick = true;
-                    itemTrans[Schedule].itemTransStep[ScheduleSub].go.GetComponent<Outline>().enabled = false;
-                }
+            }else if (hit.collider.gameObject == itemTrans[Schedule].itemTransStep[ScheduleSub].go
+                && itemTrans[Schedule].itemTransStep[ScheduleSub].ScheduleSituation != scheduleSitu.finish
+                && Input.GetMouseButton(0))
+            {
+                isClick = true;
+
+                itemTrans[Schedule].itemTransStep[ScheduleSub].go.GetComponent<Outline>().enabled = false;
+            }
+            else
+            {
+                itemTrans[Schedule].itemTransStep[ScheduleSub].go.GetComponent<Outline>().enabled = false;
             }
         }
         return isClick;
@@ -101,9 +119,9 @@ public class ItemCheckMethod : MonoBehaviour
     {
         bool isFinished = false;
         Transform _goTrans = iTS.go.GetComponent<Transform>();
-        _goTrans.position = iTS.oPosition + iTS.Position;
-        //_goTrans.rotation = Quaternion.Euler(Vector3.Lerp(_goTrans.rotation.eulerAngles, iTS.oRotation + iTS.Rotation, Time.deltaTime * iTS.RotSpeed));
-        if(_goTrans.position == iTS.oPosition + iTS.Position)
+        _goTrans.localPosition = Vector3.Lerp(_goTrans.localPosition, iTS.oPosition + iTS.Position, Time.deltaTime * iTS.PosSpeed);
+        //_goTrans.localRotation = Quaternion.Euler(Vector3.Lerp(_goTrans.localRotation.eulerAngles, iTS.oRotation + iTS.Rotation, Time.deltaTime * iTS.RotSpeed));
+        if(_goTrans.localPosition == iTS.oPosition + iTS.Position)
         {
             ScheduleSub++;
             isFinished = true;
