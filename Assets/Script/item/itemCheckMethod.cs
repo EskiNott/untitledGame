@@ -14,13 +14,13 @@ public class ItemCheckMethod : MonoBehaviour
         public GameObject go; //物体对象
         public Vector3 Position; //物体变换的相对位置
         public Vector3 Rotation; //物体相对旋转
-//        [HideInInspector]
+        [HideInInspector]
         public Vector3 oPosition; //变换前位置
         [HideInInspector]
         public Vector3 oRotation; //变换前旋转
         public float RotSpeed = 1.0f;
         public float PosSpeed = 1.0f;
-        [HideInInspector]
+//        [HideInInspector]
         public scheduleSitu ScheduleSituation = scheduleSitu.initial; //记录物体运动状态
         public bool View; //预览物体变换和转动的结果
     }
@@ -97,36 +97,33 @@ public class ItemCheckMethod : MonoBehaviour
         if (Physics.Raycast(ray, out hit))
         {
             if(hit.collider.gameObject == itemTrans[Schedule].itemTransStep[ScheduleSub].go
-                && itemTrans[Schedule].itemTransStep[ScheduleSub].ScheduleSituation == scheduleSitu.initial)
+                && itemTrans[Schedule].itemTransStep[ScheduleSub].ScheduleSituation != scheduleSitu.finish)
             {
                 itemTrans[Schedule].itemTransStep[ScheduleSub].go.GetComponent<Outline>().enabled = true;
-            }else if (hit.collider.gameObject == itemTrans[Schedule].itemTransStep[ScheduleSub].go
-                && itemTrans[Schedule].itemTransStep[ScheduleSub].ScheduleSituation != scheduleSitu.finish
-                && Input.GetMouseButton(0))
-            {
-                isClick = true;
-
-                itemTrans[Schedule].itemTransStep[ScheduleSub].go.GetComponent<Outline>().enabled = false;
             }
             else
             {
                 itemTrans[Schedule].itemTransStep[ScheduleSub].go.GetComponent<Outline>().enabled = false;
             }
+
+            if (hit.collider.gameObject == itemTrans[Schedule].itemTransStep[ScheduleSub].go
+                && itemTrans[Schedule].itemTransStep[ScheduleSub].ScheduleSituation != scheduleSitu.finish
+                && Input.GetMouseButton(0))
+            {
+                isClick = true;
+            }
+            
         }
         return isClick;
     }
-    private bool PerformTransformation(ItemTransSub iTS)
+    private void PerformTransformation(ItemTransSub iTS)
     {
-        bool isFinished = false;
         Transform _goTrans = iTS.go.GetComponent<Transform>();
         _goTrans.localPosition = Vector3.Lerp(_goTrans.localPosition, iTS.oPosition + iTS.Position, Time.deltaTime * iTS.PosSpeed);
         //_goTrans.localRotation = Quaternion.Euler(Vector3.Lerp(_goTrans.localRotation.eulerAngles, iTS.oRotation + iTS.Rotation, Time.deltaTime * iTS.RotSpeed));
-        if(_goTrans.localPosition == iTS.oPosition + iTS.Position)
+        if (_goTrans.localPosition == iTS.oPosition + iTS.Position)  
         {
             ScheduleSub++;
-            isFinished = true;
-            start = false;
         }
-        return isFinished;
     }
 }
