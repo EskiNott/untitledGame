@@ -17,6 +17,8 @@ public class ItemManager : MonoBehaviour
     private item goItem;
     private Transform goTrans;
 
+    private GameObject _itemCheckTempGo;
+
     public GameObject go;
     public float rotateSpeed = 1.0f;
 
@@ -121,7 +123,7 @@ public class ItemManager : MonoBehaviour
             }
 
             //ÍÏ¶¯Âß¼­
-            else if (Input.GetMouseButton(0) && Physics.Raycast(ray, out hit) && (hit.collider.gameObject == go || isRayHitChild(hit, go))) 
+            else if (Input.GetMouseButton(0)) 
             {
                 MousePos2 = Input.mousePosition;
                 goTrans.eulerAngles = new Vector3(tempRotationDragging.x + (MousePos1.y - MousePos2.y) * rotateSpeed, tempRotationDragging.y + (MousePos1.x - MousePos2.x) * rotateSpeed, 0);

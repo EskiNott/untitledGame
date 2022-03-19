@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.15381995, g: 0.15452304, b: 0.16344833, a: 1}
+  m_IndirectSpecularColor: {r: 0.1535489, g: 0.1542539, b: 0.16319549, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5584,6 +5584,7 @@ GameObject:
   - component: {fileID: 1503727809}
   - component: {fileID: 1503727808}
   - component: {fileID: 1503727810}
+  - component: {fileID: 1503727811}
   m_Layer: 0
   m_Name: "\u67F1\u4F53"
   m_TagString: Untagged
@@ -5599,7 +5600,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1503727806}
   m_LocalRotation: {x: -4.32978e-17, y: 0.7071067, z: 0.7071068, w: -4.3297806e-17}
-  m_LocalPosition: {x: -6.0951056, y: -1.4364098, z: 0.11634317}
+  m_LocalPosition: {x: -6.095, y: -1.4364098, z: 0.691}
   m_LocalScale: {x: 0.4164628, y: 0.4164628, z: 0.4164628}
   m_Children: []
   m_Father: {fileID: 1636609098}
@@ -5668,6 +5669,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 760207555604313364, guid: 6baa83e83a0f2524894d69695f801ecf, type: 3}
+--- !u!114 &1503727811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503727806}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &1509998134
 GameObject:
   m_ObjectHideFlags: 0
@@ -6186,22 +6205,33 @@ MonoBehaviour:
   - isFinished: 0
     itemTransStep:
     - go: {fileID: 1817396968}
-      Position: {x: 0, y: 0, z: 5}
-      Rotation: {x: 0, y: 0, z: 0}
-      oPosition: {x: 0, y: 0, z: 0}
-      oRotation: {x: 0, y: 0, z: 0}
-      RotSpeed: 0
-      PosSpeed: 8
-      isFinished: 0
-      View: 0
-    - go: {fileID: 1817396968}
       Position: {x: 0, y: 5, z: 0}
       Rotation: {x: 0, y: 0, z: 0}
       oPosition: {x: 0, y: 0, z: 0}
       oRotation: {x: 0, y: 0, z: 0}
       RotSpeed: 0
-      PosSpeed: 8
-      isFinished: 0
+      PosSpeed: 5
+      ScheduleSituation: 0
+      View: 0
+    - go: {fileID: 1503727806}
+      Position: {x: 0, y: 0, z: 5}
+      Rotation: {x: 0, y: 0, z: 0}
+      oPosition: {x: 0, y: 0, z: 0}
+      oRotation: {x: 0, y: 0, z: 0}
+      RotSpeed: 0
+      PosSpeed: 5
+      ScheduleSituation: 0
+      View: 0
+  - isFinished: 0
+    itemTransStep:
+    - go: {fileID: 1503727806}
+      Position: {x: 0, y: 5, z: 0}
+      Rotation: {x: 0, y: 0, z: 0}
+      oPosition: {x: 0, y: 0, z: 0}
+      oRotation: {x: 0, y: 0, z: 0}
+      RotSpeed: 0
+      PosSpeed: 5
+      ScheduleSituation: 0
       View: 0
   Schedule: 0
 --- !u!114 &1636609101
