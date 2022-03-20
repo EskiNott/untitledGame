@@ -39,6 +39,12 @@ public class ItemManager : MonoBehaviour
                 break;
             case 2:
                 break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
         }
     }
 
@@ -49,21 +55,21 @@ public class ItemManager : MonoBehaviour
         goTrans = go.GetComponent<Transform>();
         prePosition = new Vector3(goTrans.position.x, goTrans.position.y, goTrans.position.z);
         preRotation = new Quaternion(goTrans.rotation.x, goTrans.rotation.y, goTrans.rotation.z, goTrans.rotation.w);
-        if (!globalManager.GetComponent<GlobalManager>().isInvestigate)
-        {
+/*        if (!globalManager.GetComponent<GlobalManager>().isInvestigate)
+        {*/
             goItem.thisInvestigate = true;
             go.GetComponent<Outline>().enabled = false;
             globalManager.GetComponent<GlobalManager>().isInvestigate = true;
             goTrans.position = cam.transform.position + cam.transform.forward * goItem.checkDistance;
             goTrans.LookAt(cam.transform.position);
-        }
+/*        }*/
         options = 1;
         iMM.clearButton();
     }
 
     public void itemAttack()
     {
-
+        options = 0;
     }
     public void itemTalk()
     {
@@ -96,6 +102,7 @@ public class ItemManager : MonoBehaviour
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
+            //拖动逻辑--------------------------------------------------------------------------------------------------------↓
             //拖动开始判定
             if (Input.GetMouseButtonDown(0) && Physics.Raycast(ray, out hit)
                 && ((hit.collider.gameObject == go) || isRayHitChildOrFather(hit, go)))
@@ -104,7 +111,6 @@ public class ItemManager : MonoBehaviour
                 MousePos1 = Input.mousePosition;
                 isDragging = true;
             }
-
             //退出检查判定
             else if (Input.GetMouseButtonDown(0) && Physics.Raycast(ray, out hit) && !isDragging)
             {
@@ -119,19 +125,29 @@ public class ItemManager : MonoBehaviour
                     }
                 }
             }
-
             //拖动逻辑
             else if (Input.GetMouseButton(0)) 
             {
                 MousePos2 = Input.mousePosition;
                 goTrans.eulerAngles = new Vector3(tempRotationDragging.x + (MousePos1.y - MousePos2.y) * rotateSpeed, tempRotationDragging.y + (MousePos1.x - MousePos2.x) * rotateSpeed, 0);
             }
-
             //结束拖动判定
             else if (Input.GetMouseButtonUp(0))
             {
                 isDragging = false;
             }
+            //拖动逻辑--------------------------------------------------------------------------------------------------------↑
+
+            //缩放逻辑--------------------------------------------------------------------------------------------------------↓
+            float mouseCenter = Input.GetAxis("Mouse ScrollWheel");
+            if (mouseCenter < 0)
+            {
+                go.GetComponent<item>().checkDistance += 10 * Time.deltaTime;
+            }else if (mouseCenter > 0)
+            {
+                go.GetComponent<item>().checkDistance -= 10 * Time.deltaTime;
+            }
+            //缩放逻辑--------------------------------------------------------------------------------------------------------↑
         }
     }
 
