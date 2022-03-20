@@ -5,6 +5,7 @@ public class OutlinePointerEvent : MonoBehaviour, IPointerEnterHandler, IPointer
 {
     Outline outlineEffect;
     GameObject globalManager;
+    public bool forceOn;
     private void Start()
     {
         outlineEffect = GetComponent<Outline>();
@@ -12,7 +13,7 @@ public class OutlinePointerEvent : MonoBehaviour, IPointerEnterHandler, IPointer
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (!globalManager.GetComponent<GlobalManager>().isInvestigate)
+        if (!globalManager.GetComponent<GlobalManager>().isInvestigate || forceOn)
         {
             outlineEffect.enabled = true;
         }

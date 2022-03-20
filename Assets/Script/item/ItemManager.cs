@@ -17,8 +17,6 @@ public class ItemManager : MonoBehaviour
     private item goItem;
     private Transform goTrans;
 
-    private GameObject _itemCheckTempGo;
-
     public GameObject go;
     public float rotateSpeed = 1.0f;
 
@@ -100,7 +98,7 @@ public class ItemManager : MonoBehaviour
 
             //拖动开始判定
             if (Input.GetMouseButtonDown(0) && Physics.Raycast(ray, out hit)
-                && ((hit.collider.gameObject == go) || isRayHitChild(hit, go)))
+                && ((hit.collider.gameObject == go) || isRayHitChildOrFather(hit, go)))
             {
                 tempRotationDragging = goTrans.rotation.eulerAngles;
                 MousePos1 = Input.mousePosition;
@@ -112,7 +110,7 @@ public class ItemManager : MonoBehaviour
             {
                 if (hit.collider.gameObject != go)
                 {
-                    if (!isRayHitChild(hit, go))
+                    if (!isRayHitChildOrFather(hit, go))
                     {
                         goTrans.position = prePosition;
                         goTrans.rotation = preRotation;
@@ -137,17 +135,31 @@ public class ItemManager : MonoBehaviour
         }
     }
 
-    static private bool isRayHitChild(RaycastHit hit, GameObject go)
+    static private bool isRayHitChildOrFather(RaycastHit hit, GameObject go)
     {
-        bool _isColliderHitChild = false;
-        foreach (Transform child in go.GetComponent<Transform>())
+        bool isColliderHitChildOrFather = false;
+        GameObject tempGo = hit.collider.gameObject;
+        Transform father = go.GetComponentInChildren<Transform>();
+        foreach (Transform child in father)
         {
             if (hit.collider.gameObject == child.gameObject)
             {
-                _isColliderHitChild = true;
+                isColliderHitChildOrFather = true;
                 break;
             }
         }
-        return _isColliderHitChild;
+        if (!isColliderHitChildOrFather)
+        {
+            while (tempGo.transform.parent != null)
+            {
+                tempGo = tempGo.transform.parent.gameObject;
+                if (tempGo = go)
+                {
+                    isColliderHitChildOrFather = true;
+                    break;
+                }
+            }
+        }
+        return isColliderHitChildOrFather;
     }
 }
