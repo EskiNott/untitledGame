@@ -137,18 +137,21 @@ public class ItemManager : MonoBehaviour
                 isDragging = false;
             }
             //ÍÏ¶¯Âß¼­--------------------------------------------------------------------------------------------------------¡ü
-
-            //Ëõ·ÅÂß¼­--------------------------------------------------------------------------------------------------------¡ý
-            float mouseCenter = Input.GetAxis("Mouse ScrollWheel");
-            if (mouseCenter < 0)
-            {
-                goItem.checkDistance += 10 * Time.deltaTime;
-            }else if (mouseCenter > 0)
-            {
-                goItem.checkDistance -= 10 * Time.deltaTime;
-            }
-            //Ëõ·ÅÂß¼­--------------------------------------------------------------------------------------------------------¡ü
         }
+
+        //Ëõ·ÅÂß¼­--------------------------------------------------------------------------------------------------------¡ý
+        float mouseCenter = Input.GetAxis("Mouse ScrollWheel");
+        if (mouseCenter < 0 && goItem.checkDistance < goItem.maxCheckDistance)
+        {
+            goItem.checkDistance += 10 * Time.deltaTime;
+            goTrans.position = cam.transform.position + cam.transform.forward * goItem.checkDistance;
+        }
+        else if (mouseCenter > 0 && goItem.checkDistance > goItem.minCheckDistance)
+        {
+            goItem.checkDistance -= 10 * Time.deltaTime;
+            goTrans.position = cam.transform.position + cam.transform.forward * goItem.checkDistance;
+        }
+        //Ëõ·ÅÂß¼­--------------------------------------------------------------------------------------------------------¡ü
     }
 
     static private bool isRayHitThis(RaycastHit hit, GameObject[] gos)
