@@ -7,6 +7,7 @@ public class item : MonoBehaviour
     public bool[] interact = { false, false, false, false, false, false};
     public bool thisInvestigate = false;
     public float checkDistance = 4.0f;
+    public GameObject[] childParts;
     public enum interactType
     {
         Check,
