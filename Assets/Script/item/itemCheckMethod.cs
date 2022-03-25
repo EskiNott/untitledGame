@@ -138,7 +138,7 @@ public class ItemCheckMethod : MonoBehaviour
         Transform _goTrans = iTS.go.GetComponent<Transform>();
         _goTrans.localPosition = Vector3.Lerp(_goTrans.localPosition, iTS.oPosition + iTS.Position, Time.deltaTime * (iTS.PosSpeed + 2));
         _goTrans.localRotation = Quaternion.Euler(Vector3.Lerp(_goTrans.localRotation.eulerAngles, iTS.oRotation + iTS.Rotation, Time.deltaTime * iTS.RotSpeed));
-        if (isFinish(_goTrans.localPosition, iTS.oPosition + iTS.Position) && isFinish(_goTrans.localRotation.eulerAngles, iTS.oRotation + iTS.Rotation))
+        if (isFinish(_goTrans.localPosition - iTS.oPosition, iTS.Position) && isFinish(_goTrans.localRotation.eulerAngles - iTS.oRotation, iTS.Rotation))
         {
             iTS.ScheduleSituation = scheduleSitu.finish;
             _goTrans.gameObject.GetComponent<Outline>().enabled = false;
