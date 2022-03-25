@@ -8,7 +8,7 @@ public class ItemManager : MonoBehaviour
     private investigateMenuManager iMM;
     private Vector3 prePosition;
     private Quaternion preRotation;
-    private bool isDragging = false;
+    public bool isDragging = false;
     private Vector3 tempRotationDragging;
     private Vector2 MousePos1;
     private Vector2 MousePos2;
@@ -55,14 +55,14 @@ public class ItemManager : MonoBehaviour
         goTrans = go.GetComponent<Transform>();
         prePosition = new Vector3(goTrans.position.x, goTrans.position.y, goTrans.position.z);
         preRotation = new Quaternion(goTrans.rotation.x, goTrans.rotation.y, goTrans.rotation.z, goTrans.rotation.w);
-/*        if (!globalManager.GetComponent<GlobalManager>().isInvestigate)
-        {*/
+        if (!globalManager.GetComponent<GlobalManager>().isInvestigate)
+        {
             goItem.thisInvestigate = true;
             go.GetComponent<Outline>().enabled = false;
             globalManager.GetComponent<GlobalManager>().isInvestigate = true;
             goTrans.position = cam.transform.position + cam.transform.forward * goItem.checkDistance;
             goTrans.LookAt(cam.transform.position);
-/*        }*/
+        }
         options = 1;
         iMM.clearButton();
     }
@@ -105,7 +105,7 @@ public class ItemManager : MonoBehaviour
             //ÍÏ¶¯Âß¼­--------------------------------------------------------------------------------------------------------¡ý
             //ÍÏ¶¯¿ªÊ¼ÅÐ¶¨
             if (Input.GetMouseButtonDown(0) && Physics.Raycast(ray, out hit)
-                && ((hit.collider.gameObject == go) || isRayHitChildOrFather(hit, go)))
+                && ((hit.collider.gameObject == go) || isRayHitThis(hit, goItem.childParts)))
             {
                 tempRotationDragging = goTrans.rotation.eulerAngles;
                 MousePos1 = Input.mousePosition;
@@ -116,7 +116,7 @@ public class ItemManager : MonoBehaviour
             {
                 if (hit.collider.gameObject != go)
                 {
-                    if (!isRayHitChildOrFather(hit, go))
+                    if (!isRayHitThis(hit, goItem.childParts))
                     {
                         goTrans.position = prePosition;
                         goTrans.rotation = preRotation;
@@ -132,26 +132,43 @@ public class ItemManager : MonoBehaviour
                 goTrans.eulerAngles = new Vector3(tempRotationDragging.x + (MousePos1.y - MousePos2.y) * rotateSpeed, tempRotationDragging.y + (MousePos1.x - MousePos2.x) * rotateSpeed, 0);
             }
             //½áÊøÍÏ¶¯ÅÐ¶¨
-            else if (Input.GetMouseButtonUp(0))
+            if (Input.GetMouseButtonUp(0))
             {
                 isDragging = false;
             }
             //ÍÏ¶¯Âß¼­--------------------------------------------------------------------------------------------------------¡ü
-
-            //Ëõ·ÅÂß¼­--------------------------------------------------------------------------------------------------------¡ý
-            float mouseCenter = Input.GetAxis("Mouse ScrollWheel");
-            if (mouseCenter < 0)
-            {
-                go.GetComponent<item>().checkDistance += 10 * Time.deltaTime;
-            }else if (mouseCenter > 0)
-            {
-                go.GetComponent<item>().checkDistance -= 10 * Time.deltaTime;
-            }
-            //Ëõ·ÅÂß¼­--------------------------------------------------------------------------------------------------------¡ü
         }
+
+        //Ëõ·ÅÂß¼­--------------------------------------------------------------------------------------------------------¡ý
+        float mouseCenter = Input.GetAxis("Mouse ScrollWheel");
+        if (mouseCenter < 0 && goItem.checkDistance < goItem.maxCheckDistance)
+        {
+            goItem.checkDistance += 10 * Time.deltaTime;
+            goTrans.position = cam.transform.position + cam.transform.forward * goItem.checkDistance;
+        }
+        else if (mouseCenter > 0 && goItem.checkDistance > goItem.minCheckDistance)
+        {
+            goItem.checkDistance -= 10 * Time.deltaTime;
+            goTrans.position = cam.transform.position + cam.transform.forward * goItem.checkDistance;
+        }
+        //Ëõ·ÅÂß¼­--------------------------------------------------------------------------------------------------------¡ü
     }
 
-    static private bool isRayHitChildOrFather(RaycastHit hit, GameObject go)
+    static private bool isRayHitThis(RaycastHit hit, GameObject[] gos)
+    {
+        bool isHit = false;
+        foreach(GameObject tempGo in gos)
+        {
+            if(tempGo == hit.collider.gameObject)
+            {
+                isHit = true;
+                break;
+            }
+        }
+        return isHit;
+    }
+
+/*    static private bool isRayHitChildOrFather(RaycastHit hit, GameObject go)
     {
         bool isColliderHitChildOrFather = false;
         GameObject tempGo = hit.collider.gameObject;
@@ -177,5 +194,5 @@ public class ItemManager : MonoBehaviour
             }
         }
         return isColliderHitChildOrFather;
-    }
+    }*/
 }
