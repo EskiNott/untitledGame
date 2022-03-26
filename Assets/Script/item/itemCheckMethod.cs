@@ -137,8 +137,8 @@ public class ItemCheckMethod : MonoBehaviour
     {
         Transform _goTrans = iTS.go.GetComponent<Transform>();
         _goTrans.localPosition = Vector3.Lerp(_goTrans.localPosition, iTS.oPosition + iTS.Position, Time.deltaTime * (iTS.PosSpeed + 2));
-        _goTrans.localRotation = Quaternion.Euler(Vector3.Lerp(_goTrans.localRotation.eulerAngles, iTS.oRotation + iTS.Rotation, Time.deltaTime * iTS.RotSpeed));
-        if (isFinish(_goTrans.localPosition - iTS.oPosition, iTS.Position) && isFinish(_goTrans.localRotation.eulerAngles - iTS.oRotation, iTS.Rotation))
+        _goTrans.localRotation = Quaternion.Lerp(_goTrans.localRotation, Quaternion.Euler(iTS.oRotation + iTS.Rotation), Time.deltaTime * iTS.RotSpeed);
+        if (isFinishVector(_goTrans.localPosition, iTS.oPosition + iTS.Position) && isFinishQuaternion(_goTrans.localRotation, Quaternion.Euler(iTS.oRotation + iTS.Rotation)))
         {
             iTS.ScheduleSituation = scheduleSitu.finish;
             _goTrans.gameObject.GetComponent<Outline>().enabled = false;
@@ -147,10 +147,20 @@ public class ItemCheckMethod : MonoBehaviour
     }
 
     //检测某一最小分步骤是否完成
-    private bool isFinish(Vector3 now, Vector3 target)
+    private bool isFinishQuaternion(Quaternion now, Quaternion target)
     {
         bool finish = false;
-        if (now.x / target.x > 0.995f && now.y / target.y > 0.995f && now.z / target.z > 0.995f) 
+        Vector3 tempV = new Vector3(1, 1, 1);
+        if (Vector3.Angle(now * tempV, target * tempV) < 0.5f)
+        {
+            finish = true;
+        }
+        return finish;
+    }
+    private bool isFinishVector(Vector3 now, Vector3 target)
+    {
+        bool finish = false;
+        if ((Math.Abs(now.x - target.x) < 0.05f) && (Math.Abs(now.y - target.y) < 0.05f) && (Math.Abs(now.z - target.z) < 0.05f)) 
         {
             finish = true;
         }
