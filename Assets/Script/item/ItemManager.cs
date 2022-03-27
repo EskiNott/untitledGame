@@ -35,7 +35,15 @@ public class ItemManager : MonoBehaviour
             case 0:
                 break;
             case 1:
-                _itemCheck(mCam, goItem, goTrans);
+                if (!goItem.isSizeBig)
+                {
+                    _itemCheckPick(mCam);
+                }
+                else
+                {
+                    _itemCheckClose(mCam);
+                }
+
                 break;
             case 2:
                 break;
@@ -53,16 +61,36 @@ public class ItemManager : MonoBehaviour
         mCam = cam;
         goItem = go.GetComponent<item>();
         goTrans = go.GetComponent<Transform>();
-        prePosition = new Vector3(goTrans.position.x, goTrans.position.y, goTrans.position.z);
-        preRotation = new Quaternion(goTrans.rotation.x, goTrans.rotation.y, goTrans.rotation.z, goTrans.rotation.w);
-        if (!globalManager.GetComponent<GlobalManager>().isInvestigate)
+
+        //拿起检查
+        if (!goItem.isSizeBig)
         {
-            goItem.thisInvestigate = true;
-            go.GetComponent<Outline>().enabled = false;
-            globalManager.GetComponent<GlobalManager>().isInvestigate = true;
-            goTrans.position = cam.transform.position + cam.transform.forward * goItem.checkDistance;
-            goTrans.LookAt(cam.transform.position);
+            prePosition = new Vector3(goTrans.position.x, goTrans.position.y, goTrans.position.z);
+            preRotation = new Quaternion(goTrans.rotation.x, goTrans.rotation.y, goTrans.rotation.z, goTrans.rotation.w);
+            if (!globalManager.GetComponent<GlobalManager>().isInvestigate)
+            {
+                goItem.thisInvestigate = true;
+                go.GetComponent<Outline>().enabled = false;
+                globalManager.GetComponent<GlobalManager>().isInvestigate = true;
+                goTrans.position = cam.transform.position + cam.transform.forward * goItem.checkDistance;
+                goTrans.LookAt(cam.transform.position);
+            }
         }
+        else
+        //靠近观察
+        {
+            prePosition = new Vector3(cam.gameObject.transform.position.x, cam.gameObject.transform.position.y, cam.gameObject.transform.position.z);
+            preRotation = new Quaternion(cam.gameObject.transform.rotation.x, cam.gameObject.transform.rotation.y, cam.gameObject.transform.rotation.z, cam.gameObject.transform.rotation.w);
+            if (!globalManager.GetComponent<GlobalManager>().isInvestigate)
+            {
+                goItem.thisInvestigate = true;
+                go.GetComponent<Outline>().enabled = false;
+                globalManager.GetComponent<GlobalManager>().isInvestigate = true;
+                cam.transform.position = goTrans.position + goTrans.forward * goItem.checkDistance;
+                cam.transform.LookAt(goTrans.position);
+            }
+        }
+
         options = 1;
         iMM.clearButton();
     }
@@ -92,19 +120,19 @@ public class ItemManager : MonoBehaviour
     }
 
 
-    private void _itemCheck(Camera cam, item goItem, Transform goTrans)
+    private void _itemCheckPick(Camera cam)
     {
         //检查主要逻辑
         if (globalManager.GetComponent<GlobalManager>().isInvestigate
             && goItem.thisInvestigate
-            && (Input.GetMouseButton(0) || Input.GetMouseButtonDown(0) || Input.GetMouseButtonUp(0))) 
+            && (Input.GetMouseButton(1) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonUp(1))) 
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
             //拖动逻辑--------------------------------------------------------------------------------------------------------↓
             //拖动开始判定
-            if (Input.GetMouseButtonDown(0) && Physics.Raycast(ray, out hit)
+            if (Input.GetMouseButtonDown(1) && Physics.Raycast(ray, out hit)
                 && ((hit.collider.gameObject == go) || isRayHitThis(hit, goItem.childParts)))
             {
                 tempRotationDragging = goTrans.rotation.eulerAngles;
@@ -112,7 +140,7 @@ public class ItemManager : MonoBehaviour
                 isDragging = true;
             }
             //退出检查判定
-            else if (Input.GetMouseButtonDown(0) && Physics.Raycast(ray, out hit) && !isDragging)
+            else if (Input.GetMouseButtonDown(1) && Physics.Raycast(ray, out hit) && !isDragging)
             {
                 if (hit.collider.gameObject != go)
                 {
@@ -126,32 +154,84 @@ public class ItemManager : MonoBehaviour
                 }
             }
             //拖动逻辑
-            else if (Input.GetMouseButton(0)) 
+            else if (Input.GetMouseButton(1)) 
             {
                 MousePos2 = Input.mousePosition;
                 goTrans.eulerAngles = new Vector3(tempRotationDragging.x + (MousePos1.y - MousePos2.y) * rotateSpeed, tempRotationDragging.y + (MousePos1.x - MousePos2.x) * rotateSpeed, 0);
             }
             //结束拖动判定
-            if (Input.GetMouseButtonUp(0))
+            if (Input.GetMouseButtonUp(1))
             {
                 isDragging = false;
             }
             //拖动逻辑--------------------------------------------------------------------------------------------------------↑
         }
+        scrollZoom(goTrans, cam.gameObject.transform);
+    }
 
-        //缩放逻辑--------------------------------------------------------------------------------------------------------↓
+    private void _itemCheckClose(Camera cam)
+    {
+        //检查主要逻辑
+        if (globalManager.GetComponent<GlobalManager>().isInvestigate
+            && goItem.thisInvestigate
+            && (Input.GetMouseButton(1) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonUp(1)))
+        {
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            //拖动逻辑--------------------------------------------------------------------------------------------------------↓
+            //拖动开始判定
+            if (Input.GetMouseButtonDown(1) && Physics.Raycast(ray, out hit)
+                && ((hit.collider.gameObject == go) || isRayHitThis(hit, goItem.childParts)))
+            {
+                tempRotationDragging = goTrans.rotation.eulerAngles;
+                MousePos1 = Input.mousePosition;
+                isDragging = true;
+            }
+            //退出检查判定
+            else if (Input.GetMouseButtonDown(1) && Physics.Raycast(ray, out hit) && !isDragging)
+            {
+                if (hit.collider.gameObject != go)
+                {
+                    if (!isRayHitThis(hit, goItem.childParts))
+                    {
+                        goTrans.position = prePosition;
+                        goTrans.rotation = preRotation;
+                        goItem.thisInvestigate = false;
+                        globalManager.GetComponent<GlobalManager>().isInvestigate = false;
+                    }
+                }
+            }
+            //拖动逻辑
+            else if (Input.GetMouseButton(1))
+            {
+                MousePos2 = Input.mousePosition;
+                goTrans.eulerAngles = new Vector3(tempRotationDragging.x + (MousePos1.y - MousePos2.y) * rotateSpeed, tempRotationDragging.y + (MousePos1.x - MousePos2.x) * rotateSpeed, 0);
+            }
+            //结束拖动判定
+            if (Input.GetMouseButtonUp(1))
+            {
+                isDragging = false;
+            }
+            //拖动逻辑--------------------------------------------------------------------------------------------------------↑
+        }
+        scrollZoom(goTrans, cam.gameObject.transform);
+    }
+
+    private void scrollZoom(Transform stabledItem, Transform movingItem)
+    {
+        //缩放逻辑
         float mouseCenter = Input.GetAxis("Mouse ScrollWheel");
         if (mouseCenter < 0 && goItem.checkDistance < goItem.maxCheckDistance)
         {
             goItem.checkDistance += 10 * Time.deltaTime;
-            goTrans.position = cam.transform.position + cam.transform.forward * goItem.checkDistance;
+            movingItem.position = stabledItem.position + stabledItem.forward * goItem.checkDistance;
         }
         else if (mouseCenter > 0 && goItem.checkDistance > goItem.minCheckDistance)
         {
             goItem.checkDistance -= 10 * Time.deltaTime;
-            goTrans.position = cam.transform.position + cam.transform.forward * goItem.checkDistance;
+            movingItem.position = stabledItem.position + stabledItem.forward * goItem.checkDistance;
         }
-        //缩放逻辑--------------------------------------------------------------------------------------------------------↑
     }
 
     static private bool isRayHitThis(RaycastHit hit, GameObject[] gos)
@@ -167,32 +247,4 @@ public class ItemManager : MonoBehaviour
         }
         return isHit;
     }
-
-/*    static private bool isRayHitChildOrFather(RaycastHit hit, GameObject go)
-    {
-        bool isColliderHitChildOrFather = false;
-        GameObject tempGo = hit.collider.gameObject;
-        Transform father = go.GetComponentInChildren<Transform>();
-        foreach (Transform child in father)
-        {
-            if (hit.collider.gameObject == child.gameObject)
-            {
-                isColliderHitChildOrFather = true;
-                break;
-            }
-        }
-        if (!isColliderHitChildOrFather)
-        {
-            while (tempGo.transform.parent != null)
-            {
-                tempGo = tempGo.transform.parent.gameObject;
-                if (tempGo = go)
-                {
-                    isColliderHitChildOrFather = true;
-                    break;
-                }
-            }
-        }
-        return isColliderHitChildOrFather;
-    }*/
 }

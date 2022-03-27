@@ -239,6 +239,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5765862903954668937, guid: bb7a748330b2a1e4985f03abf0e9bf88, type: 3}
+      propertyPath: isSizeBig
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5765862903954668937, guid: bb7a748330b2a1e4985f03abf0e9bf88, type: 3}
       propertyPath: interact.Array.data[1]
       value: 1
       objectReference: {fileID: 0}
@@ -801,6 +805,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2823476872950380112, guid: bb7a748330b2a1e4985f03abf0e9bf88, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5765862903954668937, guid: bb7a748330b2a1e4985f03abf0e9bf88, type: 3}
+      propertyPath: isSizeBig
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5765862903954668937, guid: bb7a748330b2a1e4985f03abf0e9bf88, type: 3}
@@ -1387,6 +1395,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 683443781}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &689546589 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2823476872950380112, guid: bb7a748330b2a1e4985f03abf0e9bf88, type: 3}
+  m_PrefabInstance: {fileID: 4349828168439930876}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &720579364
 GameObject:
   m_ObjectHideFlags: 0
@@ -3565,6 +3578,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5765862903954668937, guid: bb7a748330b2a1e4985f03abf0e9bf88, type: 3}
+      propertyPath: isSizeBig
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5765862903954668937, guid: bb7a748330b2a1e4985f03abf0e9bf88, type: 3}
       propertyPath: interact.Array.data[0]
       value: 1
       objectReference: {fileID: 0}
@@ -5313,6 +5330,7 @@ MonoBehaviour:
   checkDistance: 4
   minCheckDistance: 4
   maxCheckDistance: 10
+  isSizeBig: 0
   childParts: []
 --- !u!4 &1284528573724488361
 Transform:
@@ -5496,9 +5514,25 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5765862903954668937, guid: bb7a748330b2a1e4985f03abf0e9bf88, type: 3}
+      propertyPath: isSizeBig
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5765862903954668937, guid: bb7a748330b2a1e4985f03abf0e9bf88, type: 3}
+      propertyPath: childParts.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5765862903954668937, guid: bb7a748330b2a1e4985f03abf0e9bf88, type: 3}
       propertyPath: interact.Array.data[1]
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5765862903954668937, guid: bb7a748330b2a1e4985f03abf0e9bf88, type: 3}
+      propertyPath: childParts.Array.data[0]
+      value: 
+      objectReference: {fileID: 689546589}
+    - target: {fileID: 5765862903954668937, guid: bb7a748330b2a1e4985f03abf0e9bf88, type: 3}
+      propertyPath: childParts.Array.data[1]
+      value: 
+      objectReference: {fileID: 3224013732919430163}
     - target: {fileID: 9002010295866961273, guid: bb7a748330b2a1e4985f03abf0e9bf88, type: 3}
       propertyPath: m_RootOrder
       value: 0
