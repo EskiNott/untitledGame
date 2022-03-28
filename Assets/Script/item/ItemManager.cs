@@ -218,11 +218,29 @@ public class ItemManager : MonoBehaviour
             else if (Input.GetMouseButton(1))
             {
                 MousePos2 = Input.mousePosition;
+                float rotateY = MousePos2.x - MousePos1.x;
+                float rotateZ = MousePos1.y - MousePos2.y;
+                if (rotateY > goItem.maxRotation_Y) 
+                {
+                    rotateY = goItem.maxRotation_Y;
+                }else if (rotateY < -goItem.maxRotation_Y)
+                {
+                    rotateY = -goItem.maxRotation_Y;
+                }
+                if(rotateZ > goItem.maxRotation_Z)
+                {
+                    rotateZ = goItem.maxRotation_Z;
+                }else if(rotateZ < -goItem.maxRotation_Z)
+                {
+                    rotateZ = -goItem.maxRotation_Z;
+                }
+
                 Quaternion tempRotate = Quaternion.Euler(new Vector3(
                     0
-                    , (MousePos2.x - MousePos1.x)
-                    , (MousePos2.y - MousePos1.y)
+                    , rotateY
+                    , rotateZ
                     ));
+
                 camTrans.position = goTrans.position + tempRotate * (tempPositionDragging - goTrans.position).normalized * goItem.checkDistance;
                 camTrans.LookAt(goTrans);
                 

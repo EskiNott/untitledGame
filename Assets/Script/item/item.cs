@@ -7,6 +7,8 @@ public class item : MonoBehaviour
     public bool[] interact = { false, false, false, false, false, false};
     public bool thisInvestigate = false;
     public float checkDistance = 4.0f;
+    public float maxRotation_Y = 90.0f;
+    public float maxRotation_Z = 90.0f;
     public float minCheckDistance = 1.0f;
     public float maxCheckDistance = 10.0f;
     public bool isSizeBig;

@@ -147,7 +147,7 @@ public class ItemCheckMethod : MonoBehaviour
     }
 
     //检测某一最小分步骤是否完成
-    private bool isFinishQuaternion(Quaternion now, Quaternion target)
+    static public bool isFinishQuaternion(Quaternion now, Quaternion target)
     {
         bool finish = false;
         Vector3 tempV = new Vector3(1, 1, 1);
@@ -157,7 +157,7 @@ public class ItemCheckMethod : MonoBehaviour
         }
         return finish;
     }
-    private bool isFinishVector(Vector3 now, Vector3 target)
+    static public bool isFinishVector(Vector3 now, Vector3 target)
     {
         bool finish = false;
         if ((Math.Abs(now.x - target.x) < 0.05f) && (Math.Abs(now.y - target.y) < 0.05f) && (Math.Abs(now.z - target.z) < 0.05f)) 

@@ -9,6 +9,7 @@ TagManager:
   - itemInvestigateOption
   - item
   - GlobalManager
+  - CameraPosition
   layers:
   - Default
   - TransparentFX
