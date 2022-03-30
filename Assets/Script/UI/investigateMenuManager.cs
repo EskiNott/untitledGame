@@ -32,9 +32,11 @@ public class investigateMenuManager : MonoBehaviour
         RaycastHit hit;
 
         //²Ëµ¥¹Ø±ÕÂß¼­
-        if (Input.GetMouseButtonDown(0)&& !RaycastUI())
+        if (Input.GetMouseButtonDown(0) && !RaycastUI() && isMenuOpened)
         {
             isMenuOpened = false;
+            hitTransform.GetComponent<OutlinePointerEvent>().forceOn = false;
+            hitTransform.GetComponent<Outline>().enabled = false;
             clearButton();
         }
         //²Ëµ¥¿ªÆôÂß¼­
@@ -46,6 +48,7 @@ public class investigateMenuManager : MonoBehaviour
                 myItemM.go = hitTransform.gameObject;
                 if (hitTransform.gameObject.GetComponent<item>() && hitTransform.gameObject.GetComponent<item>().interact.Length > 0)
                 {
+                    hitTransform.GetComponent<OutlinePointerEvent>().forceOn = true;
                     for (int i = 0; i < hitTransform.gameObject.GetComponent<item>().interact.Length; i++)
                     {
                         if (hitTransform.gameObject.GetComponent<item>().interact[i])

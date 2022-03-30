@@ -4,24 +4,26 @@ using UnityEngine;
 
 public class CameraFocus : MonoBehaviour
 {
-    private GameObject globalManager;
-    private Vector3 tempTransform;
+    private CameraManager CameraM;
     private Quaternion tempRotation;
+    private Transform camTrans;
+
+    private investigateMenuManager investigateMenuM;
     public Camera cam;
-    public float turnSpeed = 1.0f;
+    public float turnSpeed = 5.0f;
     // Start is called before the first frame update
     void Start()
     {
-        globalManager = GameObject.Find("GlobalManager");
-        tempTransform = transform.position;
-        tempRotation = transform.rotation;
+        investigateMenuM = GameObject.Find("ItemManager").GetComponent<investigateMenuManager>();
+        CameraM = GameObject.Find("CameraManager").GetComponent<CameraManager>();
+        camTrans = cam.transform;
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if (!globalManager.GetComponent<GlobalManager>().isInvestigate)
+        if (investigateMenuM.isMenuOpened)
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -30,23 +32,23 @@ public class CameraFocus : MonoBehaviour
                 if (hit.transform.gameObject.GetComponent<Outline>())
                 {
                     Vector3 dir;
-                    dir = hit.transform.position - transform.position;
+                    dir = hit.transform.position - camTrans.position;
                     Quaternion targetQua = Quaternion.LookRotation(dir);
-                    transform.rotation = Quaternion.Lerp(transform.rotation, targetQua, Time.deltaTime * turnSpeed);
+                    camTrans.rotation = Quaternion.Lerp(camTrans.rotation, targetQua, Time.deltaTime * turnSpeed);
                 }
                 else
                 {
-                    transform.rotation = Quaternion.Lerp(transform.rotation, tempRotation, Time.deltaTime * turnSpeed);
+                    camTrans.rotation = Quaternion.Lerp(camTrans.rotation, CameraM.oRotation, Time.deltaTime * turnSpeed);
                 }
             }
             else
             {
-                transform.rotation = Quaternion.Lerp(transform.rotation, tempRotation, Time.deltaTime * turnSpeed);
+                camTrans.rotation = Quaternion.Lerp(camTrans.rotation, CameraM.oRotation, Time.deltaTime * turnSpeed);
             }
         }
         else
         {
-            transform.rotation = Quaternion.Lerp(transform.rotation, tempRotation, Time.deltaTime * turnSpeed);
+            camTrans.rotation = Quaternion.Lerp(camTrans.rotation, CameraM.oRotation, Time.deltaTime * turnSpeed);
         }
 
     }

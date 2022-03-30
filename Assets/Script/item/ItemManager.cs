@@ -75,6 +75,7 @@ public class ItemManager : MonoBehaviour
                 globalManager.GetComponent<GlobalManager>().isInvestigate = true;
                 goTrans.position = cam.transform.position + goTrans.forward * goItem.checkDistance;
                 goTrans.LookAt(cam.transform.position);
+                tempRotationDragging = goTrans.rotation.eulerAngles;
             }
         }
         else
@@ -89,9 +90,10 @@ public class ItemManager : MonoBehaviour
                 globalManager.GetComponent<GlobalManager>().isInvestigate = true;
                 cam.transform.position = goTrans.position + goTrans.forward * goItem.checkDistance;
                 cam.transform.LookAt(goTrans.position);
+                tempPositionDragging = cam.transform.position;
+                tempRotationDragging = cam.transform.rotation.eulerAngles;
             }
         }
-
         options = 1;
         iMM.clearButton();
     }
@@ -140,7 +142,6 @@ public class ItemManager : MonoBehaviour
             if (Input.GetMouseButtonDown(1) && Physics.Raycast(ray, out hit)
                 && ((hit.collider.gameObject == go) || isRayHitThis(hit, goItem.childParts)))
             {
-                tempRotationDragging = goTrans.rotation.eulerAngles;
                 MousePos1 = Input.mousePosition;
                 isDragging = true;
             }
@@ -195,8 +196,6 @@ public class ItemManager : MonoBehaviour
             if (Input.GetMouseButtonDown(1) && Physics.Raycast(ray, out hit)
                 && ((hit.collider.gameObject == go) || isRayHitThis(hit, goItem.childParts)))
             {
-                tempPositionDragging = camTrans.position;
-                tempRotationDragging = camTrans.rotation.eulerAngles;
                 MousePos1 = Input.mousePosition;
                 isDragging = true;
             }
@@ -223,16 +222,16 @@ public class ItemManager : MonoBehaviour
                 if (rotateY > goItem.maxRotation_Y) 
                 {
                     rotateY = goItem.maxRotation_Y;
-                }else if (rotateY < -goItem.maxRotation_Y)
+                }else if (rotateY < goItem.minRotation_Y)
                 {
-                    rotateY = -goItem.maxRotation_Y;
+                    rotateY = goItem.minRotation_Y;
                 }
                 if(rotateZ > goItem.maxRotation_Z)
                 {
                     rotateZ = goItem.maxRotation_Z;
-                }else if(rotateZ < -goItem.maxRotation_Z)
+                }else if(rotateZ < goItem.minRotation_Z)
                 {
-                    rotateZ = -goItem.maxRotation_Z;
+                    rotateZ = goItem.minRotation_Z;
                 }
 
                 Quaternion tempRotate = Quaternion.Euler(new Vector3(

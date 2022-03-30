@@ -9,12 +9,12 @@ public class CameraManager : MonoBehaviour
     public float posSpeed;
     public float rotSpeed;
 
-    private Vector3 oPosition;
-    private Quaternion oRotation;
+    public Vector3 oPosition;
+    public Quaternion oRotation;
     private bool lerpFlag;
     private Transform lerpTrans;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         camTrans = cam.transform;
         lerpFlag = false;

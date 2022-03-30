@@ -20,6 +20,9 @@ public class OutlinePointerEvent : MonoBehaviour, IPointerEnterHandler, IPointer
     }
     public void OnPointerExit(PointerEventData eventData)
     {
-        outlineEffect.enabled = false;
+        if (!forceOn)
+        {
+            outlineEffect.enabled = false;
+        }
     }
 }
