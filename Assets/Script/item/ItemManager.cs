@@ -14,6 +14,8 @@ public class ItemManager : MonoBehaviour
     private item goItem;
     private Transform goTrans;
     private CameraManager cm;
+    private Vector3 prePosition;
+    private Quaternion preRotation;
 
     public bool isDragging = false;
     public GameObject go;
@@ -60,18 +62,20 @@ public class ItemManager : MonoBehaviour
     {
         goItem = go.GetComponent<item>();
         goTrans = go.GetComponent<Transform>();
-        cm.camReset();
         //拿起检查
         if (!goItem.isSizeBig)
+
         {
             if (!globalManager.GetComponent<GlobalManager>().isInvestigate)
             {
+                prePosition = new Vector3(goTrans.position.x, goTrans.position.y, goTrans.position.z);
+                preRotation = new Quaternion(goTrans.rotation.x, goTrans.rotation.y, goTrans.rotation.z, goTrans.rotation.w);
                 goItem.thisInvestigate = true;
                 go.GetComponent<Outline>().enabled = false;
                 globalManager.GetComponent<GlobalManager>().isInvestigate = true;
                 globalManager.GetComponent<GlobalManager>().investigateItem = go;
-                goTrans.position = cm.transform.position + goTrans.forward * goItem.checkDistance;
-                goTrans.LookAt(cm.transform.position);
+                goTrans.position = cm.oPosition + cm.oRotation*(new Vector3(0, 0, 1)).normalized * goItem.checkDistance;
+                goTrans.LookAt(cm.oPosition);
                 tempRotationDragging = goTrans.rotation.eulerAngles;
             }
         }
@@ -84,10 +88,10 @@ public class ItemManager : MonoBehaviour
                 go.GetComponent<Outline>().enabled = false;
                 globalManager.GetComponent<GlobalManager>().isInvestigate = true;
                 globalManager.GetComponent<GlobalManager>().investigateItem = go;
-                cm.transform.position = goTrans.position + goTrans.forward * goItem.checkDistance;
-                cm.transform.LookAt(goTrans.position);
-                tempPositionDragging = cm.transform.position;
-                tempRotationDragging = cm.transform.rotation.eulerAngles;
+                cm.setCamPos(goTrans.position + goTrans.forward * goItem.checkDistance);
+                cm.cam.transform.LookAt(goTrans.position);
+                tempPositionDragging = cm.cam.transform.position;
+                tempRotationDragging = cm.cam.transform.rotation.eulerAngles;
             }
         }
         options = 1;
@@ -148,8 +152,8 @@ public class ItemManager : MonoBehaviour
                 {
                     if (!isRayHitThis(hit, goItem.childParts))
                     {
-                        goTrans.position = cm.oPosition;
-                        goTrans.rotation = cm.oRotation;
+                        goTrans.position = prePosition;
+                        goTrans.rotation = preRotation;
                         goItem.thisInvestigate = false;
                         globalManager.GetComponent<GlobalManager>().isInvestigate = false;
                         globalManager.GetComponent<GlobalManager>().investigateItem = null;
@@ -169,14 +173,14 @@ public class ItemManager : MonoBehaviour
             }
             //拖动逻辑--------------------------------------------------------------------------------------------------------↑
         }
-        scrollZoom(cm.transform, goTrans);
+        scrollZoom(cm.cam.transform, goTrans);
     }
 
 
     //观察逻辑
     private void _itemCheckClose()
     {
-        Transform camTrans = cm.transform;
+        Transform camTrans = cm.cam.transform;
         //主要逻辑
         if (globalManager.GetComponent<GlobalManager>().isInvestigate
             && goItem.thisInvestigate
@@ -187,7 +191,7 @@ public class ItemManager : MonoBehaviour
         {
             Ray ray = cm.cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-
+            cm.camStop(true);
             //拖动逻辑--------------------------------------------------------------------------------------------------------↓
             //拖动开始判定
             if (Input.GetMouseButtonDown(1) && Physics.Raycast(ray, out hit)
@@ -208,6 +212,7 @@ public class ItemManager : MonoBehaviour
                         goItem.thisInvestigate = false;
                         globalManager.GetComponent<GlobalManager>().isInvestigate = false;
                         globalManager.GetComponent<GlobalManager>().investigateItem = null;
+                        cm.camStop(false);
                     }
                 }
             }
@@ -249,7 +254,7 @@ public class ItemManager : MonoBehaviour
             }
             //拖动逻辑--------------------------------------------------------------------------------------------------------↑
         }
-        scrollZoom(goTrans, cm.transform);
+        scrollZoom(goTrans, cm.cam.transform);
     }
 
     private void scrollZoom(Transform stabledItem, Transform movingItem)

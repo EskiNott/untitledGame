@@ -11,12 +11,12 @@ public class CameraManager : MonoBehaviour
     public float turnSpeed = 5.0f;
     public Vector3 oPosition;
     public Quaternion oRotation;
+    public Transform oTrans;
 
     private bool lerpFlag;
     private Transform lerpTrans;
-    [SerializeField]
     private bool camMove;
-    [SerializeField]
+    private bool camPause;
     private Transform targetTrans;
 
     // Start is called before the first frame update
@@ -25,6 +25,8 @@ public class CameraManager : MonoBehaviour
         camTrans = cam.transform;
         lerpFlag = false;
         camTrans = cam.transform;
+        oTrans = new GameObject().transform;
+        camPause = false;
     }
 
     // Update is called once per frame
@@ -40,7 +42,7 @@ public class CameraManager : MonoBehaviour
             }
         }
 
-        if (camMove)
+        if (camMove && !camPause) 
         {
             Vector3 dir;
             dir = targetTrans.position - camTrans.position;
@@ -51,31 +53,42 @@ public class CameraManager : MonoBehaviour
         {
             camTrans.rotation = Quaternion.Lerp(camTrans.rotation, oRotation, Time.deltaTime * turnSpeed);
         }
+        oTrans.rotation = oRotation;
+        oTrans.position = oPosition;
     }
-
+    public void setCamRot(Quaternion rot)
+    {
+        camTrans.rotation = rot;
+    }
+    public void setCamPos(Vector3 pos)
+    {
+        camTrans.position = pos;
+    }
     public void setCamTrans(Transform trans)
     {
-        camReset();
-        camTrans.position = trans.position;
-        camTrans.rotation = trans.rotation;
-
+        camInit();
+        setCamPos(trans.position);
+        setCamRot(trans.rotation);
     }
 
     public void camLerpMoving(Transform trans)
     {
-        camReset();
         lerpTrans = trans;
         lerpFlag = true;
     }
 
-    public void camReset()
+    public void camInit()
     {
         oPosition = camTrans.position;
         oRotation = camTrans.rotation;
     }
+
+    public void camStop(bool isPause)
+    {
+        camPause = isPause;
+    }
     public void camFocus(Transform trans)
     {
-        camReset();
         targetTrans = trans;
         camMove = true;
     }
