@@ -8,16 +8,23 @@ public class CameraManager : MonoBehaviour
     public Transform camTrans;
     public float posSpeed;
     public float rotSpeed;
-
+    public float turnSpeed = 5.0f;
     public Vector3 oPosition;
     public Quaternion oRotation;
+
     private bool lerpFlag;
     private Transform lerpTrans;
+    [SerializeField]
+    private bool camMove;
+    [SerializeField]
+    private Transform targetTrans;
+
     // Start is called before the first frame update
     void Awake()
     {
         camTrans = cam.transform;
         lerpFlag = false;
+        camTrans = cam.transform;
     }
 
     // Update is called once per frame
@@ -32,21 +39,49 @@ public class CameraManager : MonoBehaviour
                 lerpFlag = false;
             }
         }
+
+        if (camMove)
+        {
+            Vector3 dir;
+            dir = targetTrans.position - camTrans.position;
+            Quaternion targetQua = Quaternion.LookRotation(dir);
+            camTrans.rotation = Quaternion.Lerp(camTrans.rotation, targetQua, Time.deltaTime * turnSpeed);
+        }
+        else
+        {
+            camTrans.rotation = Quaternion.Lerp(camTrans.rotation, oRotation, Time.deltaTime * turnSpeed);
+        }
     }
 
     public void setCamTrans(Transform trans)
     {
-        oPosition = camTrans.position;
-        oRotation = camTrans.rotation;
+        camReset();
         camTrans.position = trans.position;
         camTrans.rotation = trans.rotation;
+
     }
 
     public void camLerpMoving(Transform trans)
     {
-        oPosition = camTrans.position;
-        oRotation = camTrans.rotation;
+        camReset();
         lerpTrans = trans;
         lerpFlag = true;
+    }
+
+    public void camReset()
+    {
+        oPosition = camTrans.position;
+        oRotation = camTrans.rotation;
+    }
+    public void camFocus(Transform trans)
+    {
+        camReset();
+        targetTrans = trans;
+        camMove = true;
+    }
+
+    public void camRevert()
+    {
+        camMove = false;
     }
 }

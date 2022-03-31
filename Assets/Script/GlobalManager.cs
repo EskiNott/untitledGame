@@ -5,6 +5,7 @@ using UnityEngine;
 public class GlobalManager : MonoBehaviour
 {
     public bool isInvestigate;
+    public GameObject investigateItem;
     void Start()
     {
         isInvestigate = false;

@@ -6,18 +6,16 @@ public class ItemManager : MonoBehaviour
 {
     private GameObject globalManager;
     private investigateMenuManager iMM;
-    private Vector3 prePosition;
-    private Quaternion preRotation;
-    public bool isDragging = false;
     private Vector3 tempRotationDragging;
     private Vector3 tempPositionDragging;
     private Vector2 MousePos1;
     private Vector2 MousePos2;
     private int options;
-    private Camera mCam;
     private item goItem;
     private Transform goTrans;
+    private CameraManager cm;
 
+    public bool isDragging = false;
     public GameObject go;
     public float rotateSpeed = 1.0f;
 
@@ -26,6 +24,7 @@ public class ItemManager : MonoBehaviour
     {
         globalManager = GameObject.Find("GlobalManager");
         iMM = GetComponent<investigateMenuManager>();
+        cm = GameObject.Find("CameraManager").GetComponent<CameraManager>();
         options = -1;
     }
 
@@ -38,11 +37,11 @@ public class ItemManager : MonoBehaviour
             case 1:
                 if (!goItem.isSizeBig)
                 {
-                    _itemCheckPick(mCam);
+                    _itemCheckPick();
                 }
                 else
                 {
-                    _itemCheckClose(mCam);
+                    _itemCheckClose();
                 }
 
                 break;
@@ -57,41 +56,38 @@ public class ItemManager : MonoBehaviour
         }
     }
 
-    public void itemCheck(Camera cam)
+    public void itemCheck()
     {
-        mCam = cam;
         goItem = go.GetComponent<item>();
         goTrans = go.GetComponent<Transform>();
-
+        cm.camReset();
         //ÄÃÆð¼ì²é
         if (!goItem.isSizeBig)
         {
-            prePosition = new Vector3(goTrans.position.x, goTrans.position.y, goTrans.position.z);
-            preRotation = new Quaternion(goTrans.rotation.x, goTrans.rotation.y, goTrans.rotation.z, goTrans.rotation.w);
             if (!globalManager.GetComponent<GlobalManager>().isInvestigate)
             {
                 goItem.thisInvestigate = true;
                 go.GetComponent<Outline>().enabled = false;
                 globalManager.GetComponent<GlobalManager>().isInvestigate = true;
-                goTrans.position = cam.transform.position + goTrans.forward * goItem.checkDistance;
-                goTrans.LookAt(cam.transform.position);
+                globalManager.GetComponent<GlobalManager>().investigateItem = go;
+                goTrans.position = cm.transform.position + goTrans.forward * goItem.checkDistance;
+                goTrans.LookAt(cm.transform.position);
                 tempRotationDragging = goTrans.rotation.eulerAngles;
             }
         }
         else
         //¿¿½ü¹Û²ì
         {
-            prePosition = new Vector3(cam.gameObject.transform.position.x, cam.gameObject.transform.position.y, cam.gameObject.transform.position.z);
-            preRotation = new Quaternion(cam.gameObject.transform.rotation.x, cam.gameObject.transform.rotation.y, cam.gameObject.transform.rotation.z, cam.gameObject.transform.rotation.w);
             if (!globalManager.GetComponent<GlobalManager>().isInvestigate)
             {
                 goItem.thisInvestigate = true;
                 go.GetComponent<Outline>().enabled = false;
                 globalManager.GetComponent<GlobalManager>().isInvestigate = true;
-                cam.transform.position = goTrans.position + goTrans.forward * goItem.checkDistance;
-                cam.transform.LookAt(goTrans.position);
-                tempPositionDragging = cam.transform.position;
-                tempRotationDragging = cam.transform.rotation.eulerAngles;
+                globalManager.GetComponent<GlobalManager>().investigateItem = go;
+                cm.transform.position = goTrans.position + goTrans.forward * goItem.checkDistance;
+                cm.transform.LookAt(goTrans.position);
+                tempPositionDragging = cm.transform.position;
+                tempRotationDragging = cm.transform.rotation.eulerAngles;
             }
         }
         options = 1;
@@ -124,7 +120,7 @@ public class ItemManager : MonoBehaviour
 
 
     //¼ì²éÂß¼­
-    private void _itemCheckPick(Camera cam)
+    private void _itemCheckPick()
     {
         //Ö÷ÒªÂß¼­
         if (globalManager.GetComponent<GlobalManager>().isInvestigate
@@ -134,7 +130,7 @@ public class ItemManager : MonoBehaviour
             || Input.GetMouseButtonDown(1)
             || Input.GetMouseButtonUp(1)))
         {
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+            Ray ray = cm.cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
             //ÍÏ¶¯Âß¼­--------------------------------------------------------------------------------------------------------¡ý
@@ -152,10 +148,11 @@ public class ItemManager : MonoBehaviour
                 {
                     if (!isRayHitThis(hit, goItem.childParts))
                     {
-                        goTrans.position = prePosition;
-                        goTrans.rotation = preRotation;
+                        goTrans.position = cm.oPosition;
+                        goTrans.rotation = cm.oRotation;
                         goItem.thisInvestigate = false;
                         globalManager.GetComponent<GlobalManager>().isInvestigate = false;
+                        globalManager.GetComponent<GlobalManager>().investigateItem = null;
                     }
                 }
             }
@@ -172,14 +169,14 @@ public class ItemManager : MonoBehaviour
             }
             //ÍÏ¶¯Âß¼­--------------------------------------------------------------------------------------------------------¡ü
         }
-        scrollZoom(cam.gameObject.transform, goTrans);
+        scrollZoom(cm.transform, goTrans);
     }
 
 
     //¹Û²ìÂß¼­
-    private void _itemCheckClose(Camera cam)
+    private void _itemCheckClose()
     {
-        Transform camTrans = cam.transform;
+        Transform camTrans = cm.transform;
         //Ö÷ÒªÂß¼­
         if (globalManager.GetComponent<GlobalManager>().isInvestigate
             && goItem.thisInvestigate
@@ -188,7 +185,7 @@ public class ItemManager : MonoBehaviour
             || Input.GetMouseButtonDown(1)
             || Input.GetMouseButtonUp(1))) 
         {
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+            Ray ray = cm.cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
             //ÍÏ¶¯Âß¼­--------------------------------------------------------------------------------------------------------¡ý
@@ -206,10 +203,11 @@ public class ItemManager : MonoBehaviour
                 {
                     if (!isRayHitThis(hit, goItem.childParts))
                     {
-                        camTrans.position = prePosition;
-                        camTrans.rotation = preRotation;
+                        camTrans.position = cm.oPosition;
+                        camTrans.rotation = cm.oRotation;
                         goItem.thisInvestigate = false;
                         globalManager.GetComponent<GlobalManager>().isInvestigate = false;
+                        globalManager.GetComponent<GlobalManager>().investigateItem = null;
                     }
                 }
             }
@@ -251,7 +249,7 @@ public class ItemManager : MonoBehaviour
             }
             //ÍÏ¶¯Âß¼­--------------------------------------------------------------------------------------------------------¡ü
         }
-        scrollZoom(goTrans, cam.gameObject.transform);
+        scrollZoom(goTrans, cm.transform);
     }
 
     private void scrollZoom(Transform stabledItem, Transform movingItem)

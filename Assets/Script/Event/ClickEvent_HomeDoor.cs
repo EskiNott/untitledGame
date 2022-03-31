@@ -9,6 +9,7 @@ public class ClickEvent_HomeDoor : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         camManager.GetComponent<CameraManager>().setCamTrans(HomeScene.transform);
+        camManager.GetComponent<CameraManager>().camReset();
         MainMenu.SetActive(false);
     }
 }

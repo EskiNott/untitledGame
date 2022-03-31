@@ -9,11 +9,11 @@ public class investigateMenuManager : MonoBehaviour
     public Camera cam;
     public GameObject[] investigateMenu;
     public bool isMenuOpened;
+    public CameraManager cm;
 
     private Transform hitTransform;
     private Transform menuTransform;
     private ItemManager myItemM;
-    private Transform myTransform;
     private GlobalManager gm;
     // Start is called before the first frame update
     void Start()
@@ -21,8 +21,8 @@ public class investigateMenuManager : MonoBehaviour
         menuTransform = GameObject.Find("investigateMenu").GetComponent<Transform>();
         isMenuOpened = false;
         myItemM = GetComponent<ItemManager>();
-        myTransform = GetComponent<Transform>();
         gm = GameObject.Find("GlobalManager").GetComponent<GlobalManager>();
+        cm = GameObject.Find("CameraManager").GetComponent<CameraManager>();
     }
 
     // Update is called once per frame
@@ -35,8 +35,6 @@ public class investigateMenuManager : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !RaycastUI() && isMenuOpened)
         {
             isMenuOpened = false;
-            hitTransform.GetComponent<OutlinePointerEvent>().forceOn = false;
-            hitTransform.GetComponent<Outline>().enabled = false;
             clearButton();
         }
         //菜单开启逻辑
@@ -49,6 +47,7 @@ public class investigateMenuManager : MonoBehaviour
                 if (hitTransform.gameObject.GetComponent<item>() && hitTransform.gameObject.GetComponent<item>().interact.Length > 0)
                 {
                     hitTransform.GetComponent<OutlinePointerEvent>().forceOn = true;
+                    cm.camFocus(hitTransform);
                     for (int i = 0; i < hitTransform.gameObject.GetComponent<item>().interact.Length; i++)
                     {
                         if (hitTransform.gameObject.GetComponent<item>().interact[i])
@@ -56,13 +55,17 @@ public class investigateMenuManager : MonoBehaviour
                             investigateMenu[i].SetActive(true);
                         }
                     }
-                    //设置菜单位置
-                    menuTransform.position = new Vector3(cam.WorldToScreenPoint(hitTransform.position).x,
-                                                         cam.WorldToScreenPoint(hitTransform.position).y,
-                                                         cam.WorldToScreenPoint(hitTransform.position).z);
                     isMenuOpened = true;
                 }
             }
+
+        }
+        //设置菜单位置
+        if (isMenuOpened)
+        {
+            menuTransform.position = new Vector3(cam.WorldToScreenPoint(hitTransform.position).x,
+                                 cam.WorldToScreenPoint(hitTransform.position).y,
+                                 cam.WorldToScreenPoint(hitTransform.position).z);
         }
     }
 
@@ -73,6 +76,9 @@ public class investigateMenuManager : MonoBehaviour
         {
             GameObject.FindWithTag("itemInvestigateOption").SetActive(false);
         }
+        hitTransform.GetComponent<OutlinePointerEvent>().forceOn = false;
+        hitTransform.GetComponent<Outline>().enabled = false;
+        cm.camRevert();
     }
 
     //检测鼠标是否在UI上
@@ -90,7 +96,7 @@ public class investigateMenuManager : MonoBehaviour
             return false;
     }
 
-    private GameObject getFatherOrThishasItem(RaycastHit hit)
+    public GameObject getFatherOrThishasItem(RaycastHit hit)
     {
         GameObject go = hit.collider.gameObject;
         if (hit.collider.gameObject.GetComponent<item>() == null)
