@@ -44,14 +44,7 @@ public class ItemManager : MonoBehaviour
                 else
                 {
                     _itemCheckClose();
-                    if (gm.isInvestigate)
-                    {
-                        cm.camStop(true);
-                    }
-                    else
-                    {
-                        cm.camStop(false);
-                    }
+                    cm.camStop(gm.isInvestigate);
                 }
 
                 break;
