@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemManager : MonoBehaviour
 {
-    private GameObject globalManager;
+    private GlobalManager gm;
     private investigateMenuManager iMM;
     private Vector3 tempRotationDragging;
     private Vector3 tempPositionDragging;
@@ -24,7 +24,7 @@ public class ItemManager : MonoBehaviour
 
     private void Start()
     {
-        globalManager = GameObject.Find("GlobalManager");
+        gm = GameObject.Find("GlobalManager").GetComponent<GlobalManager>();
         iMM = GetComponent<investigateMenuManager>();
         cm = GameObject.Find("CameraManager").GetComponent<CameraManager>();
         options = -1;
@@ -44,6 +44,14 @@ public class ItemManager : MonoBehaviour
                 else
                 {
                     _itemCheckClose();
+                    if (gm.isInvestigate)
+                    {
+                        cm.camStop(true);
+                    }
+                    else
+                    {
+                        cm.camStop(false);
+                    }
                 }
 
                 break;
@@ -66,14 +74,14 @@ public class ItemManager : MonoBehaviour
         if (!goItem.isSizeBig)
 
         {
-            if (!globalManager.GetComponent<GlobalManager>().isInvestigate)
+            if (!gm.isInvestigate)
             {
                 prePosition = new Vector3(goTrans.position.x, goTrans.position.y, goTrans.position.z);
                 preRotation = new Quaternion(goTrans.rotation.x, goTrans.rotation.y, goTrans.rotation.z, goTrans.rotation.w);
                 goItem.thisInvestigate = true;
                 go.GetComponent<Outline>().enabled = false;
-                globalManager.GetComponent<GlobalManager>().isInvestigate = true;
-                globalManager.GetComponent<GlobalManager>().investigateItem = go;
+                gm.isInvestigate = true;
+                gm.investigateItem = go;
                 goTrans.position = cm.oPosition + cm.oRotation*(new Vector3(0, 0, 1)).normalized * goItem.checkDistance;
                 goTrans.LookAt(cm.oPosition);
                 tempRotationDragging = goTrans.rotation.eulerAngles;
@@ -82,12 +90,12 @@ public class ItemManager : MonoBehaviour
         else
         //靠近观察
         {
-            if (!globalManager.GetComponent<GlobalManager>().isInvestigate)
+            if (!gm.isInvestigate)
             {
                 goItem.thisInvestigate = true;
                 go.GetComponent<Outline>().enabled = false;
-                globalManager.GetComponent<GlobalManager>().isInvestigate = true;
-                globalManager.GetComponent<GlobalManager>().investigateItem = go;
+                gm.isInvestigate = true;
+                gm.investigateItem = go;
                 cm.setCamPos(goTrans.position + goTrans.forward * goItem.checkDistance);
                 cm.cam.transform.LookAt(goTrans.position);
                 tempPositionDragging = cm.cam.transform.position;
@@ -127,7 +135,7 @@ public class ItemManager : MonoBehaviour
     private void _itemCheckPick()
     {
         //主要逻辑
-        if (globalManager.GetComponent<GlobalManager>().isInvestigate
+        if (gm.isInvestigate
             && goItem.thisInvestigate
             && (Input.GetMouseButtonDown(0)
             || Input.GetMouseButton(1)
@@ -155,8 +163,8 @@ public class ItemManager : MonoBehaviour
                         goTrans.position = prePosition;
                         goTrans.rotation = preRotation;
                         goItem.thisInvestigate = false;
-                        globalManager.GetComponent<GlobalManager>().isInvestigate = false;
-                        globalManager.GetComponent<GlobalManager>().investigateItem = null;
+                        gm.isInvestigate = false;
+                        gm.investigateItem = null;
                     }
                 }
             }
@@ -182,7 +190,7 @@ public class ItemManager : MonoBehaviour
     {
         Transform camTrans = cm.cam.transform;
         //主要逻辑
-        if (globalManager.GetComponent<GlobalManager>().isInvestigate
+        if (gm.isInvestigate
             && goItem.thisInvestigate
             && (Input.GetMouseButtonDown(0)
             || Input.GetMouseButton(1)
@@ -191,7 +199,6 @@ public class ItemManager : MonoBehaviour
         {
             Ray ray = cm.cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            cm.camStop(true);
             //拖动逻辑--------------------------------------------------------------------------------------------------------↓
             //拖动开始判定
             if (Input.GetMouseButtonDown(1) && Physics.Raycast(ray, out hit)
@@ -210,9 +217,8 @@ public class ItemManager : MonoBehaviour
                         camTrans.position = cm.oPosition;
                         camTrans.rotation = cm.oRotation;
                         goItem.thisInvestigate = false;
-                        globalManager.GetComponent<GlobalManager>().isInvestigate = false;
-                        globalManager.GetComponent<GlobalManager>().investigateItem = null;
-                        cm.camStop(false);
+                        gm.isInvestigate = false;
+                        gm.investigateItem = null;
                     }
                 }
             }

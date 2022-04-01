@@ -41,17 +41,19 @@ public class CameraManager : MonoBehaviour
                 lerpFlag = false;
             }
         }
-
-        if (camMove && !camPause) 
+        if (!camPause)
         {
-            Vector3 dir;
-            dir = targetTrans.position - camTrans.position;
-            Quaternion targetQua = Quaternion.LookRotation(dir);
-            camTrans.rotation = Quaternion.Lerp(camTrans.rotation, targetQua, Time.deltaTime * turnSpeed);
-        }
-        else
-        {
-            camTrans.rotation = Quaternion.Lerp(camTrans.rotation, oRotation, Time.deltaTime * turnSpeed);
+            if (camMove)
+            {
+                Vector3 dir;
+                dir = targetTrans.position - camTrans.position;
+                Quaternion targetQua = Quaternion.LookRotation(dir);
+                camTrans.rotation = Quaternion.Lerp(camTrans.rotation, targetQua, Time.deltaTime * turnSpeed);
+            }
+            else
+            {
+                camTrans.rotation = Quaternion.Lerp(camTrans.rotation, oRotation, Time.deltaTime * turnSpeed);
+            }
         }
         oTrans.rotation = oRotation;
         oTrans.position = oPosition;
@@ -82,7 +84,10 @@ public class CameraManager : MonoBehaviour
         oPosition = camTrans.position;
         oRotation = camTrans.rotation;
     }
-
+    public bool getCamPause()
+    {
+        return camPause;
+    }
     public void camStop(bool isPause)
     {
         camPause = isPause;
