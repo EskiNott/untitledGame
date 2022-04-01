@@ -5,7 +5,7 @@ using UnityEngine;
 public class Resource:MonoBehaviour
 {
     public uint id;
-    public string name;
+    public string Name;
     public enum resourceType{food,drink,medicine,equipment,gun,meeleWeapon,questItem}
     public resourceType type;
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class backpack : MonoBehaviour
 {
+    public LinkedList<Resource> playerBag;
     // Start is called before the first frame update
     void Start()
     {
