@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "prefabName": "Res_1",
+    "Name": "开罐器",
+    "type": "tool",
+  },
+  {
+    "id": 2,
+    "prefabName": "Res_2",
+    "Name": "午餐肉罐头",
+    "type": "food",
+  },
+  {
+    "id": 3,
+    "prefabName": "Res_2",
+    "Name": "卷心菜罐头",
+    "type": "food",
+  }
+]
