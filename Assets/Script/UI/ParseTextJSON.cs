@@ -29,4 +29,59 @@ public class ParseTextJSON
         }
         return Dialogs;
     }
+
+    static public List<Resource> ParseResourceListJSON(string jsonAddress)
+    {
+        List<Resource> BP = new List<Resource>();
+        TextAsset ta = Resources.Load<TextAsset>(jsonAddress);
+        JSONObject j = new JSONObject(ta.text);
+
+        foreach (JSONObject temp in j.list)
+        {
+            int tempID = temp["id"].intValue;
+            string tempPrefabName = temp["prefabName"].stringValue;
+            string tempName = temp["Name"].stringValue;
+            Resource.resourceType tempType;
+            switch (temp["Type"].stringValue)
+            {
+                case "food":
+                    tempType = Resource.resourceType.food;
+                    break;
+                case "drink":
+                    tempType = Resource.resourceType.drink;
+                    break;
+                case "medicine":
+                    tempType = Resource.resourceType.medicine;
+                    break;
+                case "equipment":
+                    tempType = Resource.resourceType.equipment;
+                    break;
+                case "gun":
+                    tempType = Resource.resourceType.gun;
+                    break;
+                case "meeleWeapon":
+                    tempType = Resource.resourceType.meeleWeapon;
+                    break;
+                case "questItem":
+                    tempType = Resource.resourceType.questItem;
+                    break;
+                case "tool":
+                    tempType = Resource.resourceType.tool;
+                    break;
+                default:
+                    tempType = Resource.resourceType.food;
+                    break;
+            }
+            int tempAmount = temp["Amount"].intValue;
+
+            Resource r = new Resource();
+            r.id = tempID;
+            r.prefabName = tempPrefabName;
+            r.Name = tempName;
+            r.type = tempType;
+            r.amount = (uint)tempAmount;
+            BP.Add(r);
+        }
+        return BP;
+    }
 }

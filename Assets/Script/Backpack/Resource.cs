@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Resource:MonoBehaviour
+[System.Serializable]
+public class Resource
 {
-    public uint id;
+    public int id;
     public string Name;
     public string prefabName;
     public uint amount;

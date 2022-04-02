@@ -3,18 +3,21 @@
     "id": 1,
     "prefabName": "Res_1",
     "Name": "开罐器",
-    "type": "tool",
+    "Type": "tool",
+    "Amount": 0
   },
   {
     "id": 2,
     "prefabName": "Res_2",
     "Name": "午餐肉罐头",
-    "type": "food",
+    "Type": "food",
+    "Amount": 0
   },
   {
     "id": 3,
     "prefabName": "Res_2",
     "Name": "卷心菜罐头",
-    "type": "food",
+    "Type": "food",
+    "Amount": 0
   }
 ]

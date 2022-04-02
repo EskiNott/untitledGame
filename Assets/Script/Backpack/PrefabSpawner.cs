@@ -17,7 +17,7 @@ public class PrefabSpawner : MonoBehaviour
         
     }
 
-    private void spawnItemsinBackpack()
+    public void spawnItemsinBackpack(int itemID)
     {
 
     }
