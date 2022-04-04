@@ -8,7 +8,9 @@ public class Resource
     public int id;
     public string Name;
     public string prefabName;
-    public uint amount;
+    public uint Amount;
+    public float Mass;
+    public float Volume;
     public enum resourceType{food,drink,medicine,equipment,gun,meeleWeapon,questItem,tool}
     public resourceType type;
 

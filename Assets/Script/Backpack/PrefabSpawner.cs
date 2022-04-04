@@ -5,20 +5,27 @@ using UnityEngine;
 public class PrefabSpawner : MonoBehaviour
 {
     public backpack BP;
+    private Transform myTrans;
     // Start is called before the first frame update
     void Start()
     {
-        BP = GameObject.Find("BackpackPanel").GetComponent<backpack>();
+        myTrans = transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        spawnItemsinBackpack();
     }
 
-    public void spawnItemsinBackpack(int itemID)
+    public void spawnItemsinBackpack()
     {
-
+        foreach(Resource res in BP.playerBag)
+        {
+            if(res.Amount > 0)
+            {
+                BP.playerBag_ListItem(res.id,myTrans.position);
+            }
+        }
     }
 }

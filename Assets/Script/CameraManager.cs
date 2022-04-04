@@ -9,8 +9,7 @@ public class CameraManager : MonoBehaviour
     public float posSpeed;
     public float rotSpeed;
     public float turnSpeed = 5.0f;
-    public Vector3 oPosition;
-    public Quaternion oRotation;
+    public GameObject nowCamera;
     public Transform oTrans;
 
     private bool lerpFlag;
@@ -25,7 +24,6 @@ public class CameraManager : MonoBehaviour
         camTrans = cam.transform;
         lerpFlag = false;
         camTrans = cam.transform;
-        oTrans = new GameObject().transform;
         camPause = false;
     }
 
@@ -34,9 +32,10 @@ public class CameraManager : MonoBehaviour
     {
         if (lerpFlag)
         {
-            camTrans.localPosition = Vector3.Lerp(camTrans.localPosition, oPosition + lerpTrans.position, Time.deltaTime * (posSpeed + 2));
-            camTrans.localRotation = Quaternion.Lerp(camTrans.localRotation, Quaternion.Euler(oRotation.eulerAngles + lerpTrans.rotation.eulerAngles), Time.deltaTime * rotSpeed);
-            if (ItemCheckMethod.isFinishVector(camTrans.localPosition, oPosition + lerpTrans.position) && ItemCheckMethod.isFinishQuaternion(camTrans.localRotation, Quaternion.Euler(oRotation.eulerAngles + lerpTrans.rotation.eulerAngles)))
+            camTrans.localPosition = Vector3.Lerp(camTrans.localPosition, oTrans.position + lerpTrans.position, Time.deltaTime * (posSpeed + 2));
+            camTrans.localRotation = Quaternion.Lerp(camTrans.localRotation, Quaternion.Euler(oTrans.rotation.eulerAngles + lerpTrans.rotation.eulerAngles), Time.deltaTime * rotSpeed);
+            if (ItemCheckMethod.isFinishVector(camTrans.localPosition, oTrans.position + lerpTrans.position) 
+                && ItemCheckMethod.isFinishQuaternion(camTrans.localRotation, Quaternion.Euler(oTrans.rotation.eulerAngles + lerpTrans.rotation.eulerAngles)))
             {
                 lerpFlag = false;
             }
@@ -52,11 +51,9 @@ public class CameraManager : MonoBehaviour
             }
             else
             {
-                camTrans.rotation = Quaternion.Lerp(camTrans.rotation, oRotation, Time.deltaTime * turnSpeed);
+                camTrans.rotation = Quaternion.Lerp(camTrans.rotation, oTrans.rotation, Time.deltaTime * turnSpeed);
             }
         }
-        oTrans.rotation = oRotation;
-        oTrans.position = oPosition;
     }
     public void setCamRot(Quaternion rot)
     {
@@ -66,11 +63,16 @@ public class CameraManager : MonoBehaviour
     {
         camTrans.position = pos;
     }
-    public void setCamTrans(Transform trans)
+    public void setCamTrans(GameObject targetCameraGO)
     {
-        camInit();
-        setCamPos(trans.position);
-        setCamRot(trans.rotation);
+        camInit(targetCameraGO);
+        setCamPos(oTrans.position);
+        setCamRot(oTrans.rotation);
+    }
+    public void setCamTrans(Transform targetTrans)
+    {
+        setCamPos(targetTrans.position);
+        setCamRot(targetTrans.rotation);
     }
 
     public void camLerpMoving(Transform trans)
@@ -79,10 +81,10 @@ public class CameraManager : MonoBehaviour
         lerpFlag = true;
     }
 
-    public void camInit()
+    public void camInit(GameObject originCameraGO)
     {
-        oPosition = camTrans.position;
-        oRotation = camTrans.rotation;
+        nowCamera = originCameraGO;
+        oTrans = nowCamera.transform;
     }
     public bool getCamPause()
     {

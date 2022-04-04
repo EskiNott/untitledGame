@@ -4,20 +4,26 @@
     "prefabName": "Res_1",
     "Name": "开罐器",
     "Type": "tool",
-    "Amount": 0
+    "Amount": 1,
+    "Mass": 0.08,
+    "Volume": 0.02
   },
   {
     "id": 2,
     "prefabName": "Res_2",
     "Name": "午餐肉罐头",
     "Type": "food",
-    "Amount": 0
+    "Amount": 0,
+    "Mass": 0.25,
+    "Volume": 0.2
   },
   {
     "id": 3,
     "prefabName": "Res_2",
     "Name": "卷心菜罐头",
     "Type": "food",
-    "Amount": 0
+    "Amount": 0,
+    "Mass": 0.25,
+    "Volume": 0.2
   }
 ]

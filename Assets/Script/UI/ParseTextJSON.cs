@@ -73,13 +73,17 @@ public class ParseTextJSON
                     break;
             }
             int tempAmount = temp["Amount"].intValue;
+            float tempMass = temp["Mass"].floatValue;
+            float tempVolume = temp["Volume"].floatValue;
 
             Resource r = new Resource();
             r.id = tempID;
             r.prefabName = tempPrefabName;
             r.Name = tempName;
             r.type = tempType;
-            r.amount = (uint)tempAmount;
+            r.Amount = (uint)tempAmount;
+            r.Mass = tempMass;
+            r.Volume = tempVolume;
             BP.Add(r);
         }
         return BP;

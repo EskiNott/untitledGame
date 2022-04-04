@@ -5,12 +5,13 @@ using UnityEngine.UI;
 
 public class OpenGame : MonoBehaviour
 {
+    public GameObject Camera_Door;
     public GameObject camManager;
     public GameObject mainMenu;
     // Start is called before the first frame update
     void Start()
     {
-        camManager.GetComponent<CameraManager>().setCamTrans(GameObject.Find("Camera_Door").transform);
+        camManager.GetComponent<CameraManager>().setCamTrans(Camera_Door);
         mainMenu.SetActive(true);
     }
 

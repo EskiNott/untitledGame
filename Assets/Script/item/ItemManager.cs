@@ -14,8 +14,8 @@ public class ItemManager : MonoBehaviour
     private item goItem;
     private Transform goTrans;
     private CameraManager cm;
-    private Vector3 prePosition;
-    private Quaternion preRotation;
+    private Vector3  ItemPrePosition;
+    private Quaternion ItemPreRotation;
 
     public bool isDragging = false;
     public GameObject go;
@@ -69,14 +69,14 @@ public class ItemManager : MonoBehaviour
         {
             if (!gm.isInvestigate)
             {
-                prePosition = new Vector3(goTrans.position.x, goTrans.position.y, goTrans.position.z);
-                preRotation = new Quaternion(goTrans.rotation.x, goTrans.rotation.y, goTrans.rotation.z, goTrans.rotation.w);
+                ItemPrePosition = new Vector3(goTrans.position.x, goTrans.position.y, goTrans.position.z);
+                ItemPreRotation = new Quaternion(goTrans.rotation.x, goTrans.rotation.y, goTrans.rotation.z, goTrans.rotation.w);
                 goItem.thisInvestigate = true;
                 go.GetComponent<Outline>().enabled = false;
                 gm.isInvestigate = true;
                 gm.investigateItem = go;
-                goTrans.position = cm.oPosition + cm.oRotation*(new Vector3(0, 0, 1)).normalized * goItem.checkDistance;
-                goTrans.LookAt(cm.oPosition);
+                goTrans.position = cm.oTrans.position + cm.oTrans.rotation*(new Vector3(0, 0, 1)).normalized * goItem.checkDistance;
+                goTrans.LookAt(cm.oTrans.position);
                 tempRotationDragging = goTrans.rotation.eulerAngles;
             }
         }
@@ -129,52 +129,55 @@ public class ItemManager : MonoBehaviour
     {
         //主要逻辑
         if (gm.isInvestigate
-            && goItem.thisInvestigate
-            && (Input.GetMouseButtonDown(0)
-            || Input.GetMouseButton(1)
-            || Input.GetMouseButtonDown(1)
-            || Input.GetMouseButtonUp(1)))
+            && goItem.thisInvestigate)
         {
-            Ray ray = cm.cam.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
+            if (Input.GetMouseButtonDown(0)
+                || Input.GetMouseButton(1)
+                || Input.GetMouseButtonDown(1)
+                || Input.GetMouseButtonUp(1))
+            {
+                Ray ray = cm.cam.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
 
-            //拖动逻辑--------------------------------------------------------------------------------------------------------↓
-            //拖动开始判定
-            if (Input.GetMouseButtonDown(1) && Physics.Raycast(ray, out hit)
-                && ((hit.collider.gameObject == go) || isRayHitThis(hit, goItem.childParts)))
-            {
-                MousePos1 = Input.mousePosition;
-                isDragging = true;
-            }
-            //退出检查判定
-            else if (Input.GetMouseButtonDown(0) && Physics.Raycast(ray, out hit) && !isDragging)
-            {
-                if (hit.collider.gameObject != go)
+                //拖动逻辑--------------------------------------------------------------------------------------------------------↓
+                //拖动开始判定
+                if (Input.GetMouseButtonDown(1) && Physics.Raycast(ray, out hit)
+                    && ((hit.collider.gameObject == go) || isRayHitThis(hit, goItem.childParts)))
                 {
-                    if (!isRayHitThis(hit, goItem.childParts))
+                    MousePos1 = Input.mousePosition;
+                    isDragging = true;
+                }
+                //退出检查判定
+                else if (Input.GetMouseButtonDown(0) && Physics.Raycast(ray, out hit) && !isDragging)
+                {
+                    if (hit.collider.gameObject != go)
                     {
-                        goTrans.position = prePosition;
-                        goTrans.rotation = preRotation;
-                        goItem.thisInvestigate = false;
-                        gm.isInvestigate = false;
-                        gm.investigateItem = null;
+                        if (!isRayHitThis(hit, goItem.childParts))
+                        {
+                            go.transform.position = ItemPrePosition;
+                            go.transform.rotation = ItemPreRotation;
+                            goItem.thisInvestigate = false;
+                            gm.isInvestigate = false;
+                            gm.investigateItem = null;
+                        }
                     }
                 }
+                //拖动逻辑
+                else if (Input.GetMouseButton(1))
+                {
+                    MousePos2 = Input.mousePosition;
+                    goTrans.eulerAngles = new Vector3(tempRotationDragging.x + (MousePos1.y - MousePos2.y) * rotateSpeed, tempRotationDragging.y + (MousePos1.x - MousePos2.x) * rotateSpeed, 0);
+                }
+                //结束拖动判定
+                if (Input.GetMouseButtonUp(1))
+                {
+                    isDragging = false;
+                }
+                //拖动逻辑--------------------------------------------------------------------------------------------------------↑
             }
-            //拖动逻辑
-            else if (Input.GetMouseButton(1)) 
-            {
-                MousePos2 = Input.mousePosition;
-                goTrans.eulerAngles = new Vector3(tempRotationDragging.x + (MousePos1.y - MousePos2.y) * rotateSpeed, tempRotationDragging.y + (MousePos1.x - MousePos2.x) * rotateSpeed, 0);
-            }
-            //结束拖动判定
-            if (Input.GetMouseButtonUp(1))
-            {
-                isDragging = false;
-            }
-            //拖动逻辑--------------------------------------------------------------------------------------------------------↑
+            scrollZoom(cm.cam.transform, goTrans);
         }
-        scrollZoom(cm.cam.transform, goTrans);
+
     }
 
 
@@ -207,8 +210,7 @@ public class ItemManager : MonoBehaviour
                 {
                     if (!isRayHitThis(hit, goItem.childParts))
                     {
-                        camTrans.position = cm.oPosition;
-                        camTrans.rotation = cm.oRotation;
+                        cm.setCamTrans(cm.oTrans);
                         goItem.thisInvestigate = false;
                         gm.isInvestigate = false;
                         gm.investigateItem = null;
