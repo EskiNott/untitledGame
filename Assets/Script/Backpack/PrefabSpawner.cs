@@ -27,11 +27,19 @@ public class PrefabSpawner : MonoBehaviour
     }
     public void spawnItemsinBackpack()
     {
+        Vector3 SpawnPosition;
         foreach(Resource res in BP.playerBag)
         {
             if(res.Amount > 0)
             {
-                playerBag_ListItem(res.id,BP.Camera_Backpack.transform.position);
+                for(int i = 0; i < res.Amount; i++)
+                {
+                    SpawnPosition = new Vector3(BP.Camera_Backpack.transform.position.x + Random.Range(-1f, 1f)
+                    , BP.Camera_Backpack.transform.position.y
+                    , BP.Camera_Backpack.transform.position.z + Random.Range(-0.5f, 0.5f));
+
+                    playerBag_ListItem(res.id, SpawnPosition);
+                }
             }
         }
     }
