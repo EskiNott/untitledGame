@@ -46,7 +46,7 @@ public class CameraManager : MonoBehaviour
             {
                 Vector3 dir;
                 dir = targetTrans.position - camTrans.position;
-                Quaternion targetQua = Quaternion.LookRotation(dir);
+                Quaternion targetQua = Quaternion.LookRotation(dir, camTrans.up);
                 camTrans.rotation = Quaternion.Lerp(camTrans.rotation, targetQua, Time.deltaTime * turnSpeed);
             }
             else

@@ -10,19 +10,18 @@ public class investigateMenuManager : MonoBehaviour
     public GameObject[] investigateMenu;
     public bool isMenuOpened;
     public CameraManager cm;
+    public GlobalManager gm;
 
+    [SerializeField]
     private Transform hitTransform;
     private Transform menuTransform;
     private ItemManager myItemM;
-    private GlobalManager gm;
     // Start is called before the first frame update
     void Start()
     {
         menuTransform = GameObject.Find("investigateMenu").GetComponent<Transform>();
         isMenuOpened = false;
         myItemM = GetComponent<ItemManager>();
-        gm = GameObject.Find("GlobalManager").GetComponent<GlobalManager>();
-        cm = GameObject.Find("CameraManager").GetComponent<CameraManager>();
     }
 
     // Update is called once per frame

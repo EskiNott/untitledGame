@@ -7,16 +7,17 @@ public class backpack : MonoBehaviour
 {
     static string jsonAddress = "Prefabs\\Resources\\ItemList";
     public List<Resource> playerBag;
-    public List<GameObject> resourcesList;
     public GameObject ResourceSpawnerGO;
     public GameObject GlobalManagerGO;
     public GameObject CameraManagerGO;
     public GameObject Camera_Backpack;
+    public GameObject resourceSpawner;
 
     private CameraManager cm;
     private GlobalManager go;
     private bool IsOpenPlayerBag = false;
     private GameObject preCamera;
+    private PrefabSpawner ps;
 
     public float playerBagMassMax = 10;
     private float playerBagMassNow = 0;
@@ -28,6 +29,7 @@ public class backpack : MonoBehaviour
     {
         go = GlobalManagerGO.GetComponent<GlobalManager>();
         cm = CameraManagerGO.GetComponent<CameraManager>();
+        ps = resourceSpawner.GetComponent<PrefabSpawner>();
         playerBag = ParseTextJSON.ParseResourceListJSON(jsonAddress);
     }
 
@@ -38,6 +40,14 @@ public class backpack : MonoBehaviour
         {
             IsOpenPlayerBag = !IsOpenPlayerBag;
             MoveCameraToBackpack();
+            if (IsOpenPlayerBag)
+            {
+                ps.spawnItemsinBackpack();
+            }
+            else
+            {
+                ps.deleteAllChild();
+            }
         }
     }
     
@@ -100,23 +110,6 @@ public class backpack : MonoBehaviour
         return false;
     }
 
-    public bool playerBag_ListItem(int id,Vector3 pos)
-    {
-        Resource tempRes = _ResourceFindInPlayerBag(id);
-        if (tempRes != null)
-        {
-            foreach (GameObject tempGo in resourcesList)
-            {
-                if (tempGo.name == tempRes.prefabName)
-                {
-                    Instantiate((GameObject)Resources.Load("Prefabs\\Resources\\"+tempRes.prefabName), pos, Quaternion.identity);
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
     public void playerBagMassIncrese(int Mass)
     {
         playerBagMassMax += Mass;
@@ -139,7 +132,7 @@ public class backpack : MonoBehaviour
             cm.setCamTrans(preCamera);
         }
     }
-    private Resource _ResourceFindInPlayerBag(int id)
+    public Resource _ResourceFindInPlayerBag(int id)
     {
         foreach (Resource tempRes in playerBag)
         {

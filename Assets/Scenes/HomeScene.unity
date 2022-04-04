@@ -1737,7 +1737,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 624946803}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 18.46, y: 4.4859085, z: 24.772293}
+  m_LocalPosition: {x: 18.46, y: 1.561, z: 24.772293}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 632674131}
@@ -4632,13 +4632,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerBag: []
-  resourcesList:
-  - {fileID: 6915740635798319568, guid: 786dd8f604bc429468b85b493fb67bc3, type: 3}
-  - {fileID: 241677718389567481, guid: da82cdd3291fb3b4aa047ce1e2f32664, type: 3}
   ResourceSpawnerGO: {fileID: 2004341533}
   GlobalManagerGO: {fileID: 1991459497}
   CameraManagerGO: {fileID: 2084032346}
   Camera_Backpack: {fileID: 624946803}
+  resourceSpawner: {fileID: 2004341533}
   playerBagMassMax: 10
   playerBagVolumeMax: 10
 --- !u!1 &1597992200
@@ -4920,7 +4918,8 @@ MonoBehaviour:
   - {fileID: 163942137}
   - {fileID: 892203334}
   isMenuOpened: 0
-  cm: {fileID: 0}
+  cm: {fileID: 2084032347}
+  gm: {fileID: 1991459500}
 --- !u!1 &1748245280
 GameObject:
   m_ObjectHideFlags: 0
@@ -5632,7 +5631,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &1894337555
@@ -6149,7 +6148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2004341533}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 6.454562, y: 7.737, z: 0.9324169}
+  m_LocalPosition: {x: 6.454562, y: 4.0150914, z: 0.9324169}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1549047057}
