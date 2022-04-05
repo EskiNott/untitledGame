@@ -1,0 +1,75 @@
+[
+    {
+    
+        "id": 0,
+        "nameExist": false,
+        "zh_CN": {
+            "ObjectNameText": "",
+            "DialogText": "或许在十年前不曾有人想到，自己要在满屋天日的放射性火山灰和城市废墟里求生。"
+        },
+        "en_US": {
+            "ObjectNameText": "",
+            "DialogText": "Perhaps a decade ago, no one thought that they would survive in a house full of radioactive volcanic ash and urban ruins."
+        }
+    },
+    {
+        "id": 1,
+        "nameExist": false,
+        "zh_CN": {
+            "ObjectNameText": "",
+            "DialogText": "但我就是这么一个幸运儿，或者说一个倒霉蛋，得以体验过去70亿人不曾体验过的末日"
+        },
+        "en_US": {
+            "ObjectNameText": "",
+            "DialogText": "But I am such a lucky person, or unlucky person, to experience the doomsday that 7 billion people have not experienced in the past"
+        }
+    },
+    {
+        "id": 2,
+        "nameExist": false,
+        "zh_CN": {
+            "ObjectNameText": "",
+            "DialogText": "在火山灰和放射尘的覆盖下...今天也是阴沉的一天呢"
+        },
+        "en_US": {
+            "ObjectNameText": "",
+            "DialogText": "Under the cover of volcanic ash and radioactive dust,Today is also a gloomy day"
+        }
+    },
+    {
+        "id": 3,
+        "nameExist": false,
+        "zh_CN": {
+            "ObjectNameText": "",
+            "DialogText": "但是生活依然要继续，虽然谁也不知道我们能撑到什么时候"
+        },
+        "en_US": {
+            "ObjectNameText": "",
+            "DialogText": "But life still has to go on, although no one knows when we can last"
+        }
+    },
+    {
+        "id": 4,
+        "nameExist": false,
+        "zh_CN": {
+            "ObjectNameText": "",
+            "DialogText": "维持着我的思考到现在的，可能只剩下生物的求生本能了"
+        },
+        "en_US": {
+            "ObjectNameText": "",
+            "DialogText": "Maintaining my thinking until now, there may be only biological survival instinct left"
+        }
+    },
+    {
+        "id": 4,
+        "nameExist": false,
+        "zh_CN": {
+            "ObjectNameText": "",
+            "DialogText": "就这样胡思乱想着，今天的生活和探索也要继续。"
+        },
+        "en_US": {
+            "ObjectNameText": "",
+            "DialogText": "In this way, the life and exploration of today should continue."
+        }
+    }
+]
