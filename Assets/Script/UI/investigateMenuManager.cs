@@ -11,6 +11,7 @@ public class investigateMenuManager : MonoBehaviour
     public bool isMenuOpened;
     public CameraManager cm;
     public GlobalManager gm;
+    public GameObject MenuItemNameGO;
 
     [SerializeField]
     private Transform hitTransform;
@@ -47,6 +48,8 @@ public class investigateMenuManager : MonoBehaviour
                 {
                     hitTransform.GetComponent<OutlinePointerEvent>().forceOn = true;
                     cm.camFocus(hitTransform);
+                    MenuItemNameGO.GetComponentInChildren<Text>().text = hitTransform.gameObject.GetComponent<item>().ItemName;
+                    MenuItemNameGO.SetActive(true);
                     for (int i = 0; i < hitTransform.gameObject.GetComponent<item>().interact.Length; i++)
                     {
                         if (hitTransform.gameObject.GetComponent<item>().interact[i])

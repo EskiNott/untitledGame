@@ -47,15 +47,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba0882b0fe45e614b8c2e0dc55e1a763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ItemName: 
   interact: 000000010000
   thisInvestigate: 0
   checkDistance: 2
+  minCheckDistance: 1
+  maxCheckDistance: 3
   maxRotation_Y: 15
   minRotation_Y: -15
   maxRotation_Z: 15
   minRotation_Z: -15
-  minCheckDistance: 1
-  maxCheckDistance: 3
   isSizeBig: 0
   childParts:
   - {fileID: 8413839601824494333}

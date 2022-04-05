@@ -54,6 +54,7 @@ public class PrefabSpawner : MonoBehaviour
             if(tempPrefab != null)
             {
                 tempPrefab.transform.parent = myTrans;
+                tempPrefab.GetComponent<item>().ItemName = tempRes.Name;
             }
             return true;
         }
