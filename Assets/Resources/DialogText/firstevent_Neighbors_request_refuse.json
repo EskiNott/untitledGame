@@ -1,0 +1,62 @@
+[
+  {
+    "id": 0,
+    "nameExist": false,
+    "zh_CN": {
+      "ObjectNameText": "",
+      "DialogText": "看了看自己空空的背包，你还是做出了决定"
+    },
+    "en_US": {
+      "ObjectNameText": "",
+      "DialogText": "Looking at your empty backpack, you still made a decision"
+    }
+  },
+  {
+    "id": 1,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "我本来就自身难保了。"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "I couldn't protect myself."
+    }
+  },
+  {
+    "id": 2,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "邻居",
+      "DialogText": "你的意思是......"
+    },
+    "en_US": {
+      "ObjectNameText": "A neighbor",
+      "DialogText": "You mean......"
+    }
+  },
+  {
+    "id": 3,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "我想你必须去找其他人求助了。"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "I think you have to go to someone else for help."
+    }
+  },
+  {
+    "id": 4,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "邻居",
+      "DialogText": "好吧，确实。末日之下自私也不是什么坏事"
+    },
+    "en_US": {
+      "ObjectNameText": "A neighbor",
+      "DialogText": "Well, indeed. Selfishness is not a bad thing at the end of the day."
+    }
+  }
+]

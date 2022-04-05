@@ -1,0 +1,74 @@
+[
+  {
+    "id": 0,
+    "nameExist": false,
+    "zh_CN": {
+      "ObjectNameText": "",
+      "DialogText": "望了望空空的背包，又回头看到了男人满面的愁容。"
+    },
+    "en_US": {
+      "ObjectNameText": "",
+      "DialogText": "Looking at the empty backpack, I looked back and saw the man's sad face."
+    }
+  },
+  {
+    "id": 1,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "嗯，我没办法一个人帮你。"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "Well, I can't help you alone."
+    }
+  },
+  {
+    "id": 2,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "邻居",
+      "DialogText": "除了来找你之外，我已经想不出其他选择了。"
+    },
+    "en_US": {
+      "ObjectNameText": "A neighbor",
+      "DialogText": "I can't think of any other choice but to come to you."
+    }
+  },
+  {
+    "id": 3,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "所以我们一起去找其他人来一起帮忙吧。"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "So let's find someone else to help."
+    }
+  },
+  {
+    "id": 4,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "邻居",
+      "DialogText": "如果你觉得这是个好的解决方法的话....好吧"
+    },
+    "en_US": {
+      "ObjectNameText": "A neighbor",
+      "DialogText": "If you think this is a good solution ..... ok"
+    }
+  },
+  {
+    "id": 5,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "那我们现在就去吧"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "Let's go now"
+    }
+  }
+]

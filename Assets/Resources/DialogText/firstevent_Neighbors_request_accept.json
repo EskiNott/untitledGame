@@ -1,0 +1,62 @@
+[
+  {
+    "id": 0,
+    "nameExist": false,
+    "zh_CN": {
+      "ObjectNameText": "",
+      "DialogText": "想了想，或许让邻居欠你一份人情，日后也好过一个冷漠的邻居"
+    },
+    "en_US": {
+      "ObjectNameText": "",
+      "DialogText": "After thinking about it, maybe let the neighbor owe you a favor, which will be better than an indifferent neighbor in the future"
+    }
+  },
+  {
+    "id": 1,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "下次我来找你帮忙的时候你可别拒绝哦。"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "Next time I come to you for help, don't refuse."
+    }
+  },
+  {
+    "id": 2,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "邻居",
+      "DialogText": "这么说，你愿意帮忙了？"
+    },
+    "en_US": {
+      "ObjectNameText": "A neighbor",
+      "DialogText": "So you're willing to help?"
+    }
+  },
+  {
+    "id": 3,
+    "nameExist": false,
+    "zh_CN": {
+      "ObjectNameText": "",
+      "DialogText": "点了点头"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "Nodded"
+    }
+  },
+  {
+    "id": 4,
+    "nameExist": false,
+    "zh_CN": {
+      "ObjectNameText": "",
+      "DialogText": "或许这只会让我浪费一天时间，也或许...会对这个末日世界产生一点影响吧"
+    },
+    "en_US": {
+      "ObjectNameText": "",
+      "DialogText": "Maybe it will only waste me a day, or maybe Will it have a little impact on this doomsday world"
+    }
+  }
+]
