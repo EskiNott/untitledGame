@@ -1,0 +1,110 @@
+[
+  {
+    "id": 0,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "我可不是什么铁石心肠的人..."
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "I'm not a hard hearted man"
+    }
+  },
+  {
+    "id": 1,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "稚气青年",
+      "DialogText": "啊，这么说你愿意帮我了？"
+    },
+    "en_US": {
+      "ObjectNameText": "Childish youth",
+      "DialogText": "Ah, so you're willing to help me?"
+    }
+  },
+  {
+    "id": 2,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "就算你欠我一份大人情就好了"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "Even if you owe me a big favor"
+    }
+  },
+  {
+    "id": 3,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "不过你说在这种世界里，这么拼命求生真的值得吗？"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "But do you think it's really worth living so hard in this doomsday world?"
+    }
+  },
+  {
+    "id": 4,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "稚气青年",
+      "DialogText": "你怎么突然问出这么中二的问题？"
+    },
+    "en_US": {
+      "ObjectNameText": "Childish youth",
+      "DialogText": "Why did you suddenly ask such a stupid question,like a chunibyo？"
+    }
+  },
+  {
+    "id": 5,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "我真想给你一拳"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "I really want to punch you"
+    }
+  },
+  {
+    "id": 6,
+    "nameExist": false,
+    "zh_CN": {
+      "ObjectNameText": "稚气青年",
+      "DialogText": "嗷，对不起！我先回去了！"
+    },
+    "en_US": {
+      "ObjectNameText": "Childish youth",
+      "DialogText": "Oh, sorry! I'll go back first!"
+    }
+  },
+  {
+    "id": 7,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "嘿，你还没告诉我，你的小棚子在哪里啊"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "Hey, you haven't told me where your shed is"
+    }
+  },
+  {
+    "id": 7,
+    "nameExist": false,
+    "zh_CN": {
+      "ObjectNameText": "",
+      "DialogText": "算了，一会儿去找一找吧，反正这里住的人也不多。"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "Forget it. Find it later. There aren't many people living here anyway."
+    }
+  }
+]

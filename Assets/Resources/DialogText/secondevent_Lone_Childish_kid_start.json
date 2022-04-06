@@ -1,0 +1,146 @@
+[
+  {
+    "id": 0,
+    "nameExist": false,
+    "zh_CN": {
+      "ObjectNameText": "",
+      "DialogText": "一个脏兮兮头发像是完全没打理过的青年在家门口徘徊"
+    },
+    "en_US": {
+      "ObjectNameText": "",
+      "DialogText": "A young man with dirty hair who looked like he had never taken care of himself wandered around the door of his house"
+    }
+  },
+  {
+    "id": 1,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "你这家伙是哪来的啊？"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "Where did you come from?"
+    }
+  },
+  {
+    "id": 2,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "稚气青年",
+      "DialogText": "啊哈哈，你好啊...."
+    },
+    "en_US": {
+      "ObjectNameText": "Childish youth",
+      "DialogText": "Ah ha ha, Hello...."
+    }
+  },
+  {
+    "id": 3,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "稚气青年",
+      "DialogText": "抱歉，我有点社恐"
+    },
+    "en_US": {
+      "ObjectNameText": "Childish youth",
+      "DialogText": "Sorry, I'm a little social phobia"
+    }
+  },
+  {
+    "id": 4,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "什么时候了还社恐？有事就说，有屁就放。"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "When is it time for social fear? Just say what are you doing here."
+    }
+  },
+  {
+    "id": 5,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "稚气青年",
+      "DialogText": "我知道大家都很困难，但是呢，怎么说呢...."
+    },
+    "en_US": {
+      "ObjectNameText": "Childish youth",
+      "DialogText": " know it's hard for everyone，But what am I going to say....."
+    }
+  },
+  {
+    "id": 6,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "我真想给你一拳"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "I really want to punch you"
+    }
+  },
+  {
+    "id": 7,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "稚气青年",
+      "DialogText": "啊，抱歉抱歉，我是听我邻居说的，我的小屋子是用铁皮搭的，最近有点晃动了，所以..."
+    },
+    "en_US": {
+      "ObjectNameText": "Childish youth",
+      "DialogText": "Ah, sorry, sorry, I heard from my neighbor. My little house is made of iron sheet. It's shaking a little recently, so..."
+    }
+  },
+  {
+    "id": 8,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "别让我猜你想说什么，你是想让我帮你修理你的小棚子吧？"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "Don't let me guess what you're trying to say. Do you want me to help you repair your shed?"
+    }
+  },
+  {
+    "id": 9,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "稚气青年",
+      "DialogText": "没办法啊，我是从商场地下车库来的，到的时候就只剩下站厅可以住了"
+    },
+    "en_US": {
+      "ObjectNameText": "Childish youth",
+      "DialogText": "I can't help it. I came from the underground garage of the commercial centre. When I arrived, there was only the station hall to live in"
+    }
+  },
+  {
+    "id": 10,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "我没问你这个，算了算了，我想你应该给不了我什么报酬吧？"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "I didn't ask you this. Forget it. I don't think you can give me any reward?"
+    }
+  },
+  {
+    "id": 11,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "稚气青年",
+      "DialogText": "抱歉...我该自己想想办法的..."
+    },
+    "en_US": {
+      "ObjectNameText": "Childish youth",
+      "DialogText": "i 'm sorry... I should do something myself"
+    }
+  }
+]
