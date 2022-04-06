@@ -1,0 +1,122 @@
+[
+  {
+    "id": 0,
+    "nameExist": false,
+    "zh_CN": {
+      "ObjectNameText": "",
+      "DialogText": "我们一起来到了一个老工人的房间"
+    },
+    "en_US": {
+      "ObjectNameText": "",
+      "DialogText": "We came to an old worker's room together"
+    }
+  },
+  {
+    "id": 1,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "老工人",
+      "DialogText": "你们这是来让我修什么东西的吗？"
+    },
+    "en_US": {
+      "ObjectNameText": "Old worker",
+      "DialogText": "Are you here for me to fix something?"
+    }
+  },
+  {
+    "id": 2,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "邻居",
+      "DialogText": "是我想要重建我的小屋子，但是可能只有两个人不太行"
+    },
+    "en_US": {
+      "ObjectNameText": "A neighbor",
+      "DialogText": "Yes, I want to rebuild my little house, but maybe only two people are not very good"
+    }
+  },
+  {
+    "id": 3,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "所以我想找你一起帮个忙"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "So I want to ask you for a favor"
+    }
+  },
+  {
+    "id": 4,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "老工人",
+      "DialogText": "我是很乐意帮这个忙的，但是...我现在手上只有一套工具，其他的什么都没有"
+    },
+    "en_US": {
+      "ObjectNameText": "Old worker",
+      "DialogText": "I'd love to help, but Now I have only one set of tools in my hand and nothing else"
+    }
+  },
+  {
+    "id": 5,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "这样的话，我们也没有其他人可以找了啊..."
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "In that case, we don't have anyone else to find"
+    }
+  },
+  {
+    "id": 6,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "老工人",
+      "DialogText": "我突然有一个主意，你们年轻的幸存者不是天天出去收集能用的材料吗？"
+    },
+    "en_US": {
+      "ObjectNameText": "Old worker",
+      "DialogText": "I suddenly had an idea. Don't you young survivors go out every day to collect usable materials?"
+    }
+  },
+  {
+    "id": 7,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "老工人",
+      "DialogText": "如果我们把收集的东西共享起来，各取所需，说不动就能解决有材料没人，有人没材料的困境了"
+    },
+    "en_US": {
+      "ObjectNameText": "Old worker",
+      "DialogText": "If we share the collected things, take what we need and say nothing, we can solve the dilemma of no one with materials and no one with materials"
+    }
+  },
+  {
+    "id": 8,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "老工人",
+      "DialogText": "就这样，我去组织组织大家讨论讨论，过几天我来帮你修房子吧。"
+    },
+    "en_US": {
+      "ObjectNameText": "Old worker",
+      "DialogText": "That's it. I'll organize a discussion. I'll help you repair the house in a few days."
+    }
+  },
+  {
+    "id": 9,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "邻居",
+      "DialogText": "实在是太感谢了"
+    },
+    "en_US": {
+      "ObjectNameText": "A neighbor",
+      "DialogText": "Thank you so much"
+    }
+  }
+]

@@ -1,14 +1,14 @@
 [
   {
     "id": 0,
-    "nameExist": false,
+    "nameExist": true,
     "zh_CN": {
-      "ObjectNameText": "",
-      "DialogText": "一个满面愁容的人坐在门口"
+      "ObjectNameText": "你",
+      "DialogText": "是啊，你应该自己想想办法。"
     },
     "en_US": {
-      "ObjectNameText": "",
-      "DialogText": "A man with a sad face sat at the door"
+      "ObjectNameText": "You",
+      "DialogText": "Yes, you should do something for yourself."
     }
   },
   {
@@ -16,23 +16,23 @@
     "nameExist": true,
     "zh_CN": {
       "ObjectNameText": "你",
-      "DialogText": "嘿，你呆在别人家门口干什么呢？"
+      "DialogText": "你看现在这个世界，谁会又余力去帮助别人呢？"
     },
     "en_US": {
       "ObjectNameText": "You",
-      "DialogText": "Hey, what are you doing at my door?"
+      "DialogText": "You see, in this world, who will spare no effort to help others?"
     }
   },
   {
     "id": 2,
     "nameExist": true,
     "zh_CN": {
-      "ObjectNameText": "邻居",
-      "DialogText": "终于见到你了，之前就在找你。我想让你帮个忙"
+      "ObjectNameText": "稚气青年",
+      "DialogText": "抱歉，打扰了..."
     },
     "en_US": {
-      "ObjectNameText": "A neighbor",
-      "DialogText": "I finally saw you. I was looking for you before. I want you to do me a favor"
+      "ObjectNameText": "Childish youth",
+      "DialogText": "Sorry to interrupt...."
     }
   },
   {
@@ -40,59 +40,23 @@
     "nameExist": true,
     "zh_CN": {
       "ObjectNameText": "你",
-      "DialogText": "所以你是来干什么的，先说我可没有多余的食物。"
+      "DialogText": "祝你好运"
     },
     "en_US": {
       "ObjectNameText": "You",
-      "DialogText": "So what are you doing here? First, I don't have any extra food."
+      "DialogText": "Good luck"
     }
   },
   {
     "id": 4,
-    "nameExist": true,
-    "zh_CN": {
-      "ObjectNameText": "邻居",
-      "DialogText": "你别误会我，我只是听说你以前是个土木工程师，而我的小屋塌了...."
-    },
-    "en_US": {
-      "ObjectNameText": "A neighbor",
-      "DialogText": "Don't get me wrong. I just heard that you used to be a civil engineer and my cabin collapsed"
-    }
-  },
-  {
-    "id": 5,
-    "nameExist": true,
-    "zh_CN": {
-      "ObjectNameText": "你",
-      "DialogText": "那帮人又到处乱说..."
-    },
-    "en_US": {
-      "ObjectNameText": "You",
-      "DialogText": "Those people are talking around again"
-    }
-  },
-  {
-    "id": 6,
     "nameExist": false,
     "zh_CN": {
       "ObjectNameText": "",
-      "DialogText": "我寻思：我不过是在一开始帮其他人在地铁站搭了个临时小屋子"
-    },
-    "en_US": {
-      "ObjectNameText": "",
-      "DialogText": "I thought：I just helped others build a temporary house at the subway station at the beginning"
-    }
-  },
-  {
-    "id": 7,
-    "nameExist": true,
-    "zh_CN": {
-      "ObjectNameText": "邻居",
-      "DialogText": "求你了，我所有的家什和食物都被埋在下面了"
+      "DialogText": "青年低着头悻悻然离开了，留下的是失望的背影和一点脚步声。"
     },
     "en_US": {
       "ObjectNameText": "A neighbor",
-      "DialogText": "Please, all my belongings and food are buried below"
+      "DialogText": "The young man bowed his head and left angrily, leaving a disappointed figure and a little sound of footsteps."
     }
   }
 ]

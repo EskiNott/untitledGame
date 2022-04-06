@@ -1,38 +1,38 @@
 [
   {
     "id": 0,
-    "nameExist": false,
+    "nameExist": true,
     "zh_CN": {
-      "ObjectNameText": "",
-      "DialogText": "一个满面愁容的人坐在门口"
+      "ObjectNameText": "你",
+      "DialogText": "我可不是什么铁石心肠的人..."
     },
     "en_US": {
-      "ObjectNameText": "",
-      "DialogText": "A man with a sad face sat at the door"
+      "ObjectNameText": "You",
+      "DialogText": "I'm not a hard hearted man"
     }
   },
   {
     "id": 1,
     "nameExist": true,
     "zh_CN": {
-      "ObjectNameText": "你",
-      "DialogText": "嘿，你呆在别人家门口干什么呢？"
+      "ObjectNameText": "稚气青年",
+      "DialogText": "啊，这么说你愿意帮我了？"
     },
     "en_US": {
-      "ObjectNameText": "You",
-      "DialogText": "Hey, what are you doing at my door?"
+      "ObjectNameText": "Childish youth",
+      "DialogText": "Ah, so you're willing to help me?"
     }
   },
   {
     "id": 2,
     "nameExist": true,
     "zh_CN": {
-      "ObjectNameText": "邻居",
-      "DialogText": "终于见到你了，之前就在找你。我想让你帮个忙"
+      "ObjectNameText": "你",
+      "DialogText": "就算你欠我一份大人情就好了"
     },
     "en_US": {
-      "ObjectNameText": "A neighbor",
-      "DialogText": "I finally saw you. I was looking for you before. I want you to do me a favor"
+      "ObjectNameText": "You",
+      "DialogText": "Even if you owe me a big favor"
     }
   },
   {
@@ -40,23 +40,23 @@
     "nameExist": true,
     "zh_CN": {
       "ObjectNameText": "你",
-      "DialogText": "所以你是来干什么的，先说我可没有多余的食物。"
+      "DialogText": "不过你说在这种世界里，这么拼命求生真的值得吗？"
     },
     "en_US": {
       "ObjectNameText": "You",
-      "DialogText": "So what are you doing here? First, I don't have any extra food."
+      "DialogText": "But do you think it's really worth living so hard in this doomsday world?"
     }
   },
   {
     "id": 4,
     "nameExist": true,
     "zh_CN": {
-      "ObjectNameText": "邻居",
-      "DialogText": "你别误会我，我只是听说你以前是个土木工程师，而我的小屋塌了...."
+      "ObjectNameText": "稚气青年",
+      "DialogText": "你怎么突然问出这么中二的问题？"
     },
     "en_US": {
-      "ObjectNameText": "A neighbor",
-      "DialogText": "Don't get me wrong. I just heard that you used to be a civil engineer and my cabin collapsed"
+      "ObjectNameText": "Childish youth",
+      "DialogText": "Why did you suddenly ask such a stupid question,like a chunibyo？"
     }
   },
   {
@@ -64,35 +64,83 @@
     "nameExist": true,
     "zh_CN": {
       "ObjectNameText": "你",
-      "DialogText": "那帮人又到处乱说..."
+      "DialogText": "我真想给你一拳"
     },
     "en_US": {
       "ObjectNameText": "You",
-      "DialogText": "Those people are talking around again"
+      "DialogText": "I really want to punch you"
     }
   },
   {
     "id": 6,
-    "nameExist": false,
+    "nameExist": true,
     "zh_CN": {
-      "ObjectNameText": "",
-      "DialogText": "我寻思：我不过是在一开始帮其他人在地铁站搭了个临时小屋子"
+      "ObjectNameText": "公社冒险者",
+      "DialogText": "噗嗤，啊，抱歉"
     },
     "en_US": {
-      "ObjectNameText": "",
-      "DialogText": "I thought：I just helped others build a temporary house at the subway station at the beginning"
+      "ObjectNameText": "Commune adventurer",
+      "DialogText": "He laughed in spite ofhimself ‘ah, sorry’"
     }
   },
   {
     "id": 7,
     "nameExist": true,
     "zh_CN": {
-      "ObjectNameText": "邻居",
-      "DialogText": "求你了，我所有的家什和食物都被埋在下面了"
+      "ObjectNameText": "稚气青年",
+      "DialogText": "嗷，对不起！我先回去了！"
     },
     "en_US": {
-      "ObjectNameText": "A neighbor",
-      "DialogText": "Please, all my belongings and food are buried below"
+      "ObjectNameText": "Childish youth",
+      "DialogText": "Oh, sorry! I'll go back first!"
+    }
+  },
+  {
+    "id": 8,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "嘿，你还没告诉我，你小子住在哪里啊"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "Hey, you haven't told me where your shed is"
+    }
+  },
+  {
+    "id": 9,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "公社冒险者",
+      "DialogText": "算了，我一会带你去他的小房间吧"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "Forget it, I'll take you to his little room later"
+    }
+  },
+  {
+    "id": 10,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "一会儿我自己去找吧，反正这里住的人也不多。"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "I'll find it myself later. There aren't many people living here anyway."
+    }
+  },
+  {
+    "id": 11,
+    "nameExist": false,
+    "zh_CN": {
+      "ObjectNameText": "",
+      "DialogText": "或许这也就是为什么我们需要互相帮助的原因"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "Maybe that's why we need to help each other"
     }
   }
 ]

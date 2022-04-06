@@ -4,11 +4,11 @@
     "nameExist": false,
     "zh_CN": {
       "ObjectNameText": "",
-      "DialogText": "一个满面愁容的人坐在门口"
+      "DialogText": "两个不怎么熟悉的人站在门口"
     },
     "en_US": {
       "ObjectNameText": "",
-      "DialogText": "A man with a sad face sat at the door"
+      "DialogText": "Two unfamiliar people stood at the door"
     }
   },
   {
@@ -16,83 +16,239 @@
     "nameExist": true,
     "zh_CN": {
       "ObjectNameText": "你",
-      "DialogText": "嘿，你呆在别人家门口干什么呢？"
+      "DialogText": "请问你们有什么事吗？"
     },
     "en_US": {
       "ObjectNameText": "You",
-      "DialogText": "Hey, what are you doing at my door?"
+      "DialogText": "What can I do for you?"
     }
   },
   {
     "id": 2,
-    "nameExist": true,
+    "nameExist": false,
     "zh_CN": {
-      "ObjectNameText": "邻居",
-      "DialogText": "终于见到你了，之前就在找你。我想让你帮个忙"
+      "ObjectNameText": "",
+      "DialogText": "在末日时代，两陌生人一起造访可能是眸中危险的信号，因此门后就藏了一把刀。"
     },
     "en_US": {
-      "ObjectNameText": "A neighbor",
-      "DialogText": "I finally saw you. I was looking for you before. I want you to do me a favor"
+      "ObjectNameText": "",
+      "DialogText": "In the apocalyptic era, two strangers visiting together may be a sign of danger in the eyes, so there is a knife hidden behind the door."
     }
   },
   {
     "id": 3,
     "nameExist": true,
     "zh_CN": {
-      "ObjectNameText": "你",
-      "DialogText": "所以你是来干什么的，先说我可没有多余的食物。"
+      "ObjectNameText": "公社冒险者",
+      "DialogText": "别紧张，这个...我们是来邀请你加入公社的，老工人建议我们找你来当这个公社工程师的职位"
     },
     "en_US": {
-      "ObjectNameText": "You",
-      "DialogText": "So what are you doing here? First, I don't have any extra food."
+      "ObjectNameText": "Commune adventurer",
+      "DialogText": "Relax, this We are here to invite you to join the commune. The old worker suggested that we find you as an engineer in the commune"
     }
   },
   {
     "id": 4,
     "nameExist": true,
     "zh_CN": {
-      "ObjectNameText": "邻居",
-      "DialogText": "你别误会我，我只是听说你以前是个土木工程师，而我的小屋塌了...."
+      "ObjectNameText": "你",
+      "DialogText": "什么？你在说些什么啊？"
     },
     "en_US": {
-      "ObjectNameText": "A neighbor",
-      "DialogText": "Don't get me wrong. I just heard that you used to be a civil engineer and my cabin collapsed"
+      "ObjectNameText": "You",
+      "DialogText": "what? What are you talking about?"
     }
   },
   {
     "id": 5,
     "nameExist": true,
     "zh_CN": {
-      "ObjectNameText": "你",
-      "DialogText": "那帮人又到处乱说..."
+      "ObjectNameText": "公社冒险者",
+      "DialogText": "就是让你来公社当工程师，我们所有人共享收集到的食物材料，以及每个人的技能。"
     },
     "en_US": {
-      "ObjectNameText": "You",
-      "DialogText": "Those people are talking around again"
+      "ObjectNameText": "Commune adventurer",
+      "DialogText": "Let you be an engineer in the commune. We all share the collected food materials and everyone's skills."
     }
   },
   {
     "id": 6,
-    "nameExist": false,
+    "nameExist": true,
     "zh_CN": {
-      "ObjectNameText": "",
-      "DialogText": "我寻思：我不过是在一开始帮其他人在地铁站搭了个临时小屋子"
+      "ObjectNameText": "你",
+      "DialogText": "没想到，那个老工人真的搞成了啊，不过，我也不知道这能持续多久..."
     },
     "en_US": {
-      "ObjectNameText": "",
-      "DialogText": "I thought：I just helped others build a temporary house at the subway station at the beginning"
+      "ObjectNameText": "You",
+      "DialogText": "Unexpectedly, the old worker really made it, but I don't know how long it will last"
     }
   },
   {
     "id": 7,
     "nameExist": true,
     "zh_CN": {
-      "ObjectNameText": "邻居",
-      "DialogText": "求你了，我所有的家什和食物都被埋在下面了"
+      "ObjectNameText": "公社冒险者",
+      "DialogText": "所以，你的第一个工作就是帮助这边这位孩子"
     },
     "en_US": {
-      "ObjectNameText": "A neighbor",
-      "DialogText": "Please, all my belongings and food are buried below"
+      "ObjectNameText": "Commune adventurer",
+      "DialogText": "So your first job is to help the child here"
+    }
+  },
+  {
+    "id": 8,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "嗯？"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "Huh？"
+    }
+  },
+  {
+    "id": 9,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "稚气青年",
+      "DialogText": "啊哈哈，你好啊...."
+    },
+    "en_US": {
+      "ObjectNameText": "Childish youth",
+      "DialogText": "Ah ha ha, Hello...."
+    }
+  },
+  {
+    "id": 10,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "稚气青年",
+      "DialogText": "抱歉，我有点社恐"
+    },
+    "en_US": {
+      "ObjectNameText": "Childish youth",
+      "DialogText": "Sorry, I'm a little social phobia"
+    }
+  },
+  {
+    "id": 11,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "什么时候了还社恐？有事就说，有屁就放。"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "When is it time for social fear? Just say what are you doing here."
+    }
+  },
+  {
+    "id": 12,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "稚气青年",
+      "DialogText": "我知道大家都很困难，但是呢，怎么说呢...."
+    },
+    "en_US": {
+      "ObjectNameText": "Childish youth",
+      "DialogText": " know it's hard for everyone，But what am I going to say....."
+    }
+  },
+  {
+    "id": 13,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "我真想给你一拳"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "I really want to punch you"
+    }
+  },
+  {
+    "id": 14,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "公社冒险者",
+      "DialogText": "噗嗤，啊，抱歉你们继续"
+    },
+    "en_US": {
+      "ObjectNameText": "Commune adventurer",
+      "DialogText": "He laughed in spite ofhimself ‘ah, sorry, you go on’"
+    }
+  },
+  {
+    "id": 15,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "稚气青年",
+      "DialogText": "啊，抱歉抱歉，我是听我邻居说的，我的小屋子是用铁皮搭的，最近有点晃动了，所以..."
+    },
+    "en_US": {
+      "ObjectNameText": "Childish youth",
+      "DialogText": "Ah, sorry, sorry, I heard from my neighbor. My little house is made of iron sheet. It's shaking a little recently, so..."
+    }
+  },
+  {
+    "id": 16,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "别让我猜你想说什么，你是想让我帮你修理你的小棚子吧？"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "Don't let me guess what you're trying to say. Do you want me to help you repair your shed?"
+    }
+  },
+  {
+    "id": 17,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "稚气青年",
+      "DialogText": "没办法啊，我是从商场地下车库来的，到的时候就只剩下站厅可以住了"
+    },
+    "en_US": {
+      "ObjectNameText": "Childish youth",
+      "DialogText": "I can't help it. I came from the underground garage of the commercial centre. When I arrived, there was only the station hall to live in"
+    }
+  },
+  {
+    "id": 18,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "我没问你这个，算了算了，我想应该给不了我什么报酬吧？"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "I didn't ask you this. Forget it. I don't think you can give me any reward?"
+    }
+  },
+  {
+    "id": 19,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "公社冒险者",
+      "DialogText": "啊，这个啊，你以后可以从公社领取食物和申请某些高级材料，这也算报酬吧"
+    },
+    "en_US": {
+      "ObjectNameText": "Commune adventurer",
+      "DialogText": "Ah, well, you can get food from the commune and apply for some advanced materials in the future. This is also a reward"
+    }
+  },
+  {
+    "id": 20,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "只有不知道能否兑现的承诺吗？让我想想...."
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "Is there only a promise that you don't know whether you can keep it? Let me see...."
     }
   }
 ]

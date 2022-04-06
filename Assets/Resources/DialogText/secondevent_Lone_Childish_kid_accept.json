@@ -73,7 +73,7 @@
   },
   {
     "id": 6,
-    "nameExist": false,
+    "nameExist": true,
     "zh_CN": {
       "ObjectNameText": "稚气青年",
       "DialogText": "嗷，对不起！我先回去了！"
@@ -88,7 +88,7 @@
     "nameExist": true,
     "zh_CN": {
       "ObjectNameText": "你",
-      "DialogText": "嘿，你还没告诉我，你的小棚子在哪里啊"
+      "DialogText": "嘿，你还没告诉我，你小子住在哪里啊"
     },
     "en_US": {
       "ObjectNameText": "You",
@@ -96,7 +96,7 @@
     }
   },
   {
-    "id": 7,
+    "id": 8,
     "nameExist": false,
     "zh_CN": {
       "ObjectNameText": "",
@@ -105,6 +105,18 @@
     "en_US": {
       "ObjectNameText": "You",
       "DialogText": "Forget it. Find it later. There aren't many people living here anyway."
+    }
+  },
+  {
+    "id": 9,
+    "nameExist": false,
+    "zh_CN": {
+      "ObjectNameText": "",
+      "DialogText": "或许这就是为什么我们需要互相帮助的原因"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "Maybe that's why we need to help each other"
     }
   }
 ]
