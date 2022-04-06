@@ -39,7 +39,7 @@ public class Character : MonoBehaviour
     [SerializeField]
     private float RadiationValue;
 
-    private HashSet<Sickness> Situations; //哈希集合储存防止重复
+    public HashSet<Sickness> Situations; //哈希集合储存防止重复
 
     [SerializeField]
     [Header("哈希集合的序列化 更改无效")]
