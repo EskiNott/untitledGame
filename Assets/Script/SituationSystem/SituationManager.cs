@@ -5,24 +5,33 @@ using UnityEngine;
 [System.Serializable]
 public class SituationManager : MonoBehaviour
 {
+    public GameObject[] Actors;
+    public GameObject[] SituationSlot;
     [SerializeField]
-    private Transform pm;
+    private Transform pmTrans;
     [SerializeField]
-    private Character crt;
+    private List<Character> crt;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        pm = transform;
+        pmTrans = transform;
+        foreach(GameObject tempGo in Actors)
+        {
+            crt.Add(tempGo.GetComponent<Character>());
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        crt.SituationCheck();
-        crt.SerializeHashSet();
-        if (Input.GetKeyDown(KeyCode.Tab))
+
+        foreach(Character tempCha in crt)
         {
-            presentSituationOnWatch(crt);
+            tempCha.NutritionManage();
+            if (Input.GetKeyDown(KeyCode.Tab) && tempCha.ID == 1)
+            {
+                presentSituationOnWatch(tempCha);
+            }
         }
     }
 

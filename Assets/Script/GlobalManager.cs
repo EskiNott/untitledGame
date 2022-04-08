@@ -26,8 +26,8 @@ public class GlobalManager : MonoBehaviour
             && cm.camTrans.rotation == cm.oTrans.rotation);
     }
 
-    static public void InformationButtonOnClick()
+    public void InformationButtonOnClick(GameObject Description)
     {
-        
+        Description.SetActive(!Description.activeSelf);
     }
 }
