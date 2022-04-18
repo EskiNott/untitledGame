@@ -1,0 +1,62 @@
+[
+  {
+    "id": 0,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "是啊，你应该自己想想办法。"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "Yes, you should do something for yourself."
+    }
+  },
+  {
+    "id": 1,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "你看现在这个世界，谁会又余力去帮助别人呢？"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "You see, in this world, who will spare no effort to help others?"
+    }
+  },
+  {
+    "id": 2,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "稚气青年",
+      "DialogText": "抱歉，打扰了..."
+    },
+    "en_US": {
+      "ObjectNameText": "Childish youth",
+      "DialogText": "Sorry to interrupt...."
+    }
+  },
+  {
+    "id": 3,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "祝你好运"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "Good luck"
+    }
+  },
+  {
+    "id": 4,
+    "nameExist": false,
+    "zh_CN": {
+      "ObjectNameText": "",
+      "DialogText": "青年低着头悻悻然离开了，留下的是失望的背影和一点脚步声。"
+    },
+    "en_US": {
+      "ObjectNameText": "A neighbor",
+      "DialogText": "The young man bowed his head and left angrily, leaving a disappointed figure and a little sound of footsteps."
+    }
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "id": 0,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "公社冒险者",
+      "DialogText": "你好啊"
+    },
+    "en_US": {
+      "ObjectNameText": "Commune adventurer",
+      "DialogText": "Hello？"
+    }
+  },
+  {
+    "id": 1,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "你们有什么事吗？"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "What can I do for you?"
+    }
+  },
+  {
+    "id": 2,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "公社冒险者",
+      "DialogText": "咳咳...我们对你非常失望，原本以为你愿意用知识来换取其他人收集的资源。"
+    },
+    "en_US": {
+      "ObjectNameText": "Commune adventurer",
+      "DialogText": "ahem...We are very disappointed with you. We thought you were willing to exchange knowledge for resources collected by others."
+    }
+  },
+    {
+    "id": 3,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "公社冒险者",
+      "DialogText": "但是你只是索取而全无贡献，今后你无法获取公社的帮助了，无论是药品还是食物"
+    },
+    "en_US": {
+      "ObjectNameText": "Commune adventurer",
+      "DialogText": "But you only ask for but have no contribution. In the future, you can't get the help of the commune, whether it's medicine or food"
+    }
+  },
+  {
+    "id": 4,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "好吧，既然这样..."
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "Ok, in that case...."
+    }
+  },
+  {
+    "id": 5,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "公社冒险者",
+      "DialogText": "别担心，我们不会孤立你的，要是你愿意用什么东西来交易，那也是可以的。"
+    },
+    "en_US": {
+      "ObjectNameText": "Commune adventurer",
+      "DialogText": "Don't worry, we won't isolate you. If you're willing to trade something, it's OK."
+    }
+  },
+  {
+    "id": 6,
+    "nameExist": false,
+    "zh_CN": {
+      "ObjectNameText": "",
+      "DialogText": "他们走了......在末日里独善其身或许是不错的选择......"
+    },
+    "en_US": {
+      "ObjectNameText": "",
+      "DialogText": "They're gone.... It may be a good choice to be alone at the end of the day...."
+    }
+  },
+  {
+    "id": 7,
+    "nameExist": false,
+    "zh_CN": {
+      "ObjectNameText": "",
+      "DialogText": "但是或许人们要像远古冰期的人类一样团结在一起，才能生存下来......"
+    },
+    "en_US": {
+      "ObjectNameText": "",
+      "DialogText": "But maybe people have to unite like humans in the ancient ice age in order to survive"
+    }
+  }
+]

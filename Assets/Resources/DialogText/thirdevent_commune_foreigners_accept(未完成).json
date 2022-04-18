@@ -1,0 +1,134 @@
+[
+  {
+    "id": 0,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "食物？我当然能够给你。"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "I'm not a hard hearted man"
+    }
+  },
+  {
+    "id": 1,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "外国面孔",
+      "DialogText": "真是太感谢了。"
+    },
+    "en_US": {
+      "ObjectNameText": "Foreign faces",
+      "DialogText": "Thank you so much."
+    }
+  },
+  {
+    "id": 2,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "反正已经有不少人欠我一份人情了。"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "Anyway, many people already owe me a favor."
+    }
+  },
+  {
+    "id": 3,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "而且国籍还是民族什么的，现在不是已经没有什么意义了吗？"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "What's more, nationality is still National. Isn't it meaningless now?"
+    }
+  },
+  {
+    "id": 4,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "我都不知道这里究竟被什么东西炸了，大概是核弹，生化武器什么的一起来了，你的家乡也一样吧？"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "I don't even know what was blown up here. It's probably a nuclear bomb, biological and chemical weapons. Is your hometown the same?"
+    }
+  },
+  {
+    "id": 5,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "外国面孔",
+      "DialogText": "我们都回不去以前的家了...."
+    },
+    "en_US": {
+      "ObjectNameText": "Foreign faces",
+      "DialogText": "We can't go back to our old home...."
+    }
+  },
+  {
+    "id": 6,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "是啊"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "Yeah"
+    }
+  },
+  {
+    "id": 7,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "外国面孔",
+      "DialogText": "这里是一些我藏身处的一些包裹，不知道里面有什么大概也没有装着食物，给你当谢礼吧"
+    },
+    "en_US": {
+      "ObjectNameText": "Foreign faces",
+      "DialogText": "Here are some packages in my hiding place. I don't know what's in them.Probably no food. Let me give you a gift of thanks"
+    }
+  },
+  {
+    "id": 8,
+    "nameExist": false,
+    "zh_CN": {
+      "ObjectNameText": "",
+      "DialogText": "或许这样的收获还不错？"
+    },
+    "en_US": {
+      "ObjectNameText": "",
+      "DialogText": "Maybe this harvest is good?"
+    }
+  },
+  {
+    "id": 9,
+    "nameExist": false,
+    "zh_CN": {
+      "ObjectNameText": "",
+      "DialogText": "在末日前的所有的虚幻的想象的共同体，现在已经没有意义了..."
+    },
+    "en_US": {
+      "ObjectNameText": "",
+      "DialogText": "All the illusory imaginary communities before the end of the day are meaningless now"
+    }
+  },
+  {
+    "id": 10,
+    "nameExist": false,
+    "zh_CN": {
+      "ObjectNameText": "",
+      "DialogText": "先想办法一起活下去吧"
+    },
+    "en_US": {
+      "ObjectNameText": "",
+      "DialogText": "Let's find a way to live together"
+    }
+  }
+]

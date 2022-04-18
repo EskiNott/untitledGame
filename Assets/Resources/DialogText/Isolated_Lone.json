@@ -1,0 +1,50 @@
+[
+  {
+    "id": 0,
+    "nameExist": false,
+    "zh_CN": {
+      "ObjectNameText": "",
+      "DialogText": "......在末日里独善其身或许是不错的选择......"
+    },
+    "en_US": {
+      "ObjectNameText": "",
+      "DialogText": "It may be a good choice to be alone at the end of the day"
+    }
+  },
+  {
+    "id": 1,
+    "nameExist": false,
+    "zh_CN": {
+      "ObjectNameText": "",
+      "DialogText": "但是也没有人会搭理你了，不知是好是坏呢......"
+    },
+    "en_US": {
+      "ObjectNameText": "",
+      "DialogText": "But no one will pay attention to you. I don't know whether it's good or bad"
+    }
+  },
+  {
+    "id": 2,
+    "nameExist": false,
+    "zh_CN": {
+      "ObjectNameText": "",
+      "DialogText": "在末日里孤独地生存下去吧...."
+    },
+    "en_US": {
+      "ObjectNameText": "",
+      "DialogText": "Live alone in the doomsday......"
+    }
+  },
+  {
+    "id": 3,
+    "nameExist": false,
+    "zh_CN": {
+      "ObjectNameText": "",
+      "DialogText": "这样孤独地活下去，真的值得吗？"
+    },
+    "en_US": {
+      "ObjectNameText": "",
+      "DialogText": "Is it really worth living alone like this?"
+    }
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "id": 0,
+    "nameExist": false,
+    "zh_CN": {
+      "ObjectNameText": "",
+      "DialogText": "在这死气沉沉地末日里，根本没有几个幸存者。"
+    },
+    "en_US": {
+      "ObjectNameText": "",
+      "DialogText": "There are few survivors in this dead end."
+    }
+  },
+  {
+    "id": 1,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "我还以为我已经见过这附近所有的幸存者了"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "I thought I'd seen all the survivors around here"
+    }
+  },
+  {
+    "id": 2,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "外国面孔",
+      "DialogText": "你肯定没有见过我，因为之前我一直躲在一处废墟里"
+    },
+    "en_US": {
+      "ObjectNameText": "Foreign faces",
+      "DialogText": "You certainly haven't seen me, because I've been hiding in a ruin before"
+    }
+  },
+  {
+    "id": 3,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "外国面孔",
+      "DialogText": "我不是这个国家的人...你也看得出来"
+    },
+    "en_US": {
+      "ObjectNameText": "Foreign faces",
+      "DialogText": "I'm not from this country ...You can plainly see"
+    }
+  },
+  {
+    "id": 4,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "那你来找我有什么事吗？"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "What can I do for you?"
+    }
+  },
+  {
+    "id": 5,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "外国面孔",
+      "DialogText": "我知道有些人可能会很排斥我，特别是我来自大洋彼岸，但是呢...."
+    },
+    "en_US": {
+      "ObjectNameText": "Foreign faces",
+      "DialogText": " I know some people may reject me,Especially I come from the other side of the ocean,But what am I going to say....."
+    }
+  },
+  {
+    "id": 6,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "外国面孔",
+      "DialogText": "我只是想获取一些食物"
+    },
+    "en_US": {
+      "ObjectNameText": "Foreign faces",
+      "DialogText": "I just want some food."
+    }
+  },
+  {
+    "id": 7,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "幸好你还会说这里的语言"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "Luckily you can speak the language here"
+    }
+  }
+]
