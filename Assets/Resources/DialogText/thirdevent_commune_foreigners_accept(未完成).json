@@ -40,7 +40,7 @@
     "nameExist": true,
     "zh_CN": {
       "ObjectNameText": "你",
-      "DialogText": "而且国籍还是民族什么的，现在不是已经没有什么意义了吗？"
+      "DialogText": "而且你应该也是公社成员了吧？我们互相照顾是应该的"
     },
     "en_US": {
       "ObjectNameText": "You",
@@ -52,7 +52,7 @@
     "nameExist": true,
     "zh_CN": {
       "ObjectNameText": "你",
-      "DialogText": "我都不知道这里究竟被什么东西炸了，大概是核弹，生化武器什么的一起来了，你的家乡也一样吧？"
+      "DialogText": "我都不知道这里究竟被什么东西炸了，你的家乡也一样吧？"
     },
     "en_US": {
       "ObjectNameText": "You",
@@ -76,7 +76,7 @@
     "nameExist": true,
     "zh_CN": {
       "ObjectNameText": "你",
-      "DialogText": "是啊"
+      "DialogText": "是啊，更何况，发射核弹的那些人和你我也没什么关系吧？"
     },
     "en_US": {
       "ObjectNameText": "You",
@@ -88,7 +88,7 @@
     "nameExist": true,
     "zh_CN": {
       "ObjectNameText": "外国面孔",
-      "DialogText": "这里是一些我藏身处的一些包裹，不知道里面有什么大概也没有装着食物，给你当谢礼吧"
+      "DialogText": "这里是一些我藏身处的一些包裹，不知道里面有什么大概也没有装着食物，给你当礼物吧"
     },
     "en_US": {
       "ObjectNameText": "Foreign faces",

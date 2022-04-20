@@ -4,7 +4,7 @@
     "nameExist": true,
     "zh_CN": {
       "ObjectNameText": "你",
-      "DialogText": "是啊，你应该自己想想办法。"
+      "DialogText": "但是你要知道，给这里的人带来辐射和疾病的，是你那边的人。"
     },
     "en_US": {
       "ObjectNameText": "You",
@@ -15,11 +15,11 @@
     "id": 1,
     "nameExist": true,
     "zh_CN": {
-      "ObjectNameText": "你",
-      "DialogText": "你看现在这个世界，谁会又余力去帮助别人呢？"
+      "ObjectNameText": "外国面孔",
+      "DialogText": "你听我说啊，他们发射核弹，和我一个普通人又有什么关系呢？"
     },
     "en_US": {
-      "ObjectNameText": "You",
+      "ObjectNameText": "Foreign faces",
       "DialogText": "You see, in this world, who will spare no effort to help others?"
     }
   },
@@ -27,11 +27,11 @@
     "id": 2,
     "nameExist": true,
     "zh_CN": {
-      "ObjectNameText": "稚气青年",
-      "DialogText": "抱歉，打扰了..."
+      "ObjectNameText": "你",
+      "DialogText": "这我当然知道，但是你也要知道，你一直躲着的理由是什么呢？"
     },
     "en_US": {
-      "ObjectNameText": "Childish youth",
+      "ObjectNameText": "You",
       "DialogText": "Sorry to interrupt...."
     }
   },
@@ -39,11 +39,11 @@
     "id": 3,
     "nameExist": true,
     "zh_CN": {
-      "ObjectNameText": "你",
-      "DialogText": "祝你好运"
+      "ObjectNameText": "外国面孔",
+      "DialogText": "好吧，我知道了，虚幻的共同体远比具体的人重要，这正是我一直担心的。"
     },
     "en_US": {
-      "ObjectNameText": "You",
+      "ObjectNameText": "Foreign faces",
       "DialogText": "Good luck"
     }
   },
@@ -52,7 +52,31 @@
     "nameExist": false,
     "zh_CN": {
       "ObjectNameText": "",
-      "DialogText": "青年低着头悻悻然离开了，留下的是失望的背影和一点脚步声。"
+      "DialogText": "有着外国面孔的人快速地离开了"
+    },
+    "en_US": {
+      "ObjectNameText": "A neighbor",
+      "DialogText": "The young man bowed his head and left angrily, leaving a disappointed figure and a little sound of footsteps."
+    }
+  },
+  {
+    "id": 5,
+    "nameExist": false,
+    "zh_CN": {
+      "ObjectNameText": "",
+      "DialogText": "什么也没有得到，什么也没有失去，也守护住了自己在邻居里的立场。"
+    },
+    "en_US": {
+      "ObjectNameText": "A neighbor",
+      "DialogText": "The young man bowed his head and left angrily, leaving a disappointed figure and a little sound of footsteps."
+    }
+  },
+  {
+    "id": 6,
+    "nameExist": false,
+    "zh_CN": {
+      "ObjectNameText": "",
+      "DialogText": "真的吗？"
     },
     "en_US": {
       "ObjectNameText": "A neighbor",

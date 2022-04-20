@@ -64,7 +64,7 @@
     "nameExist": true,
     "zh_CN": {
       "ObjectNameText": "外国面孔",
-      "DialogText": "我知道有些人可能会很排斥我，特别是我来自大洋彼岸，但是呢...."
+      "DialogText": "我已经和公社的人见过面了，他们说最好让我来找你帮这个忙"
     },
     "en_US": {
       "ObjectNameText": "Foreign faces",
@@ -93,6 +93,18 @@
     "en_US": {
       "ObjectNameText": "You",
       "DialogText": "Luckily you can speak the language here"
+    }
+  },
+  {
+    "id": 8,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "外国面孔",
+      "DialogText": "可不是吗？哈哈哈。"
+    },
+    "en_US": {
+      "ObjectNameText": "Foreign faces",
+      "DialogText": "I just want some food."
     }
   }
 ]

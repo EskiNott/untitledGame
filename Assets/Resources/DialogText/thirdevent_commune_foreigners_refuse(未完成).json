@@ -4,7 +4,7 @@
     "nameExist": true,
     "zh_CN": {
       "ObjectNameText": "你",
-      "DialogText": "是啊，你应该自己想想办法。"
+      "DialogText": "但是你要知道，给这里的人带来辐射和疾病的，是你那边的人。"
     },
     "en_US": {
       "ObjectNameText": "You",
@@ -15,11 +15,11 @@
     "id": 1,
     "nameExist": true,
     "zh_CN": {
-      "ObjectNameText": "你",
-      "DialogText": "你看现在这个世界，谁会又余力去帮助别人呢？"
+      "ObjectNameText": "外国面孔",
+      "DialogText": "你听我说啊，他们发射核弹，和我一个普通人又有什么关系呢？"
     },
     "en_US": {
-      "ObjectNameText": "You",
+      "ObjectNameText": "Foreign faces",
       "DialogText": "You see, in this world, who will spare no effort to help others?"
     }
   },
@@ -27,11 +27,11 @@
     "id": 2,
     "nameExist": true,
     "zh_CN": {
-      "ObjectNameText": "稚气青年",
-      "DialogText": "抱歉，打扰了..."
+      "ObjectNameText": "你",
+      "DialogText": "这我当然知道，但是你也要知道，我因为这个并不想帮助你"
     },
     "en_US": {
-      "ObjectNameText": "Childish youth",
+      "ObjectNameText": "You",
       "DialogText": "Sorry to interrupt...."
     }
   },
@@ -39,20 +39,80 @@
     "id": 3,
     "nameExist": true,
     "zh_CN": {
-      "ObjectNameText": "你",
-      "DialogText": "祝你好运"
+      "ObjectNameText": "外国面孔",
+      "DialogText": "我见过这里的大部分人都很友善的，他们建议我来找你....."
     },
     "en_US": {
-      "ObjectNameText": "You",
+      "ObjectNameText": "Foreign faces",
       "DialogText": "Good luck"
     }
   },
   {
     "id": 4,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "外国面孔",
+      "DialogText": "哦，好吧，我完全明白了。"
+    },
+    "en_US": {
+      "ObjectNameText": "Foreign faces",
+      "DialogText": "Good luck"
+    }
+  },
+  {
+    "id": 5,
     "nameExist": false,
     "zh_CN": {
       "ObjectNameText": "",
-      "DialogText": "青年低着头悻悻然离开了，留下的是失望的背影和一点脚步声。"
+      "DialogText": "有着外国面孔的人快速地离开了"
+    },
+    "en_US": {
+      "ObjectNameText": "A neighbor",
+      "DialogText": "The young man bowed his head and left angrily, leaving a disappointed figure and a little sound of footsteps."
+    }
+  },
+  {
+    "id": 6,
+    "nameExist": false,
+    "zh_CN": {
+      "ObjectNameText": "",
+      "DialogText": "什么也没有得到，什么也没有失去。"
+    },
+    "en_US": {
+      "ObjectNameText": "A neighbor",
+      "DialogText": "The young man bowed his head and left angrily, leaving a disappointed figure and a little sound of footsteps."
+    }
+  },
+  {
+    "id": 7,
+    "nameExist": false,
+    "zh_CN": {
+      "ObjectNameText": "",
+      "DialogText": "是的，对方只是一个无法干预结局的普通人，这是很清楚的。"
+    },
+    "en_US": {
+      "ObjectNameText": "A neighbor",
+      "DialogText": "The young man bowed his head and left angrily, leaving a disappointed figure and a little sound of footsteps."
+    }
+  },
+  {
+    "id": 8,
+    "nameExist": false,
+    "zh_CN": {
+      "ObjectNameText": "",
+      "DialogText": "或许只是想找一个理由来拒绝他罢了。"
+    },
+    "en_US": {
+      "ObjectNameText": "A neighbor",
+      "DialogText": "The young man bowed his head and left angrily, leaving a disappointed figure and a little sound of footsteps."
+    }
+  },
+  {
+    "id": 9,
+    "nameExist": false,
+    "zh_CN": {
+      "ObjectNameText": "",
+      "DialogText": "末日生活还要继续..."
     },
     "en_US": {
       "ObjectNameText": "A neighbor",
