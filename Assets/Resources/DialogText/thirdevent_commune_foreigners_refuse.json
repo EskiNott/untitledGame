@@ -8,7 +8,7 @@
     },
     "en_US": {
       "ObjectNameText": "You",
-      "DialogText": "Yes, you should do something for yourself."
+      "DialogText": "But you should know that it is the people on your side who bring radiation and disease to the people here."
     }
   },
   {
@@ -20,7 +20,7 @@
     },
     "en_US": {
       "ObjectNameText": "Foreign faces",
-      "DialogText": "You see, in this world, who will spare no effort to help others?"
+      "DialogText": "Listen to me. What does it have to do with me, an ordinary person, when they launch a nuclear bomb?"
     }
   },
   {
@@ -32,7 +32,7 @@
     },
     "en_US": {
       "ObjectNameText": "You",
-      "DialogText": "Sorry to interrupt...."
+      "DialogText": "Of course I know that, but you should also know that I don't want to help you because of this"
     }
   },
   {
@@ -44,7 +44,7 @@
     },
     "en_US": {
       "ObjectNameText": "Foreign faces",
-      "DialogText": "Good luck"
+      "DialogText": "Most of the people I've met here are very friendly. They suggested that I come to you"
     }
   },
   {
@@ -56,7 +56,7 @@
     },
     "en_US": {
       "ObjectNameText": "Foreign faces",
-      "DialogText": "Good luck"
+      "DialogText": "Oh, well, I fully understand."
     }
   },
   {
@@ -67,8 +67,8 @@
       "DialogText": "有着外国面孔的人快速地离开了"
     },
     "en_US": {
-      "ObjectNameText": "A neighbor",
-      "DialogText": "The young man bowed his head and left angrily, leaving a disappointed figure and a little sound of footsteps."
+      "ObjectNameText": "",
+      "DialogText": "The man with a foreign face left quickly"
     }
   },
   {
@@ -79,8 +79,8 @@
       "DialogText": "什么也没有得到，什么也没有失去。"
     },
     "en_US": {
-      "ObjectNameText": "A neighbor",
-      "DialogText": "The young man bowed his head and left angrily, leaving a disappointed figure and a little sound of footsteps."
+      "ObjectNameText": "",
+      "DialogText": "Nothing gained, nothing lost."
     }
   },
   {
@@ -88,11 +88,11 @@
     "nameExist": false,
     "zh_CN": {
       "ObjectNameText": "",
-      "DialogText": "是的，对方只是一个无法干预结局的普通人，这是很清楚的。"
+      "DialogText": "是的，他只是一个无法干预结局的普通人，这是很清楚的。"
     },
     "en_US": {
-      "ObjectNameText": "A neighbor",
-      "DialogText": "The young man bowed his head and left angrily, leaving a disappointed figure and a little sound of footsteps."
+      "ObjectNameText": "",
+      "DialogText": "Yes, he is just an ordinary person who can't interfere with the outcome, which is very clear."
     }
   },
   {
@@ -100,11 +100,11 @@
     "nameExist": false,
     "zh_CN": {
       "ObjectNameText": "",
-      "DialogText": "或许只是想找一个理由来拒绝他罢了。"
+      "DialogText": "或许只是想找一个借口来拒绝他和安慰自己罢了。"
     },
     "en_US": {
-      "ObjectNameText": "A neighbor",
-      "DialogText": "The young man bowed his head and left angrily, leaving a disappointed figure and a little sound of footsteps."
+      "ObjectNameText": "",
+      "DialogText": "Maybe I just want to find an excuse to refuse him and comfort myself."
     }
   },
   {
@@ -112,11 +112,11 @@
     "nameExist": false,
     "zh_CN": {
       "ObjectNameText": "",
-      "DialogText": "末日生活还要继续..."
+      "DialogText": "当然，末日生活还要继续..."
     },
     "en_US": {
-      "ObjectNameText": "A neighbor",
-      "DialogText": "The young man bowed his head and left angrily, leaving a disappointed figure and a little sound of footsteps."
+      "ObjectNameText": "",
+      "DialogText": "Of course, doomsday life continues...."
     }
   }
 ]

@@ -8,7 +8,7 @@
     },
     "en_US": {
       "ObjectNameText": "You",
-      "DialogText": "I'm not a hard hearted man"
+      "DialogText": "Food? Of course I can give it to you."
     }
   },
   {
@@ -44,7 +44,7 @@
     },
     "en_US": {
       "ObjectNameText": "You",
-      "DialogText": "What's more, nationality is still National. Isn't it meaningless now?"
+      "DialogText": "And you should be a member of the commune, right? We should take care of each other"
     }
   },
   {
@@ -56,7 +56,7 @@
     },
     "en_US": {
       "ObjectNameText": "You",
-      "DialogText": "I don't even know what was blown up here. It's probably a nuclear bomb, biological and chemical weapons. Is your hometown the same?"
+      "DialogText": "I don't even know what blew up here. Is your hometown the same?"
     }
   },
   {
@@ -68,7 +68,7 @@
     },
     "en_US": {
       "ObjectNameText": "Foreign faces",
-      "DialogText": "We can't go back to our old home...."
+      "DialogText": "We can't go back to our old home..."
     }
   },
   {
@@ -80,7 +80,7 @@
     },
     "en_US": {
       "ObjectNameText": "You",
-      "DialogText": "Yeah"
+      "DialogText": "Yes, what's more, the people who launched the nuclear bomb have nothing to do with you and me?"
     }
   },
   {

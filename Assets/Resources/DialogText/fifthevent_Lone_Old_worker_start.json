@@ -1,0 +1,134 @@
+[
+  {
+    "id": 0,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "大哥",
+      "DialogText": "扣1送iphone13ProMax"
+    },
+    "en_US": {
+      "ObjectNameText": "Big Brother",
+      "DialogText": "Press 1 to get iphone13ProMax"
+    }
+  },
+  {
+    "id": 1,
+    "nameExist": false,
+    "zh_CN": {
+      "ObjectNameText": "琥珀玲",
+      "DialogText": "111大哥真送吗"
+    },
+    "en_US": {
+      "ObjectNameText": "Kohaku Rin",
+      "DialogText": "111 really"
+    }
+  },
+  {
+    "id": 2,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "一二三",
+      "DialogText": "什么是UTF-8"
+    },
+    "en_US": {
+      "ObjectNameText": "One Two Three",
+      "DialogText": "What is UTF-8"
+    }
+  },
+    {
+    "id": 3,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "什么东西",
+      "DialogText": "什么是什么东西"
+    },
+    "en_US": {
+      "ObjectNameText": "What",
+      "DialogText": "What is what"
+    }
+  },
+    {
+    "id": 4,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "测试",
+      "DialogText": "这是测试文件"
+    },
+    "en_US": {
+      "ObjectNameText": "Test",
+      "DialogText": "This is a test file"
+    }
+  },
+    {
+    "id": 5,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "关注嘉然",
+      "DialogText": "顿顿解馋"
+    },
+    "en_US": {
+      "ObjectNameText": "Subscribe Diana",
+      "DialogText": "I dont know how to translate it"
+    }
+  },
+    {
+    "id": 6,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "好吃吗",
+      "DialogText": "好吃"
+    },
+    "en_US": {
+      "ObjectNameText": "Tasty?",
+      "DialogText": "Tasty"
+    }
+  },
+    {
+    "id": 7,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "東雪蓮",
+      "DialogText": "谁罕见"
+    },
+    "en_US": {
+      "ObjectNameText": "Azumaseren",
+      "DialogText": "Who is traitor"
+    }
+  },
+    {
+    "id": 8,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "哈哈哈",
+      "DialogText": "呃呃呃"
+    },
+    "en_US": {
+      "ObjectNameText": "lol",
+      "DialogText": "ee"
+    }
+  },
+    {
+    "id": 9,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "周一看直播",
+      "DialogText": "但是没有"
+    },
+    "en_US": {
+      "ObjectNameText": "Watch Stream on Monday",
+      "DialogText": "But no"
+    }
+  },
+    {
+    "id": 10,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "什么玩意",
+      "DialogText": "是什么呢"
+    },
+    "en_US": {
+      "ObjectNameText": "Whats these",
+      "DialogText": "is what?"
+    }
+  }
+]

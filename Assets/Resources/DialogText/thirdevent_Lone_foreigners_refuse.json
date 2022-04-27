@@ -8,7 +8,7 @@
     },
     "en_US": {
       "ObjectNameText": "You",
-      "DialogText": "Yes, you should do something for yourself."
+      "DialogText": "But you should know that it is the people on your side who bring radiation and disease to the people here."
     }
   },
   {
@@ -20,7 +20,7 @@
     },
     "en_US": {
       "ObjectNameText": "Foreign faces",
-      "DialogText": "You see, in this world, who will spare no effort to help others?"
+      "DialogText": "Listen to me. What does it have to do with me, an ordinary person, when they launch a nuclear bomb?"
     }
   },
   {
@@ -32,7 +32,7 @@
     },
     "en_US": {
       "ObjectNameText": "You",
-      "DialogText": "Sorry to interrupt...."
+      "DialogText": "Of course I know, but you also need to know, what's the reason why you've been hiding?"
     }
   },
   {
@@ -44,7 +44,7 @@
     },
     "en_US": {
       "ObjectNameText": "Foreign faces",
-      "DialogText": "Good luck"
+      "DialogText": "Well, I know that the illusory community is far more important than specific people. That's what I've been worried about."
     }
   },
   {
@@ -56,7 +56,7 @@
     },
     "en_US": {
       "ObjectNameText": "A neighbor",
-      "DialogText": "The young man bowed his head and left angrily, leaving a disappointed figure and a little sound of footsteps."
+      "DialogText": "The man with a foreign face left quickly"
     }
   },
   {
@@ -68,7 +68,7 @@
     },
     "en_US": {
       "ObjectNameText": "A neighbor",
-      "DialogText": "The young man bowed his head and left angrily, leaving a disappointed figure and a little sound of footsteps."
+      "DialogText": "Got nothing, lost nothing, and guarded the position in neighbors."
     }
   },
   {
@@ -80,7 +80,7 @@
     },
     "en_US": {
       "ObjectNameText": "A neighbor",
-      "DialogText": "The young man bowed his head and left angrily, leaving a disappointed figure and a little sound of footsteps."
+      "DialogText": "Really?"
     }
   }
 ]
