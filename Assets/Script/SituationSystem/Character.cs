@@ -49,6 +49,8 @@ public class Character : MonoBehaviour
     public float Pest = 0;
     [Header("细胞健康度")]
     public float CellHealth = 1000;
+    [Header("更新速度")]
+    public float UpdateSpeed = 5.0f;
 
     public List<Sickness> Situations;
 
@@ -403,7 +405,7 @@ public class Character : MonoBehaviour
 
     private void ChangePerSecond(ref float Nutrition, float delta)
     {
-        Nutrition = Nutrition + delta * Time.deltaTime;
+        Nutrition = Nutrition + delta * Time.deltaTime * 0.01f * UpdateSpeed;
     }
     private void _NutritionMaxCheck(ref float Nutrition)
     {
