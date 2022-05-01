@@ -1,0 +1,98 @@
+[
+  {
+    "id": 0,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "算了算了，你拿去吧。"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "Forget it. Take it."
+    }
+  },
+  {
+    "id": 1,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "旧官僚",
+      "DialogText": "这才对嘛，末日里我们就应该互相帮助"
+    },
+    "en_US": {
+      "ObjectNameText": "Old bureaucrat",
+      "DialogText": "That's right. We should help each other at the end of the day"
+    }
+  },
+  {
+    "id": 2,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "你最好赶紧给我滚出这里。"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "You'd better get out of here,idiot。"
+    }
+  },
+    {
+    "id": 3,
+    "nameExist": false,
+    "zh_CN": {
+      "ObjectNameText": "",
+      "DialogText": "他把吃的装进顶着啤酒肚离开了"
+    },
+    "en_US": {
+      "ObjectNameText": "",
+      "DialogText": "He packed his food into his beer belly and left"
+    }
+  },
+    {
+    "id": 4,
+    "nameExist": false,
+    "zh_CN": {
+      "ObjectNameText": "",
+      "DialogText": "真倒霉，就当是花钱消灾了"
+    },
+    "en_US": {
+      "ObjectNameText": "",
+      "DialogText": "It's bad luck. It's like spending money to eliminate the disaster"
+    }
+  },
+    {
+    "id": 5,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "至少不会被传闲话了"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "At least ， not gossip"
+    }
+  },
+    {
+    "id": 6,
+    "nameExist": false,
+    "zh_CN": {
+      "ObjectNameText": "",
+      "DialogText": "自我安慰一番，今天的末日生活还要继续"
+    },
+    "en_US": {
+      "ObjectNameText": "",
+      "DialogText": "Comfort yourself. Today's Doomsday life will continue"
+    }
+  },
+    {
+    "id": 7,
+    "nameExist": false,
+    "zh_CN": {
+      "ObjectNameText": "",
+      "DialogText": "真希望在这些困难日子里，这种人不要再出现了"
+    },
+    "en_US": {
+      "ObjectNameText": "",
+      "DialogText": "I really hope this kind of person will not appear again in these difficult days"
+    }
+  }
+]

@@ -1,0 +1,146 @@
+[
+  {
+    "id": 0,
+    "nameExist": false,
+    "zh_CN": {
+      "ObjectNameText": "",
+      "DialogText": "站在门前的是一位穿着破烂西装挺着啤酒肚的男人"
+    },
+    "en_US": {
+      "ObjectNameText": "",
+      "DialogText": "Standing in front of the door was a man with a beer belly in a ragged suit"
+    }
+  },
+  {
+    "id": 1,
+    "nameExist": false,
+    "zh_CN": {
+      "ObjectNameText": "",
+      "DialogText": "他手上还提着一个陈旧的公文包"
+    },
+    "en_US": {
+      "ObjectNameText": "",
+      "DialogText": "He also had an old briefcase in his hand"
+    }
+  },
+  {
+    "id": 2,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "很难想象末日里还有人能挺着啤酒肚"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "It's hard to imagine anyone with a beer belly at the end of the day"
+    }
+  },
+    {
+    "id": 3,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "旧官僚",
+      "DialogText": "你是在说我吗？"
+    },
+    "en_US": {
+      "ObjectNameText": "Old bureaucrat",
+      "DialogText": "Are you talking about me?"
+    }
+  },
+    {
+    "id": 4,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "就当没听见吧，你来这里有什么事？"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "Just ignore it. What's the matter with you here?"
+    }
+  },
+    {
+    "id": 5,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "旧官僚",
+      "DialogText": "哼，你给我来点吃的吧"
+    },
+    "en_US": {
+      "ObjectNameText": "Old bureaucrat",
+      "DialogText": "Hum, can you give me something to eat？"
+    }
+  },
+    {
+    "id": 6,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "我这可不是你家的冰箱。"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "I'm not your refrigerator."
+    }
+  },
+    {
+    "id": 7,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "旧官僚",
+      "DialogText": "但是我现在非常缺吃的，你得帮我啊。"
+    },
+    "en_US": {
+      "ObjectNameText": "Old bureaucrat",
+      "DialogText": "But I'm very short of food now. You have to help me."
+    }
+  },
+    {
+    "id": 8,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "哈？"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "Huh?"
+    }
+  },
+    {
+    "id": 9,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "旧官僚",
+      "DialogText": "帮助末日里落难的人，难道不是应该的吗？"
+    },
+    "en_US": {
+      "ObjectNameText": "Old bureaucrat",
+      "DialogText": "Isn't it right to help people in distress at the end of the day?"
+    }
+  },
+    {
+    "id": 10,
+    "nameExist": false,
+    "zh_CN": {
+      "ObjectNameText": "",
+      "DialogText": "这是求人的语气吗？"
+    },
+    "en_US": {
+      "ObjectNameText": "",
+      "DialogText": "Is this a begging tone?"
+    }
+  },
+  {
+    "id": 11,
+    "nameExist": false,
+    "zh_CN": {
+      "ObjectNameText": "",
+      "DialogText": "如果不帮他，说不定还会到处传我的闲话，真是倒霉"
+    },
+    "en_US": {
+      "ObjectNameText": "",
+      "DialogText": "If you don't help him, you will gossip about me everywhere. It's really unlucky"
+    }
+  }
+]
