@@ -19,7 +19,7 @@
       "DialogText": "你们这是来让我修什么东西的吗？"
     },
     "en_US": {
-      "ObjectNameText": "Old worker",
+      "ObjectNameText": "senile worker",
       "DialogText": "Are you here for me to fix something?"
     }
   },
@@ -52,11 +52,11 @@
     "nameExist": true,
     "zh_CN": {
       "ObjectNameText": "老工人",
-      "DialogText": "我是很乐意帮这个忙的，但是...我现在手上只有一套工具，其他的什么都没有"
+      "DialogText": "我是很乐意帮这个忙的，但是...我现在手上只有一套工具，还有一把老骨头。"
     },
     "en_US": {
-      "ObjectNameText": "Old worker",
-      "DialogText": "I'd love to help, but Now I have only one set of tools in my hand and nothing else"
+      "ObjectNameText": "senile worker",
+      "DialogText": "I'd love to help, but I have only one set of tools and an old bone in my hand."
     }
   },
   {
@@ -79,7 +79,7 @@
       "DialogText": "我突然有一个主意，你们年轻的幸存者不是天天出去收集能用的材料吗？"
     },
     "en_US": {
-      "ObjectNameText": "Old worker",
+      "ObjectNameText": "senile worker",
       "DialogText": "I suddenly had an idea. Don't you young survivors go out every day to collect usable materials?"
     }
   },
@@ -91,7 +91,7 @@
       "DialogText": "如果我们把收集的东西共享起来，各取所需，说不动就能解决有材料没人，有人没材料的困境了"
     },
     "en_US": {
-      "ObjectNameText": "Old worker",
+      "ObjectNameText": "senile worker",
       "DialogText": "If we share the collected things, take what we need and say nothing, we can solve the dilemma of no one with materials and no one with materials"
     }
   },
@@ -103,7 +103,7 @@
       "DialogText": "就这样，我去组织组织大家讨论讨论，过几天我来帮你修房子吧。"
     },
     "en_US": {
-      "ObjectNameText": "Old worker",
+      "ObjectNameText": "senile worker",
       "DialogText": "That's it. I'll organize a discussion. I'll help you repair the house in a few days."
     }
   },
@@ -117,6 +117,54 @@
     "en_US": {
       "ObjectNameText": "A neighbor",
       "DialogText": "Thank you so much"
+    }
+  },
+  {
+    "id": 10,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "老工人",
+      "DialogText": "哦对了，你留下来，帮我组织组织大家"
+    },
+    "en_US": {
+      "ObjectNameText": "senile worker",
+      "DialogText": "Oh, by the way, you stay and help me organize everyone"
+    }
+  },
+  {
+    "id": 11,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "邻居",
+      "DialogText": "啊？我吗？"
+    },
+    "en_US": {
+      "ObjectNameText": "A neighbor",
+      "DialogText": "Ah? Me?"
+    }
+  },
+  {
+    "id": 12,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "老工人",
+      "DialogText": "就是你，反正你现在也没法住回去。"
+    },
+    "en_US": {
+      "ObjectNameText": "senile worker",
+      "DialogText": "It's you. You can't live back now anyway."
+    }
+  },
+  {
+    "id": 13,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "邻居",
+      "DialogText": "那也是，好吧"
+    },
+    "en_US": {
+      "ObjectNameText": "A neighbor",
+      "DialogText": "That's the same. Okay"
     }
   }
 ]

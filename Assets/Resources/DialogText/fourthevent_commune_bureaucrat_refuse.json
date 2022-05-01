@@ -1,0 +1,122 @@
+[
+  {
+    "id": 0,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "你还是快点滚吧。"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "You'd better get out of here."
+    }
+  },
+  {
+    "id": 1,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "旧官僚",
+      "DialogText": "你...末日里你应该帮助有困难的人"
+    },
+    "en_US": {
+      "ObjectNameText": "Old bureaucrat",
+      "DialogText": "You .... You should help people in trouble at the end of the day"
+    }
+  },
+  {
+    "id": 2,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "我当然会帮助他们，至今我已经帮了不少人了"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "Of course I will help them. I have helped many people so far"
+    }
+  },
+    {
+    "id": 3,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "但是我绝对不会帮助你这种人的"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "But I will never help people like you"
+    }
+  },
+    {
+    "id": 4,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "旧官僚",
+      "DialogText": "你....."
+    },
+    "en_US": {
+      "ObjectNameText": "Test",
+      "DialogText": "You....."
+    }
+  },
+    {
+    "id": 5,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "旧官僚",
+      "DialogText": "我在公社有一百种方法来搞你！"
+    },
+    "en_US": {
+      "ObjectNameText": "Old bureaucrat",
+      "DialogText": "I have a hundred ways to fuck you in the commune!"
+    }
+  },
+    {
+    "id": 6,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "你是不是忘了现在是什么时代了？"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "Have you forgotten what time it is?"
+    }
+  },
+    {
+    "id": 7,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "旧官僚",
+      "DialogText": "你给我等着"
+    },
+    "en_US": {
+      "ObjectNameText": "Old bureaucrat",
+      "DialogText": "we will just wait and see! "
+    }
+  },
+    {
+    "id": 8,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "再见了您！"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "Goodbye!"
+    }
+  },
+    {
+    "id": 9,
+    "nameExist": false,
+    "zh_CN": {
+      "ObjectNameText": "",
+      "DialogText": "不知道他会不会给我整点麻烦事出来"
+    },
+    "en_US": {
+      "ObjectNameText": "",
+      "DialogText": "I don't know if he'll give me a whole lot of trouble"
+    }
+  }
+]

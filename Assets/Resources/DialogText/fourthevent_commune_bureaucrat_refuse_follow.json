@@ -1,0 +1,122 @@
+[
+  {
+    "id": 0,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "邻居",
+      "DialogText": "嘿，等等，我找你有件事"
+    },
+    "en_US": {
+      "ObjectNameText": "neighbor",
+      "DialogText": "Hey, wait, I have something for you"
+    }
+  },
+  {
+    "id": 1,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "你的屋子又坏了？你应该先去公社报告一下"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "Your house is broken again? You should report to the commune first"
+    }
+  },
+  {
+    "id": 2,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "邻居",
+      "DialogText": "哦，不是，你还记得几天前来找你的那个穿着破烂西装的人吗？"
+    },
+    "en_US": {
+      "ObjectNameText": "neighbor",
+      "DialogText": "Oh, no, do you remember the man in a ragged suit who came to you a few days ago?"
+    }
+  },
+    {
+    "id": 3,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "你再说什么呢？"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "What are you talking about?"
+    }
+  },
+    {
+    "id": 4,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "邻居",
+      "DialogText": "没什么，我就是来说一声，别太在意他"
+    },
+    "en_US": {
+      "ObjectNameText": "neighbor",
+      "DialogText": "Nothing. I just said, don't care too much about him"
+    }
+  },
+    {
+    "id": 5,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "邻居",
+      "DialogText": "他到处讨吃的，讨到老工人那里，被教育了一顿，哈哈"
+    },
+    "en_US": {
+      "ObjectNameText": "neighbor",
+      "DialogText": "He begged for food everywhere, got it from the old workers and was educated. Ha ha"
+    }
+  },
+    {
+    "id": 6,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "那就好"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "That's good"
+    }
+  },
+    {
+    "id": 7,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "邻居",
+      "DialogText": "祝你今天好心情"
+    },
+    "en_US": {
+      "ObjectNameText": "neighbor",
+      "DialogText": "I wish you a good mood today"
+    }
+  },
+    {
+    "id": 8,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "再见"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "Goodbye"
+    }
+  },
+    {
+    "id": 9,
+    "nameExist": false,
+    "zh_CN": {
+      "ObjectNameText": "",
+      "DialogText": "就结果来说还算不错"
+    },
+    "en_US": {
+      "ObjectNameText": "",
+      "DialogText": "As far as the result is concerned, it's pretty good"
+    }
+  }
+]
