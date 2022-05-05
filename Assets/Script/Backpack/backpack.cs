@@ -7,11 +7,9 @@ public class backpack : MonoBehaviour
 {
     static string jsonAddress = "Prefabs\\Resources\\ItemList";
     public List<Resource> playerBag;
-    public GameObject ResourceSpawnerGO;
     public GameObject GlobalManagerGO;
     public GameObject CameraManagerGO;
     public GameObject Camera_Backpack;
-    public GameObject resourceSpawner;
 
     private CameraManager cm;
     private GlobalManager go;
@@ -29,7 +27,6 @@ public class backpack : MonoBehaviour
     {
         go = GlobalManagerGO.GetComponent<GlobalManager>();
         cm = CameraManagerGO.GetComponent<CameraManager>();
-        ps = resourceSpawner.GetComponent<PrefabSpawner>();
         playerBag = ParseTextJSON.ParseResourceListJSON(jsonAddress);
     }
 

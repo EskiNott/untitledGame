@@ -25,4 +25,9 @@ public class GlobalManager : MonoBehaviour
         isCameraEqualOrigin = (cm.camTrans.position == cm.oTrans.position 
             && cm.camTrans.rotation == cm.oTrans.rotation);
     }
+
+    public void InformationButtonOnClick(GameObject Description)
+    {
+        Description.SetActive(!Description.activeSelf);
+    }
 }
