@@ -49,7 +49,6 @@ public class ItemManager : MonoBehaviour
                     _itemCheckClose();
                     cm.camStop(gm.isInvestigate);
                 }
-
                 break;
             case 2:
                 break;
