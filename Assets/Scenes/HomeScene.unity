@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1535489, g: 0.1542539, b: 0.16319549, a: 1}
+  m_IndirectSpecularColor: {r: 0.15381995, g: 0.15452304, b: 0.16344833, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -730,6 +730,7 @@ MonoBehaviour:
   speed: 0.5
   left_x: -0.24
   right_x: 0.24
+  red: {fileID: 1527460732}
 --- !u!64 &260756491
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -984,6 +985,7 @@ MonoBehaviour:
   speed: 0.3
   left_x: -0.49
   right_x: 0.49
+  red: {fileID: 0}
 --- !u!1001 &447197643
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2850,8 +2852,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1128456818}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -4.424, y: 1.866, z: 2.609}
-  m_LocalScale: {x: 0.5000001, y: 0.05, z: 1}
+  m_LocalPosition: {x: -4.424011, y: 1.8659973, z: 2.6089997}
+  m_LocalScale: {x: 0.50000024, y: 0.05, z: 1}
   m_Children:
   - {fileID: 237186885}
   - {fileID: 1527460733}
@@ -4396,6 +4398,7 @@ MonoBehaviour:
   speed: 0.3
   left_x: -0.24
   right_x: 0.24
+  red: {fileID: 0}
 --- !u!212 &1527460735
 SpriteRenderer:
   m_ObjectHideFlags: 0

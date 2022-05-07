@@ -8,6 +8,9 @@ public class move_2 : MonoBehaviour
     public float speed;
     public float left_x;
     public float right_x;
+
+    public GameObject red;
+
     private bool movingRight = true;
     private float isRed;
     private float isBlue;
@@ -44,7 +47,7 @@ public class move_2 : MonoBehaviour
             speed = 0;
             flag = Judge();
             Debug.Log(flag);
-
+            gameObject.SetActive(false);
         }
 
     }

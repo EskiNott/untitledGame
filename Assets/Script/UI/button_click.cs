@@ -14,11 +14,6 @@ public class button_click : MonoBehaviour
             gameObject.SetActive(true);
             isClick = true;
         }
-        else
-        {
-            gameObject.SetActive(false);
-            isClick = false;
-        }
     }
 
 }
