@@ -10,6 +10,9 @@ public class GlobalManager : MonoBehaviour
     public GameObject CameraManagerGO;
     public bool canSituationCheck;
 
+    //EventControl
+    public bool canOpenBag = true;
+
     private CameraManager cm;
     void Start()
     {

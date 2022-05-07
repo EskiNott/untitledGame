@@ -7,15 +7,18 @@ public class backpack : MonoBehaviour
 {
     static string jsonAddress = "Prefabs\\Resources\\ItemList";
     public List<Resource> playerBag;
-    public GameObject GlobalManagerGO;
-    public GameObject CameraManagerGO;
-    public GameObject Camera_Backpack;
+    public GlobalManager gm;
+    public GameObject BackpackPanel;
 
-    private CameraManager cm;
-    private GlobalManager go;
     private bool IsOpenPlayerBag = false;
-    private GameObject preCamera;
-    private PrefabSpawner ps;
+
+    [SerializeField]
+    private RectTransform _BackpackOpenTrans;
+    [SerializeField]
+    private RectTransform _BackpackCloseTrans;
+    [SerializeField]
+    private RectTransform playerBagPanelRectTrans;
+    public float PanelMovingSpeed = 10.0f;
 
     public float playerBagMassMax = 10;
     private float playerBagMassNow = 0;
@@ -25,37 +28,35 @@ public class backpack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        go = GlobalManagerGO.GetComponent<GlobalManager>();
-        cm = CameraManagerGO.GetComponent<CameraManager>();
         playerBag = ParseTextJSON.ParseResourceListJSON(jsonAddress);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.B) && go.canSituationCheck && go.isCameraEqualOrigin)
+        playerBagPanelControl();
+    }
+    private void playerBagPanelControl()
+    {
+        if (gm.canOpenBag)
         {
-            IsOpenPlayerBag = !IsOpenPlayerBag;
-            MoveCameraToBackpack();
+            if (Input.GetKeyDown(KeyCode.B))
+            {
+                IsOpenPlayerBag = !IsOpenPlayerBag;
+            }
+            Vector3 _movingTarget;
             if (IsOpenPlayerBag)
             {
-                ps.spawnItemsinBackpack();
+                _movingTarget = _BackpackOpenTrans.position;
             }
             else
             {
-                ps.deleteAllChild();
+                _movingTarget = _BackpackCloseTrans.position;
             }
+            playerBagPanelRectTrans.position = Vector3.Lerp(playerBagPanelRectTrans.position, _movingTarget, Time.deltaTime * PanelMovingSpeed);
         }
     }
-    
-    public void playerBag_Open(bool isOpen)
-    {
-        IsOpenPlayerBag = isOpen;
-    }
-    public List<Resource> playerBag_Get()
-    {
-        return playerBag;
-    }
+
     public bool playerBag_Add(int id)
     {
         Resource tempRes = _ResourceFindInPlayerBag(id);
@@ -117,18 +118,6 @@ public class backpack : MonoBehaviour
         playerBagVolumeMax += Volume;
     }
 
-    private void MoveCameraToBackpack()
-    {
-        if (IsOpenPlayerBag)
-        {
-            preCamera = cm.nowCamera;
-            cm.setCamTrans(Camera_Backpack);
-        }
-        else
-        {
-            cm.setCamTrans(preCamera);
-        }
-    }
     public Resource _ResourceFindInPlayerBag(int id)
     {
         foreach (Resource tempRes in playerBag)

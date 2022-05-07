@@ -12,7 +12,7 @@ public class item : MonoBehaviour
     [TextArea]
     public string ItemName;
 
-    [Header("检查 取走 食用 攻击 交谈 交互")]
+    [Header("交互 检查 攻击 食用 交谈 取走")]
     public bool[] interact = { false, false, false, false, false, false};
 
     [HideInInspector]

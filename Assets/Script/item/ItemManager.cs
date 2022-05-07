@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class ItemManager : MonoBehaviour
 {
+    [SerializeField]
     private GlobalManager gm;
+    [SerializeField]
+    private CameraManager cm;
+    [SerializeField]
+    private backpack bpm;
     private investigateMenuManager iMM;
     private Vector3 tempRotationDragging;
     private Vector3 tempPositionDragging;
@@ -13,20 +18,18 @@ public class ItemManager : MonoBehaviour
     private int options;
     private item goItem;
     private Transform goTrans;
-    private CameraManager cm;
     private Vector3  ItemPrePosition;
     private Quaternion ItemPreRotation;
-
-    public bool isDragging = false;
-    public GameObject go;
     public float rotateSpeed = 1.0f;
+    [HideInInspector]
+    public bool isDragging = false;
+    [HideInInspector]
+    public GameObject go;
 
 
     private void Start()
     {
-        gm = GameObject.Find("GlobalManager").GetComponent<GlobalManager>();
         iMM = GetComponent<investigateMenuManager>();
-        cm = GameObject.Find("CameraManager").GetComponent<CameraManager>();
         options = -1;
     }
 
