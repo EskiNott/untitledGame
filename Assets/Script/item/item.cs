@@ -25,6 +25,9 @@ public class item : MonoBehaviour
     public float minCheckDistance = 1.0f;
     public float maxCheckDistance = 10.0f;
 
+    [Header("检查速度")]
+    public float checkSpeed = 2.0f;
+
     [Header("靠近检查转动限制")]
     public float maxRotation_Y = 15.0f;
     public float minRotation_Y = -15.0f;

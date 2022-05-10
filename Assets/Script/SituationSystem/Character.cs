@@ -77,28 +77,45 @@ public class Character : MonoBehaviour
     //Nutrition 管理
     public void NutritionManage()
     {
-        ConstitutionManage();
-        StomachVolumeManage();
-        VitaminManage();
-        WaterManage();
-        ProteinManage();
-        CarbohydrateManage();
-        FatManage();
-        BloodManage();
-        PestManage();
-        CellHealthManage();
+        if (!IsStateExist(Sickness.Death))
+        {
+            ConstitutionManage();
+            StomachVolumeManage();
+            VitaminManage();
+            WaterManage();
+            ProteinManage();
+            CarbohydrateManage();
+            FatManage();
+            BloodManage();
+            PestManage();
+            CellHealthManage();
+        }
     }
     //不包含状态对齐影响
     //也就是正常状态下数值随时间发生的变化
     private void ConstitutionManage()
     {
-        if(Pest > Constitution*0.4 || CellHealth < Constitution* 0.3)
+        _NutritionMaxCheck(ref Constitution);
+        if (Pest > Constitution * 0.99
+            || CellHealth < Constitution * 0.01
+            || StomachVolume < Constitution * 0.01
+            || Vitamin < Constitution * 0.01
+            || Water < Constitution * 0.01
+            || Protein < Constitution * 0.01
+            || Carbohydrate < Constitution * 0.01
+            || Fat < Constitution * 0.01
+            || Blood < Constitution * 0.01
+            ) 
         {
-            ChangePerSecond(ref Constitution, -2f);
+            ChangePerSecond(ref Constitution, -50f);
         }
-        if(Fat > Constitution * 0.9)
+        else if(Pest > Constitution*0.4 || CellHealth < Constitution* 0.3)
         {
-            ChangePerSecond(ref Constitution, -0.5f);
+            ChangePerSecond(ref Constitution, -10f);
+        }
+        else if(Fat > Constitution * 0.9)
+        {
+            ChangePerSecond(ref Constitution, -1f);
         }
         else 
         {
@@ -240,137 +257,140 @@ public class Character : MonoBehaviour
     //状态管理
     public void SituationManage()
     {
-        //状态添加
-        if (Constitution <= 0)
+        if (!IsStateExist(Sickness.Death))
         {
-            SituationAdd(Sickness.Death); //死亡唯一入口
-        }
+            //状态添加
+            if (Constitution <= 0)
+            {
+                SituationAdd(Sickness.Death); //死亡唯一入口
+            }
 
-        if (StomachVolume > Constitution * 0.9
-            || Vitamin > Constitution * 0.95
-            || Water > Constitution * 0.9
-            || Carbohydrate < Constitution * 0.1
-            || Fat < Constitution * 0.1) 
-        {
-            SituationAdd(Sickness.Nausea);
-        }
+            if (StomachVolume > Constitution * 0.9
+                || Vitamin > Constitution * 0.95
+                || Water > Constitution * 0.9
+                || Carbohydrate < Constitution * 0.1
+                || Fat < Constitution * 0.1)
+            {
+                SituationAdd(Sickness.Nausea);
+            }
 
-        if (StomachVolume < Constitution * 0.15)
-        {
-            SituationAdd(Sickness.Hunger);
-        }
+            if (StomachVolume < Constitution * 0.15)
+            {
+                SituationAdd(Sickness.Hunger);
+            }
 
-        if (Vitamin > Constitution * 0.95) 
-        {
-            SituationAdd(Sickness.Diarrhoea);
-        }
+            if (Vitamin > Constitution * 0.95)
+            {
+                SituationAdd(Sickness.Diarrhoea);
+            }
 
-        if (Vitamin > Constitution * 0.95)
-        {
-            SituationAdd(Sickness.CoagulationDisorder);
-        }
+            if (Vitamin > Constitution * 0.95)
+            {
+                SituationAdd(Sickness.CoagulationDisorder);
+            }
 
-        if(Vitamin < Constitution * 0.15)
-        {
-            SituationAdd(Sickness.Scurvy);
-        }
+            if (Vitamin < Constitution * 0.15)
+            {
+                SituationAdd(Sickness.Scurvy);
+            }
 
-        if(Vitamin < Constitution * 0.15)
-        {
-            SituationAdd(Sickness.NightBlindness);
-        }
+            if (Vitamin < Constitution * 0.15)
+            {
+                SituationAdd(Sickness.NightBlindness);
+            }
 
-        if (Vitamin < Constitution * 0.15)
-        {
-            SituationAdd(Sickness.Fatigue);
-        }
+            if (Vitamin < Constitution * 0.15)
+            {
+                SituationAdd(Sickness.Fatigue);
+            }
 
-        if (Water < Constitution * 0.1
-            || Blood < Constitution * 0.3) 
-        {
-            SituationAdd(Sickness.Shock);
-        }
+            if (Water < Constitution * 0.1
+                || Blood < Constitution * 0.3)
+            {
+                SituationAdd(Sickness.Shock);
+            }
 
-        if(Pest > Constitution * 0.2)
-        {
-            SituationAdd(Sickness.Fever);
-        }
-        //状态移除
+            if (Pest > Constitution * 0.2)
+            {
+                SituationAdd(Sickness.Fever);
+            }
+            //状态移除
 
 
-        //状态效果
-        if (IsStateExist(Sickness.Bleed))
-        {
-            ChangePerSecond(ref Protein, -3f);
-            ChangePerSecond(ref Blood, -5f);
-        }
-        if (IsStateExist(Sickness.Fracture))
-        {
-            ChangePerSecond(ref Protein, -3f);
-        }
-        if (IsStateExist(Sickness.Hunger))
-        {
-            ChangePerSecond(ref CellHealth, -1f);
-        }
-        if (IsStateExist(Sickness.Thirst))
-        {
-            ChangePerSecond(ref CellHealth, -1f);
-        }
-        if (IsStateExist(Sickness.RadiationSickness))
-        {
-            ChangePerSecond(ref Protein, -9f);
-            ChangePerSecond(ref Blood, -3f);
-            ChangePerSecond(ref Pest, -10f);
-            ChangePerSecond(ref CellHealth, -10f);
-            SituationAdd(Sickness.CoagulationDisorder);
-            SituationAdd(Sickness.Osteoporosis);
-        }
-        if (IsStateExist(Sickness.Scurvy))
-        {
-            ChangePerSecond(ref Blood, -3f);
-        }
-        if (IsStateExist(Sickness.Diarrhoea))
-        {
-            ChangePerSecond(ref Water, -10f);
-            ChangePerSecond(ref Protein, -3f);
-        }
-        if (IsStateExist(Sickness.NightBlindness))
-        {
+            //状态效果
+            if (IsStateExist(Sickness.Bleed))
+            {
+                ChangePerSecond(ref Protein, -3f);
+                ChangePerSecond(ref Blood, -5f);
+            }
+            if (IsStateExist(Sickness.Fracture))
+            {
+                ChangePerSecond(ref Protein, -3f);
+            }
+            if (IsStateExist(Sickness.Hunger))
+            {
+                ChangePerSecond(ref CellHealth, -1f);
+            }
+            if (IsStateExist(Sickness.Thirst))
+            {
+                ChangePerSecond(ref CellHealth, -1f);
+            }
+            if (IsStateExist(Sickness.RadiationSickness))
+            {
+                ChangePerSecond(ref Protein, -9f);
+                ChangePerSecond(ref Blood, -3f);
+                ChangePerSecond(ref Pest, -10f);
+                ChangePerSecond(ref CellHealth, -10f);
+                SituationAdd(Sickness.CoagulationDisorder);
+                SituationAdd(Sickness.Osteoporosis);
+            }
+            if (IsStateExist(Sickness.Scurvy))
+            {
+                ChangePerSecond(ref Blood, -3f);
+            }
+            if (IsStateExist(Sickness.Diarrhoea))
+            {
+                ChangePerSecond(ref Water, -10f);
+                ChangePerSecond(ref Protein, -3f);
+            }
+            if (IsStateExist(Sickness.NightBlindness))
+            {
 
-        }
-        if (IsStateExist(Sickness.CoagulationDisorder))
-        {
-            ChangePerSecond(ref Protein, -2f);
-            ChangePerSecond(ref Carbohydrate, -2f);
-        }
-        if (IsStateExist(Sickness.Osteoporosis))
-        {
+            }
+            if (IsStateExist(Sickness.CoagulationDisorder))
+            {
+                ChangePerSecond(ref Protein, -2f);
+                ChangePerSecond(ref Carbohydrate, -2f);
+            }
+            if (IsStateExist(Sickness.Osteoporosis))
+            {
 
-        }
-        if (IsStateExist(Sickness.Nausea))
-        {
+            }
+            if (IsStateExist(Sickness.Nausea))
+            {
 
-        }
-        if (IsStateExist(Sickness.Fever))
-        {
-            ChangePerSecond(ref Water, -5f);
-            ChangePerSecond(ref Protein, -3f);
-            ChangePerSecond(ref Carbohydrate, -5f);
-            ChangePerSecond(ref Fat, -5f);
-            ChangePerSecond(ref Pest, -3f);
-            SituationAdd(Sickness.Nausea);
-        }
-        if (IsStateExist(Sickness.Shock))
-        {
+            }
+            if (IsStateExist(Sickness.Fever))
+            {
+                ChangePerSecond(ref Water, -5f);
+                ChangePerSecond(ref Protein, -3f);
+                ChangePerSecond(ref Carbohydrate, -5f);
+                ChangePerSecond(ref Fat, -5f);
+                ChangePerSecond(ref Pest, -3f);
+                SituationAdd(Sickness.Nausea);
+            }
+            if (IsStateExist(Sickness.Shock))
+            {
 
-        }
-        if (IsStateExist(Sickness.Fatigue))
-        {
-            ChangePerSecond(ref CellHealth, -1f);
-        }
-        if (IsStateExist(Sickness.Death))
-        {
+            }
+            if (IsStateExist(Sickness.Fatigue))
+            {
+                ChangePerSecond(ref CellHealth, -1f);
+            }
+            if (IsStateExist(Sickness.Death))
+            {
 
+            }
         }
     }
 
