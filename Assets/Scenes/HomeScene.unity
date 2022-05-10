@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.15381995, g: 0.15452304, b: 0.16344833, a: 1}
+  m_IndirectSpecularColor: {r: 0.1535489, g: 0.1542539, b: 0.16319549, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2610,11 +2610,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharacterName: 
   ID: 1
-  MaxHealth: 0
-  Health: 0
-  MaxRaidatinValue: 0
-  RadiationValue: 0
-  SituList: 
+  Constitution: 1000
+  StomachVolume: 500
+  Vitamin: 500
+  Water: 500
+  Protein: 500
+  Carbohydrate: 500
+  Fat: 500
+  Blood: 1000
+  Pest: 0
+  CellHealth: 1000
+  Situations: 
 --- !u!1 &924205815
 GameObject:
   m_ObjectHideFlags: 0
@@ -3244,6 +3250,7 @@ MonoBehaviour:
   checkDistance: 2
   minCheckDistance: 1
   maxCheckDistance: 4
+  checkSpeed: 2
   maxRotation_Y: 15
   minRotation_Y: -15
   maxRotation_Z: 15
@@ -3251,6 +3258,7 @@ MonoBehaviour:
   isSizeBig: 1
   childParts:
   - {fileID: 2823476872913020196}
+  - {fileID: 1123433005}
 --- !u!114 &1123433008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5014,6 +5022,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 580d0ef6b9c493d429c7cdc21c35dfe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gm: {fileID: 1991459500}
+  iMM: {fileID: 1726264547}
+  cm: {fileID: 2084032347}
+  mouseYaw: 0
   isDragging: 0
   go: {fileID: 0}
   rotateSpeed: 1
@@ -5480,6 +5492,7 @@ MonoBehaviour:
   checkDistance: 3
   minCheckDistance: 2
   maxCheckDistance: 4
+  checkSpeed: 2
   maxRotation_Y: 15
   minRotation_Y: -15
   maxRotation_Z: 15
@@ -5707,6 +5720,7 @@ MonoBehaviour:
   SituationSlot:
   - {fileID: 650106948}
   pmTrans: {fileID: 0}
+  crt: []
 --- !u!1001 &1982345481
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6582,7 +6596,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1284528573724488361
 Transform:
   m_ObjectHideFlags: 0
@@ -6708,10 +6722,10 @@ RectTransform:
   m_Father: {fileID: 366994283}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: -150, y: -180}
+  m_SizeDelta: {x: 400, y: 100}
   m_Pivot: {x: 0, y: 0}
 --- !u!1 &1350492296826441642
 GameObject:
@@ -7108,7 +7122,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5765862903954668937, guid: bb7a748330b2a1e4985f03abf0e9bf88, type: 3}
       propertyPath: isSizeBig
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5765862903954668937, guid: bb7a748330b2a1e4985f03abf0e9bf88, type: 3}
       propertyPath: maxRotation_Y

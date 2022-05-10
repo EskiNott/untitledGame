@@ -12,7 +12,7 @@ public class item : MonoBehaviour
     [TextArea]
     public string ItemName;
 
-    [Header("检查 取走 食用 攻击 交谈 交互")]
+    [Header("交互 检查 攻击 食用 交谈 取走")]
     public bool[] interact = { false, false, false, false, false, false};
 
     [HideInInspector]
@@ -24,6 +24,9 @@ public class item : MonoBehaviour
     [Header("检查距离限制")]
     public float minCheckDistance = 1.0f;
     public float maxCheckDistance = 10.0f;
+
+    [Header("检查速度")]
+    public float checkSpeed = 2.0f;
 
     [Header("靠近检查转动限制")]
     public float maxRotation_Y = 15.0f;
