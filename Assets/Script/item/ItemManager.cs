@@ -10,13 +10,12 @@ public class ItemManager : MonoBehaviour
     private CameraManager cm;
     [SerializeField]
     private backpack bpm;
-    private investigateMenuManager iMM;
     [SerializeField]
-    private CameraManager cm;
+    private investigateMenuManager iMM;
 
     private float mouseX;
     private float mouseY;
-    [SerializeField]
+
     private float mouseYaw;
     private float mousePitch;
 
@@ -30,9 +29,6 @@ public class ItemManager : MonoBehaviour
     public bool isDragging = false;
     [HideInInspector]
     public GameObject go;
-
-    public float rotateSpeed = 1.0f;
-
 
     private void Start()
     {

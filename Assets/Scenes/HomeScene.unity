@@ -3700,7 +3700,7 @@ MonoBehaviour:
   Blood: 1000
   Pest: 0
   CellHealth: 1000
-  UpdateSpeed: 50
+  UpdateSpeed: 5
   Situations: 
 --- !u!1 &924205815
 GameObject:
@@ -6605,7 +6605,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gm: {fileID: 1991459500}
   cm: {fileID: 2084032347}
-  bpm: {fileID: 0}
+  bpm: {fileID: 1549047058}
+  iMM: {fileID: 1726264547}
+  mouseYaw: 0
   rotateSpeed: 1
   isDragging: 0
   go: {fileID: 0}
