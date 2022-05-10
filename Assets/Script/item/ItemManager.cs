@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class ItemManager : MonoBehaviour
 {
+    [SerializeField]
     private GlobalManager gm;
+    [SerializeField]
     private investigateMenuManager iMM;
+    [SerializeField]
+    private CameraManager cm;
     private Vector3 tempRotationDragging;
     private Vector3 tempPositionDragging;
     private Vector2 MousePos1;
@@ -13,7 +17,6 @@ public class ItemManager : MonoBehaviour
     private int options;
     private item goItem;
     private Transform goTrans;
-    private CameraManager cm;
     private Vector3  ItemPrePosition;
     private Quaternion ItemPreRotation;
 
@@ -24,9 +27,6 @@ public class ItemManager : MonoBehaviour
 
     private void Start()
     {
-        gm = GameObject.Find("GlobalManager").GetComponent<GlobalManager>();
-        iMM = GetComponent<investigateMenuManager>();
-        cm = GameObject.Find("CameraManager").GetComponent<CameraManager>();
         options = -1;
     }
 
@@ -254,8 +254,8 @@ public class ItemManager : MonoBehaviour
                 isDragging = false;
             }
             //ÍÏ¶¯Âß¼­--------------------------------------------------------------------------------------------------------¡ü
+            scrollZoom(goTrans, cm.cam.transform);
         }
-        scrollZoom(goTrans, cm.cam.transform);
     }
 
     private void scrollZoom(Transform stabledItem, Transform movingItem)
