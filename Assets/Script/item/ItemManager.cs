@@ -19,6 +19,9 @@ public class ItemManager : MonoBehaviour
     private float mouseYaw;
     private float mousePitch;
 
+    private Rigidbody goRB = null;
+    private bool _usingGravity = false;
+
     private int options;
     private item goItem;
     private Transform goTrans;
@@ -59,14 +62,28 @@ public class ItemManager : MonoBehaviour
             case 4:
                 break;
             case 5:
+                
                 break;
         }
+    }
+    public void itemInteract()
+    {
+        goItem = go.GetComponent<item>();
+        goTrans = go.GetComponent<Transform>();
+        options = 0;
+        iMM.clearButton();
     }
 
     public void itemCheck()
     {
         goItem = go.GetComponent<item>();
         goTrans = go.GetComponent<Transform>();
+        if (goTrans.GetComponent<Rigidbody>())
+        {
+            goRB = goTrans.GetComponent<Rigidbody>();
+            _usingGravity = goRB.useGravity;
+        }
+
         //ÄÃÆð¼ì²é
         if (!goItem.isSizeBig)
 
@@ -75,6 +92,11 @@ public class ItemManager : MonoBehaviour
             {
                 ItemPrePosition = new Vector3(goTrans.position.x, goTrans.position.y, goTrans.position.z);
                 ItemPreRotation = new Quaternion(goTrans.rotation.x, goTrans.rotation.y, goTrans.rotation.z, goTrans.rotation.w);
+                if (_usingGravity)
+                {
+                    goRB.useGravity = false;
+                }
+
                 goItem.thisInvestigate = true;
                 go.GetComponent<Outline>().enabled = false;
                 gm.isInvestigate = true;
@@ -99,29 +121,38 @@ public class ItemManager : MonoBehaviour
         options = 1;
         iMM.clearButton();
     }
-
+    public void itemEat()
+    {
+        goItem = go.GetComponent<item>();
+        goTrans = go.GetComponent<Transform>();
+        options = 3;
+        iMM.clearButton();
+    }
     public void itemAttack()
     {
-        options = 0;
+        goItem = go.GetComponent<item>();
+        goTrans = go.GetComponent<Transform>();
+        options = 2;
+        iMM.clearButton();
     }
     public void itemTalk()
     {
-
-    }
-
-    public void itemInteract()
-    {
-
-    }
-
-    public void itemEat()
-    {
-
+        goItem = go.GetComponent<item>();
+        goTrans = go.GetComponent<Transform>();
+        options = 4;
+        iMM.clearButton();
     }
 
     public void itemTake()
     {
+        goItem = go.GetComponent<item>();
+        goTrans = go.GetComponent<Transform>();
 
+        bpm.playerBag_Add(goItem.ResID);
+        go.SetActive(false);
+
+        options = 5;
+        iMM.clearButton();
     }
 
 
@@ -159,6 +190,11 @@ public class ItemManager : MonoBehaviour
                             goItem.thisInvestigate = false;
                             gm.isInvestigate = false;
                             gm.investigateItem = null;
+                            if (_usingGravity == true && goTrans.GetComponent<Rigidbody>())
+                            {
+                                goRB.useGravity = true;
+                                _usingGravity = false;
+                            }
                         }
                     }
                 }

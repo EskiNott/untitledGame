@@ -12,6 +12,9 @@ public class item : MonoBehaviour
     [TextArea]
     public string ItemName;
 
+    [Header("资源ID")]
+    public int ResID = -1;
+
     [Header("交互 检查 攻击 食用 交谈 取走")]
     public bool[] interact = { false, false, false, false, false, false};
 

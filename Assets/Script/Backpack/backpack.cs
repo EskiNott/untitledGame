@@ -21,8 +21,10 @@ public class backpack : MonoBehaviour
     public float PanelMovingSpeed = 10.0f;
 
     public float playerBagMassMax = 10;
+    [SerializeField]
     private float playerBagMassNow = 0;
     public float playerBagVolumeMax = 10;
+    [SerializeField]
     private float playerBagVolumeNow = 0;
 
     // Start is called before the first frame update
