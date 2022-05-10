@@ -36,9 +36,9 @@ public class backpack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerBagPanelControl();
+        panelControl_Appear();
     }
-    private void playerBagPanelControl()
+    private void panelControl_Appear()
     {
         if (gm.canOpenBag)
         {
@@ -56,6 +56,14 @@ public class backpack : MonoBehaviour
                 _movingTarget = _BackpackCloseTrans.position;
             }
             playerBagPanelRectTrans.position = Vector3.Lerp(playerBagPanelRectTrans.position, _movingTarget, Time.deltaTime * PanelMovingSpeed);
+        }
+    }
+
+    private void panelControl_ItemList()
+    {
+        if (IsOpenPlayerBag)
+        {
+
         }
     }
 
