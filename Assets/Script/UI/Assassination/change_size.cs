@@ -20,7 +20,7 @@ public class change_size : MonoBehaviour
         if(bigger)
         {
             transform.localScale += (scaleChange * Time.deltaTime);
-            if (transform.localScale.x >= biggest)
+            if (transform.localScale.x > biggest)
             {
                 bigger = false;
             }
@@ -28,16 +28,10 @@ public class change_size : MonoBehaviour
         else
         {
             transform.localScale -= (scaleChange * Time.deltaTime);
-            if (transform.localScale.x <= smallest)
+            if (transform.localScale.x < smallest)
             {
                 bigger = true;
             }
-        }
-
-        if (Input.GetKey(KeyCode.Space))
-        {
-            scaleChange.x = 0;
-        }
-
+        }        
     }
 }
