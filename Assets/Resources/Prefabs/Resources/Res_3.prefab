@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 212347673927214522}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: 4.85, z: 0}
   m_LocalScale: {x: 79.81481, y: 79.81481, z: 79.81481}
   m_Children: []
   m_Father: {fileID: 193596129729657144}
@@ -146,6 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemName: 
   ResID: 3
+  sprite: {fileID: 21300000, guid: 5c4ee73daa9cbf2449f5fb57184606f5, type: 3}
   interact: 000100010001
   thisInvestigate: 0
   checkDistance: 4

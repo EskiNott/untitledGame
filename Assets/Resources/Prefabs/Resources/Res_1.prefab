@@ -144,6 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemName: 
   ResID: 1
+  sprite: {fileID: 21300000, guid: 346be9e6becaff746a4f9c08a09c731f, type: 3}
   interact: 000000000001
   thisInvestigate: 0
   checkDistance: 2

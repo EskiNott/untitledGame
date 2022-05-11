@@ -10,6 +10,11 @@ public class backpack : MonoBehaviour
     public GlobalManager gm;
     public GameObject BackpackPanel;
 
+    [SerializeField]
+    private GameObject SlotParent;
+    [SerializeField]
+    private GameObject SlotPrefab;
+
     private bool IsOpenPlayerBag = false;
 
     [SerializeField]
@@ -61,9 +66,17 @@ public class backpack : MonoBehaviour
 
     private void panelControl_ItemList()
     {
+        GameObject tempGO;
         if (IsOpenPlayerBag)
         {
+            foreach(Resource res in playerBag)
+            {
+                for(int i = 0; i < res.Amount; i++)
+                {
+                    tempGO = Instantiate(SlotPrefab, SlotParent.transform);
 
+                }
+            }
         }
     }
 
