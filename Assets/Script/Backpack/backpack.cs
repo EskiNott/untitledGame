@@ -2,14 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public class backpack : MonoBehaviour
 {
-    static string jsonAddress = "Prefabs\\Resources\\ItemList";
+    static string jsonPath = "Prefabs\\Resources\\ItemList";
+    static string prefabPath = "Prefabs\\Resources";
+
     public List<Resource> playerBag;
     public GlobalManager gm;
     public GameObject BackpackPanel;
 
+    public GameObject SlotLeft;
+    public GameObject SlotRight;
     [SerializeField]
     private GameObject SlotParent;
     [SerializeField]
@@ -35,7 +40,7 @@ public class backpack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerBag = ParseTextJSON.ParseResourceListJSON(jsonAddress);
+        playerBag = ParseTextJSON.ParseResourceListJSON(jsonPath);
     }
 
     // Update is called once per frame
@@ -50,6 +55,7 @@ public class backpack : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.B))
             {
                 IsOpenPlayerBag = !IsOpenPlayerBag;
+                panelControl_Refresh();
             }
             Vector3 _movingTarget;
             if (IsOpenPlayerBag)
@@ -64,19 +70,34 @@ public class backpack : MonoBehaviour
         }
     }
 
+    private void panelControl_Refresh()
+    {
+        panelContorl_ClearBag();
+        panelControl_ItemList();
+    }
+
     private void panelControl_ItemList()
     {
         GameObject tempGO;
-        if (IsOpenPlayerBag)
+        foreach(Resource res in playerBag)
         {
-            foreach(Resource res in playerBag)
+            for(int i = 0; i < res.Amount; i++)
             {
-                for(int i = 0; i < res.Amount; i++)
+                tempGO = Instantiate(SlotPrefab, SlotParent.transform);
+                foreach(Transform t in tempGO.transform)
                 {
-                    tempGO = Instantiate(SlotPrefab, SlotParent.transform);
-
+                    t.GetComponent<Image>().sprite = _FindItemWithPrefabName(res.prefabName).sprite;
+                    t.GetComponent<Image>().color = Color.white;
                 }
             }
+        }
+    }
+
+    private void panelContorl_ClearBag()
+    {
+        foreach (Transform t in SlotParent.transform)
+        {
+            Destroy(t.gameObject);
         }
     }
 
@@ -91,10 +112,12 @@ public class backpack : MonoBehaviour
                 playerBagMassNow += tempRes.Mass;
                 playerBagVolumeNow += tempRes.Volume;
                 tempRes.Amount++;
+                panelControl_Refresh();
                 return true;
             }
             else
             {
+                panelControl_Refresh();
                 return false;
             }
         }
@@ -118,6 +141,7 @@ public class backpack : MonoBehaviour
                 return false;
             }
         }
+        panelControl_Refresh();
         return false;
     }
 
@@ -128,17 +152,33 @@ public class backpack : MonoBehaviour
             tempRes.Amount = 0;
             return true;
         }
+        panelControl_Refresh();
         return false;
     }
 
-    public void playerBagMassIncrese(int Mass)
+    public void playerBag_MassIncrese(int Mass)
     {
         playerBagMassMax += Mass;
+        panelControl_Refresh();
     }
 
-    public void playerBagVolumeIncrease(int Volume)
+    public void playerBag_VolumeIncrease(int Volume)
     {
         playerBagVolumeMax += Volume;
+        panelControl_Refresh();
+    }
+
+    public item _FindItemWithPrefabName(string PrefabName)
+    {
+        GameObject tempGO = Resources.Load<GameObject>(prefabPath + "\\" + PrefabName);
+        if (tempGO != null)
+        {
+            return tempGO.GetComponent<item>();
+        }
+        else
+        {
+            return null;
+        }
     }
 
     public Resource _ResourceFindInPlayerBag(int id)
