@@ -16,6 +16,8 @@ public class backpack : MonoBehaviour
     [SerializeField]
     private GameObject SlotParent;
     [SerializeField]
+    private Transform SlotParentTrans;
+    [SerializeField]
     private GameObject SlotPrefab;
 
     private bool IsOpenPlayerBag = false;
@@ -53,6 +55,7 @@ public class backpack : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.B))
             {
                 IsOpenPlayerBag = !IsOpenPlayerBag;
+                panelControl_Refresh();
             }
             Vector3 _movingTarget;
             if (IsOpenPlayerBag)
@@ -66,22 +69,36 @@ public class backpack : MonoBehaviour
             playerBagPanelRectTrans.position = Vector3.Lerp(playerBagPanelRectTrans.position, _movingTarget, Time.deltaTime * PanelMovingSpeed);
         }
     }
-
+    private void panelControl_Refresh()
+    {
+        foreach(Transform item in SlotParentTrans)
+        {
+            Destroy(item.gameObject);
+        }
+        panelControl_ItemList();
+    }
     private void panelControl_ItemList()
     {
         GameObject _Slot;
         Transform _SlotTrans;
+        Image _ChildImage;
         if (IsOpenPlayerBag)
         {
             foreach(Resource res in playerBag)
             {
-                for(int i = 0; i < res.Amount; i++)
+                _Slot = Instantiate(SlotPrefab, SlotParent.transform);
+                _SlotTrans = _Slot.GetComponent<Transform>();
+                foreach(Transform _t in _SlotTrans)
                 {
-                    _Slot = Instantiate(SlotPrefab, SlotParent.transform);
-                    _SlotTrans = _Slot.GetComponent<Transform>();
-                    foreach(Transform _t in _SlotTrans)
+                    if(_t.gameObject.name == "Sprite")
                     {
-                        _t.GetComponent<Image>().sprite = FindItemSpriteWithName(res.prefabName);
+                        _ChildImage = _t.GetComponent<Image>();
+                        _ChildImage.sprite = FindItemSpriteWithName(res.prefabName);
+                        _ChildImage.color = Color.white;
+                    }
+                    else if(_t.gameObject.name == "Amount")
+                    {
+                        _t.GetComponent<Text>().text = res.Amount.ToString();
                     }
                 }
             }
@@ -99,6 +116,7 @@ public class backpack : MonoBehaviour
                 playerBagMassNow += tempRes.Mass;
                 playerBagVolumeNow += tempRes.Volume;
                 tempRes.Amount++;
+                panelControl_Refresh();
                 return true;
             }
             else
@@ -119,6 +137,7 @@ public class backpack : MonoBehaviour
                 playerBagMassNow -= tempRes.Mass;
                 playerBagVolumeNow -= tempRes.Volume;
                 tempRes.Amount--;
+                panelControl_Refresh();
                 return true;
             }
             else
@@ -134,6 +153,7 @@ public class backpack : MonoBehaviour
         Resource tempRes = _ResourceFindInPlayerBag(id);
         if (tempRes != null) {
             tempRes.Amount = 0;
+            panelControl_Refresh();
             return true;
         }
         return false;
