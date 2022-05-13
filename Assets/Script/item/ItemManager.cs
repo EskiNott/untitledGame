@@ -212,11 +212,7 @@ public class ItemManager : MonoBehaviour
         Transform camTrans = cm.cam.transform;
         //Ö÷ÒªÂß¼­
         if (gm.isInvestigate
-            && goItem.thisInvestigate
-            && (Input.GetMouseButtonDown(0)
-            || Input.GetMouseButton(1)
-            || Input.GetMouseButtonDown(1)
-            || Input.GetMouseButtonUp(1))) 
+            && goItem.thisInvestigate) 
         {
             Ray ray = cm.cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -266,8 +262,9 @@ public class ItemManager : MonoBehaviour
                 }
             }
             //ÍÏ¶¯Âß¼­--------------------------------------------------------------------------------------------------------¡ü
+            scrollZoom(goTrans, cm.cam.transform);
         }
-        scrollZoom(goTrans, cm.cam.transform);
+
     }
 
     private void scrollZoom(Transform stabledItem, Transform movingItem)

@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public class backpack : MonoBehaviour
 {
-    static string jsonAddress = "Prefabs\\Resources\\ItemList";
+    static string jsonPath = "Prefabs\\Resources\\ItemList";
+    static string ItemSpritePath = "Sprites\\Items";
+
     public List<Resource> playerBag;
     public GlobalManager gm;
     public GameObject BackpackPanel;
@@ -35,7 +38,7 @@ public class backpack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerBag = ParseTextJSON.ParseResourceListJSON(jsonAddress);
+        playerBag = ParseTextJSON.ParseResourceListJSON(jsonPath);
     }
 
     // Update is called once per frame
@@ -66,15 +69,20 @@ public class backpack : MonoBehaviour
 
     private void panelControl_ItemList()
     {
-        GameObject tempGO;
+        GameObject _Slot;
+        Transform _SlotTrans;
         if (IsOpenPlayerBag)
         {
             foreach(Resource res in playerBag)
             {
                 for(int i = 0; i < res.Amount; i++)
                 {
-                    tempGO = Instantiate(SlotPrefab, SlotParent.transform);
-
+                    _Slot = Instantiate(SlotPrefab, SlotParent.transform);
+                    _SlotTrans = _Slot.GetComponent<Transform>();
+                    foreach(Transform _t in _SlotTrans)
+                    {
+                        _t.GetComponent<Image>().sprite = FindItemSpriteWithName(res.prefabName);
+                    }
                 }
             }
         }
@@ -141,6 +149,10 @@ public class backpack : MonoBehaviour
         playerBagVolumeMax += Volume;
     }
 
+    public Sprite FindItemSpriteWithName(String PrefabName)
+    {
+        return Resources.Load<Sprite>(ItemSpritePath + "\\" + PrefabName);
+    }
     public Resource _ResourceFindInPlayerBag(int id)
     {
         foreach (Resource tempRes in playerBag)
