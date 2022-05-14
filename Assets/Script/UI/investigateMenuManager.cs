@@ -11,34 +11,40 @@ public class investigateMenuManager : MonoBehaviour
     public bool isMenuOpened;
     public CameraManager cm;
     public GlobalManager gm;
+    public backpack bp;
     public GameObject MenuItemNameGO;
 
-    [SerializeField]
+    private Ray ray;
+    private RaycastHit hit;
+
     private Transform hitTransform;
+    [SerializeField]
     private Transform menuTransform;
+    [SerializeField]
     private ItemManager myItemM;
     // Start is called before the first frame update
     void Start()
     {
-        menuTransform = GameObject.Find("investigateMenu").GetComponent<Transform>();
         isMenuOpened = false;
-        myItemM = GetComponent<ItemManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
+        ray = cam.ScreenPointToRay(Input.mousePosition);
+        closeMenu();
+        set3DMenu();
+    }
 
-        //菜单关闭逻辑
-        if (Input.GetMouseButtonDown(0) && !RaycastUI() && isMenuOpened)
-        {
-            isMenuOpened = false;
-            clearButton();
-        }
+    public void set2DMenu(item itemAttribute)
+    {
+
+    }
+
+    private void set3DMenu()
+    {
         //菜单开启逻辑
-        if (Physics.Raycast(ray, out hit) && !isMenuOpened && !gm.isInvestigate)
+        if (Physics.Raycast(ray, out hit) && !isMenuOpened && !gm.isInvestigate && !gm.IsOpenPlayerBag)
         {
             if (Input.GetMouseButtonDown(0))
             {
@@ -63,6 +69,10 @@ public class investigateMenuManager : MonoBehaviour
 
         }
         //设置菜单位置
+        setMenu3DPosition();
+    }
+    public void setMenu3DPosition()
+    {
         if (isMenuOpened)
         {
             menuTransform.position = new Vector3(cam.WorldToScreenPoint(hitTransform.position).x,
@@ -72,6 +82,14 @@ public class investigateMenuManager : MonoBehaviour
     }
 
     //菜单关闭
+    public void closeMenu()
+    {
+        if (Input.GetMouseButtonDown(0) && !RaycastMenuUI() && isMenuOpened)
+        {
+            isMenuOpened = false;
+            clearButton();
+        }
+    }
     public void clearButton()
     {
         while (GameObject.FindWithTag("itemInvestigateOption"))
@@ -83,8 +101,8 @@ public class investigateMenuManager : MonoBehaviour
         cm.camRevert();
     }
 
-    //检测鼠标是否在UI上
-    public static bool RaycastUI()
+    //检测鼠标是否在菜单UI上
+    public static bool RaycastMenuUI()
     {
         if (EventSystem.current == null)
             return false;

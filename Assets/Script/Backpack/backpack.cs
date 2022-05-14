@@ -8,6 +8,7 @@ public class backpack : MonoBehaviour
 {
     static string jsonPath = "Prefabs\\Resources\\ItemList";
     static string ItemSpritePath = "Sprites\\Items";
+    static string ResourcesPrefabPath = "Prefabs\\Resources";
 
     public List<Resource> playerBag;
     public GlobalManager gm;
@@ -19,8 +20,6 @@ public class backpack : MonoBehaviour
     private Transform SlotParentTrans;
     [SerializeField]
     private GameObject SlotPrefab;
-
-    private bool IsOpenPlayerBag = false;
 
     [SerializeField]
     private RectTransform _BackpackOpenTrans;
@@ -54,11 +53,11 @@ public class backpack : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.B))
             {
-                IsOpenPlayerBag = !IsOpenPlayerBag;
+                gm.IsOpenPlayerBag = !gm.IsOpenPlayerBag;
                 panelControl_Refresh();
             }
             Vector3 _movingTarget;
-            if (IsOpenPlayerBag)
+            if (gm.IsOpenPlayerBag)
             {
                 _movingTarget = _BackpackOpenTrans.position;
             }
@@ -82,23 +81,30 @@ public class backpack : MonoBehaviour
         GameObject _Slot;
         Transform _SlotTrans;
         Image _ChildImage;
-        if (IsOpenPlayerBag)
+        if (gm.IsOpenPlayerBag)
         {
             foreach(Resource res in playerBag)
             {
                 _Slot = Instantiate(SlotPrefab, SlotParent.transform);
                 _SlotTrans = _Slot.GetComponent<Transform>();
-                foreach(Transform _t in _SlotTrans)
+                foreach(Transform _p in _SlotTrans)
                 {
-                    if(_t.gameObject.name == "Sprite")
+                    _p.GetComponent<CanvasGroup>().alpha = 1.0f;
+                    foreach (Transform _t in _p)
                     {
-                        _ChildImage = _t.GetComponent<Image>();
-                        _ChildImage.sprite = FindItemSpriteWithName(res.prefabName);
-                        _ChildImage.color = Color.white;
-                    }
-                    else if(_t.gameObject.name == "Amount")
-                    {
-                        _t.GetComponent<Text>().text = res.Amount.ToString();
+                        if (_t.gameObject.name == "Sprite")
+                        {
+                            _ChildImage = _t.GetComponent<Image>();
+                            _ChildImage.sprite = FindItemSpriteWithName(res.prefabName);
+                        }
+                        else if (_t.gameObject.name == "Amount")
+                        {
+                            _t.GetComponent<Text>().text = res.Amount.ToString();
+                        }else if(_t.gameObject.name == "ItemAttribute")
+                        {
+                            UnityEditorInternal.ComponentUtility.CopyComponent(FindItemWithPrefabName(res.prefabName));
+                            UnityEditorInternal.ComponentUtility.PasteComponentAsNew(_t.gameObject);
+                        }
                     }
                 }
             }
@@ -167,6 +173,10 @@ public class backpack : MonoBehaviour
     public void playerBagVolumeIncrease(int Volume)
     {
         playerBagVolumeMax += Volume;
+    }
+    public item FindItemWithPrefabName(String PrefabName)
+    {
+        return Resources.Load<GameObject>(ResourcesPrefabPath + "\\" + PrefabName).GetComponent<item>();
     }
 
     public Sprite FindItemSpriteWithName(String PrefabName)
