@@ -38,7 +38,16 @@ public class investigateMenuManager : MonoBehaviour
 
     public void set2DMenu(item itemAttribute)
     {
-
+        MenuItemNameGO.GetComponentInChildren<Text>().text = hitTransform.gameObject.GetComponent<item>().ItemName;
+        MenuItemNameGO.SetActive(true);
+        for (int i = 0; i < itemAttribute.interact.Length; i++)
+        {
+            if (itemAttribute.interact[i])
+            {
+                investigateMenu[i].SetActive(true);
+            }
+        }
+        isMenuOpened = true;
     }
 
     private void set3DMenu()
@@ -71,6 +80,11 @@ public class investigateMenuManager : MonoBehaviour
         //ÉèÖÃ²Ëµ¥Î»ÖÃ
         setMenu3DPosition();
     }
+    public void setMenu2DPosition()
+    {
+
+    }
+
     public void setMenu3DPosition()
     {
         if (isMenuOpened)
