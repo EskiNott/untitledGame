@@ -13,6 +13,7 @@ public class backpack : MonoBehaviour
     public List<Resource> playerBag;
     public GlobalManager gm;
     public GameObject BackpackPanel;
+    public investigateMenuManager iMM;
 
     [SerializeField]
     private GameObject SlotParent;
@@ -104,6 +105,11 @@ public class backpack : MonoBehaviour
                         {
                             UnityEditorInternal.ComponentUtility.CopyComponent(FindItemWithPrefabName(res.prefabName));
                             UnityEditorInternal.ComponentUtility.PasteComponentAsNew(_t.gameObject);
+
+                            _Slot.GetComponent<Button>().onClick.AddListener(delegate {
+                                iMM.set2DMenu(_t.GetComponent<item>());
+                            });
+
                         }
                     }
                 }

@@ -18,6 +18,7 @@ public class investigateMenuManager : MonoBehaviour
     private RaycastHit hit;
 
     private Transform hitTransform;
+    private bool Menu3d;
     [SerializeField]
     private Transform menuTransform;
     [SerializeField]
@@ -38,7 +39,7 @@ public class investigateMenuManager : MonoBehaviour
 
     public void set2DMenu(item itemAttribute)
     {
-        MenuItemNameGO.GetComponentInChildren<Text>().text = hitTransform.gameObject.GetComponent<item>().ItemName;
+        MenuItemNameGO.GetComponentInChildren<Text>().text = itemAttribute.ItemName;
         MenuItemNameGO.SetActive(true);
         for (int i = 0; i < itemAttribute.interact.Length; i++)
         {
@@ -48,6 +49,8 @@ public class investigateMenuManager : MonoBehaviour
             }
         }
         isMenuOpened = true;
+        Menu3d = false;
+        setMenu2DPosition(itemAttribute);
     }
 
     private void set3DMenu()
@@ -73,6 +76,7 @@ public class investigateMenuManager : MonoBehaviour
                         }
                     }
                     isMenuOpened = true;
+                    Menu3d = true;
                 }
             }
 
@@ -80,9 +84,13 @@ public class investigateMenuManager : MonoBehaviour
         //设置菜单位置
         setMenu3DPosition();
     }
-    public void setMenu2DPosition()
+    public void setMenu2DPosition(item itemAttribute)
     {
-
+        RectTransform itemTrans = itemAttribute.transform.parent.parent.GetComponent<RectTransform>();
+        if (isMenuOpened)
+        {
+            menuTransform.GetComponent<RectTransform>().position = itemTrans.position;
+        }
     }
 
     public void setMenu3DPosition()
@@ -102,6 +110,13 @@ public class investigateMenuManager : MonoBehaviour
         {
             isMenuOpened = false;
             clearButton();
+            if (Menu3d)
+            {
+                hitTransform.GetComponent<OutlinePointerEvent>().forceOn = false;
+                hitTransform.GetComponent<Outline>().enabled = false;
+                cm.camRevert();
+            }
+
         }
     }
     public void clearButton()
@@ -110,9 +125,6 @@ public class investigateMenuManager : MonoBehaviour
         {
             GameObject.FindWithTag("itemInvestigateOption").SetActive(false);
         }
-        hitTransform.GetComponent<OutlinePointerEvent>().forceOn = false;
-        hitTransform.GetComponent<Outline>().enabled = false;
-        cm.camRevert();
     }
 
     //检测鼠标是否在菜单UI上
