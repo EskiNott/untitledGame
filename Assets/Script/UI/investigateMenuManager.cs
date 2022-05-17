@@ -89,7 +89,7 @@ public class investigateMenuManager : MonoBehaviour
         RectTransform itemTrans = itemAttribute.transform.parent.parent.GetComponent<RectTransform>();
         if (isMenuOpened)
         {
-            menuTransform.GetComponent<RectTransform>().position = itemTrans.position;
+            menuTransform.GetComponent<RectTransform>().anchoredPosition = itemTrans.anchoredPosition;
         }
     }
 
