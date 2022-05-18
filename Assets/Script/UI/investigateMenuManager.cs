@@ -50,7 +50,6 @@ public class investigateMenuManager : MonoBehaviour
         }
         isMenuOpened = true;
         Menu3d = false;
-        setMenu2DPosition(itemAttribute);
     }
 
     private void set3DMenu()
@@ -79,17 +78,15 @@ public class investigateMenuManager : MonoBehaviour
                     Menu3d = true;
                 }
             }
-
         }
         //…Ë÷√≤Àµ•Œª÷√
         setMenu3DPosition();
     }
-    public void setMenu2DPosition(item itemAttribute)
+    public void setMenu2DPosition(RectTransform targetTrans)
     {
-        RectTransform itemTrans = itemAttribute.transform.parent.parent.GetComponent<RectTransform>();
         if (isMenuOpened)
         {
-            menuTransform.GetComponent<RectTransform>().anchoredPosition = itemTrans.anchoredPosition;
+            menuTransform.GetComponent<RectTransform>().anchoredPosition = targetTrans.anchoredPosition;
         }
     }
 

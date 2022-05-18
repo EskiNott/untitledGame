@@ -108,6 +108,7 @@ public class backpack : MonoBehaviour
 
                             _Slot.GetComponent<Button>().onClick.AddListener(delegate {
                                 iMM.set2DMenu(_t.GetComponent<item>());
+                                iMM.setMenu2DPosition(_t.GetComponent<RectTransform>());
                             });
 
                         }
