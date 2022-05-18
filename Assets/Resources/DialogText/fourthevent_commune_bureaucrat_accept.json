@@ -40,7 +40,7 @@
     "nameExist": false,
     "zh_CN": {
       "ObjectNameText": "",
-      "DialogText": "他把吃的装进公文包，顶着啤酒肚离开了"
+      "DialogText": "他把吃的装进公文包里，顶着啤酒肚离开了"
     },
     "en_US": {
       "ObjectNameText": "",
@@ -64,7 +64,7 @@
     "nameExist": true,
     "zh_CN": {
       "ObjectNameText": "你",
-      "DialogText": "至少不会被传闲话了"
+      "DialogText": "至少不会在公社里被传闲话了"
     },
     "en_US": {
       "ObjectNameText": "You",
@@ -93,6 +93,19 @@
     "en_US": {
       "ObjectNameText": "",
       "DialogText": "I really hope this kind of person will not appear again in these difficult days"
+    }
+  }
+  ,
+    {
+    "id": 8,
+    "nameExist": false,
+    "zh_CN": {
+      "ObjectNameText": "",
+      "DialogText": "公社里这种人究竟还有多少啊？"
+    },
+    "en_US": {
+      "ObjectNameText": "",
+      "DialogText": "How many such people are there in the commune?"
     }
   }
 ]

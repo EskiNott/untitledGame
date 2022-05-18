@@ -1,0 +1,159 @@
+[
+  {
+    "id": 0,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "老工人",
+      "DialogText": "你终于回来了"
+    },
+    "en_US": {
+      "ObjectNameText": "Old worker",
+      "DialogText": "You're back at last."
+    }
+  },
+  {
+    "id": 1,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "什么风把你吹过来了？"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "What brings you here?"
+    }
+  },
+  {
+    "id": 2,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "老工人",
+      "DialogText": "哈哈，肯定不是带着放射的阴风。"
+    },
+    "en_US": {
+      "ObjectNameText": "Old worker",
+      "DialogText": "Ha ha, definitely not with the radiation of the Bleak wind."
+    }
+  },
+    {
+    "id": 3,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "好，那你找我干什么呢？"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "OK, what are you looking for me for?"
+    }
+  },
+    {
+    "id": 4,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "老工人",
+      "DialogText": "你开始帮助别人了，这是好事，我看到了你能给我们带来...旧时代的技术。"
+    },
+    "en_US": {
+      "ObjectNameText": "Old worker",
+      "DialogText": "You're starting to help others. It's a good thing. I see you can bring us Old age technology."
+    }
+  },
+  {
+    "id": 5,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "那么你给我们带来的就事远古时期的技术了，比如木工....抱歉。"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "So what you brought us is the technology of ancient times, such as carpentry ... I 'm sorry."
+    }
+  },
+    {
+    "id": 6,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "所以你也是来找我帮什么忙的咯？"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "So why are you here to help me?"
+    }
+  },
+    {
+    "id": 7,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "老工人",
+      "DialogText": "我是想来找你谈谈交易。"
+    },
+    "en_US": {
+      "ObjectNameText": "Old worker",
+      "DialogText": "I wanted to talk to you about the deal."
+    }
+  },
+    {
+    "id": 8,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "交易？"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "Deal?"
+    }
+  },
+    {
+    "id": 9,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "老工人",
+      "DialogText": "我也听说你最近一直在收集各种吃的还有喝的还有一些小零件。"
+    },
+    "en_US": {
+      "ObjectNameText": "Old worker",
+      "DialogText": "I also heard that you have been collecting all kinds of food and drink and some small parts recently."
+    }
+  },
+    {
+    "id": 10,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "所以？"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "So?"
+    }
+  },
+    {
+    "id": 11,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "老工人",
+      "DialogText": "我老了，很多工作不能完成...所以我希望你能来帮我，我会给你这些稀缺的零件，反正我也不会用。"
+    },
+    "en_US": {
+      "ObjectNameText": "Old worker",
+      "DialogText": "I'm old and can't finish a lot of work So I hope you can help me. I'll give you these scarce parts. I won't use them anyway."
+    }
+  }
+  ,
+    {
+    "id": 12,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "好吧，让我想想..."
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "Well, let me see..."
+    }
+  }
+]

@@ -49,6 +49,18 @@
   },
   {
     "id": 4,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "别扯其他的，你是死是活，与我没有任何关系！"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "Don't talk about anything else. Whether you live or die has nothing to do with me!"
+    }
+  },
+  {
+    "id": 5,
     "nameExist": false,
     "zh_CN": {
       "ObjectNameText": "",
@@ -60,7 +72,7 @@
     }
   },
   {
-    "id": 5,
+    "id": 6,
     "nameExist": false,
     "zh_CN": {
       "ObjectNameText": "",
@@ -72,7 +84,7 @@
     }
   },
   {
-    "id": 6,
+    "id": 7,
     "nameExist": false,
     "zh_CN": {
       "ObjectNameText": "",

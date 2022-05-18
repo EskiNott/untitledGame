@@ -1,0 +1,134 @@
+[
+  {
+    "id": 0,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "所以我觉得我自己生存都很困难了"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "So I think it's very difficult for me to survive"
+    }
+  },
+  {
+    "id": 1,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "老工人",
+      "DialogText": "但是如果我们互相帮忙地话，难道不会更有效率一点吗？"
+    },
+    "en_US": {
+      "ObjectNameText": "Old worker",
+      "DialogText": "But wouldn't it be more efficient if we helped each other?"
+    }
+  },
+  {
+    "id": 2,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "老工人",
+      "DialogText": "你也可以不必去地面上收集那些零件。"
+    },
+    "en_US": {
+      "ObjectNameText": "Old worker",
+      "DialogText": "You don't have to go to the ground to collect those parts."
+    }
+  },
+  {
+    "id": 3,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "你是说这个只有几十个人的避难所？"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "You mean this shelter for only a few dozen people?"
+    }
+  },
+  {
+    "id": 4,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "老工人",
+      "DialogText": "......"
+    },
+    "en_US": {
+      "ObjectNameText": "Old worker",
+      "DialogText": "......"
+    }
+  },
+  {
+    "id": 5,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "抱歉"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "sorry"
+    }
+  },
+    {
+    "id": 6,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "话说回来你又是怎么拿到这些小零件的？"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "What is what"
+    }
+  },
+    {
+    "id": 7,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "老工人",
+      "DialogText": "当然是其他的幸存者拿来让我帮他们修修东西，他们估计也是从外面收集来的吧"
+    },
+    "en_US": {
+      "ObjectNameText": "Old worker",
+      "DialogText": "Of course, other survivors brought it to me to repair things for them. They probably collected it from outside"
+    }
+  },
+    {
+    "id": 8,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "那还是让我自己来吧，毕竟我又不知道他们会收集来什么东西"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "After all, I'll let them collect what I don't know"
+    }
+  },
+    {
+    "id": 9,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "老工人",
+      "DialogText": "好吧，既然你坚持，但你还是随时可以来帮我忙，一样会给你这些零件的"
+    },
+    "en_US": {
+      "ObjectNameText": "Old worker",
+      "DialogText": "Well, since you insist, you can still come and help me at any time. I'll give you these parts as well"
+    }
+  },
+    {
+    "id": 10,
+    "nameExist": false,
+    "zh_CN": {
+      "ObjectNameText": "",
+      "DialogText": "老工人拖沓着脚步离开了，低着头想着什么事情"
+    },
+    "en_US": {
+      "ObjectNameText": "",
+      "DialogText": "The old worker shuffled away, lowering his head and thinking about something"
+    }
+  }
+]

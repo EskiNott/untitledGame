@@ -1,0 +1,98 @@
+[
+  {
+    "id": 0,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "所以你想让我做什么呢？"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "So what do you want me to do?"
+    }
+  },
+  {
+    "id": 1,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "老工人",
+      "DialogText": "总之就是帮我干点体力活，比如拿木材钢材做点东西什么的"
+    },
+    "en_US": {
+      "ObjectNameText": "Old worker",
+      "DialogText": "In short, it's to help me do some physical work, such as making something with wood and steel"
+    }
+  },
+  {
+    "id": 2,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "老工人",
+      "DialogText": "当然你可以挑你有空的时候来"
+    },
+    "en_US": {
+      "ObjectNameText": "Old worker",
+      "DialogText": "Of course, you can come when you are free"
+    }
+  },
+    {
+    "id": 3,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "话说回来你又是怎么拿到这些小零件的？"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "Anyway, how did you get these small parts?"
+    }
+  },
+    {
+    "id": 4,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "老工人",
+      "DialogText": "当然是其他的幸存者拿来让我帮他们修修东西，他们估计是从外面收集来的吧"
+    },
+    "en_US": {
+      "ObjectNameText": "Old worker",
+      "DialogText": "Of course, other survivors brought it to me to repair things for them. They probably collected it from outside"
+    }
+  },
+    {
+    "id": 5,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "好吧，等我有空的时候就来帮你。"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "Well, I'll help you when I'm free."
+    }
+  },
+    {
+    "id": 6,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "老工人",
+      "DialogText": "我会等你来的。"
+    },
+    "en_US": {
+      "ObjectNameText": "Old worker",
+      "DialogText": "I'll wait for you to come."
+    }
+  },
+    {
+    "id": 7,
+    "nameExist": false,
+    "zh_CN": {
+      "ObjectNameText": "",
+      "DialogText": "老工人看上去有点欢快地离开了"
+    },
+    "en_US": {
+      "ObjectNameText": "",
+      "DialogText": "The old worker looked a little cheerful and left"
+    }
+  }
+]

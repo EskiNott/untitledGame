@@ -3,8 +3,8 @@
     "id": 0,
     "nameExist": true,
     "zh_CN": {
-      "ObjectNameText": "大哥",
-      "DialogText": "扣1送iphone13ProMax"
+      "ObjectNameText": "孕妇",
+      "DialogText": "求你行行好吧"
     },
     "en_US": {
       "ObjectNameText": "Big Brother",
@@ -15,7 +15,7 @@
     "id": 1,
     "nameExist": false,
     "zh_CN": {
-      "ObjectNameText": "琥珀玲",
+      "ObjectNameText": "你",
       "DialogText": "111大哥真送吗"
     },
     "en_US": {
