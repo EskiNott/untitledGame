@@ -21,15 +21,17 @@ public class backpack : MonoBehaviour
     private Transform SlotParentTrans;
     [SerializeField]
     private GameObject SlotPrefab;
-
     [SerializeField]
-    private RectTransform _BackpackOpenTrans;
-    [SerializeField]
-    private RectTransform _BackpackCloseTrans;
+    private CanvasGroup bpCG;
     [SerializeField]
     private RectTransform playerBagPanelRectTrans;
-    public float PanelMovingSpeed = 10.0f;
 
+    [SerializeField]
+    private RectTransform WeightProgressTrans;
+    [SerializeField]
+    private RectTransform VolumeProgressTrans;
+
+    public float PanelMovingSpeed = 15.0f;
     public float playerBagMassMax = 10;
     [SerializeField]
     private float playerBagMassNow = 0;
@@ -47,6 +49,7 @@ public class backpack : MonoBehaviour
     void Update()
     {
         panelControl_Appear();
+        panelControl_Progress();
     }
     private void panelControl_Appear()
     {
@@ -57,17 +60,27 @@ public class backpack : MonoBehaviour
                 gm.IsOpenPlayerBag = !gm.IsOpenPlayerBag;
                 panelControl_Refresh();
             }
-            Vector3 _movingTarget;
+            int targetAlpha;
             if (gm.IsOpenPlayerBag)
             {
-                _movingTarget = _BackpackOpenTrans.position;
+                targetAlpha = 1;
+                if(bpCG.alpha > 0.001)
+                {
+                    BackpackPanel.SetActive(true);
+                }
             }
             else
             {
-                _movingTarget = _BackpackCloseTrans.position;
+                targetAlpha = 0;
+                if(bpCG.alpha < 0.001)
+                {
+                    BackpackPanel.SetActive(false);
+                    bpCG.alpha = 0;
+                }
             }
-            playerBagPanelRectTrans.position = Vector3.Lerp(playerBagPanelRectTrans.position, _movingTarget, Time.deltaTime * PanelMovingSpeed);
+            bpCG.alpha = Mathf.Lerp(bpCG.alpha, targetAlpha, Time.deltaTime * PanelMovingSpeed);
         }
+
     }
     private void panelControl_Refresh()
     {
@@ -77,6 +90,26 @@ public class backpack : MonoBehaviour
         }
         panelControl_ItemList();
     }
+    private void panelControl_Progress()
+    {
+        Vector2 targetVol = new Vector2(
+            VolumeProgressTrans.parent.GetComponent<RectTransform>().sizeDelta.x,
+            VolumeProgressTrans.parent.GetComponent<RectTransform>().sizeDelta.y
+            *(playerBagVolumeNow/playerBagVolumeMax)
+            );
+        VolumeProgressTrans.sizeDelta = Vector2.Lerp(VolumeProgressTrans.sizeDelta,
+            targetVol,
+            Time.deltaTime * PanelMovingSpeed * 0.5f);
+        Vector2 targetWei = new Vector2(
+            WeightProgressTrans.parent.GetComponent<RectTransform>().sizeDelta.x,
+            WeightProgressTrans.parent.GetComponent<RectTransform>().sizeDelta.y
+            * (playerBagMassNow / playerBagMassMax)
+            );
+        WeightProgressTrans.sizeDelta = Vector2.Lerp(WeightProgressTrans.sizeDelta,
+            targetWei,
+            Time.deltaTime * PanelMovingSpeed * 0.5f);
+    }
+
     private void panelControl_ItemList()
     {
         GameObject _Slot;
@@ -108,7 +141,7 @@ public class backpack : MonoBehaviour
 
                             _Slot.GetComponent<Button>().onClick.AddListener(delegate {
                                 iMM.set2DMenu(_t.GetComponent<item>());
-                                iMM.setMenu2DPosition(_t.GetComponent<RectTransform>());
+                                iMM.setMenu2DPosition(_t);
                             });
 
                         }

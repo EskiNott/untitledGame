@@ -41,9 +41,9 @@ public class investigateMenuManager : MonoBehaviour
     {
         MenuItemNameGO.GetComponentInChildren<Text>().text = itemAttribute.ItemName;
         MenuItemNameGO.SetActive(true);
-        for (int i = 0; i < itemAttribute.interact.Length; i++)
+        for (int i = 2; i < itemAttribute.interact.Length; i++)
         {
-            if (itemAttribute.interact[i])
+            if (itemAttribute.interact[i] && i != 5) 
             {
                 investigateMenu[i].SetActive(true);
             }
@@ -80,13 +80,14 @@ public class investigateMenuManager : MonoBehaviour
             }
         }
         //ÉèÖÃ²Ëµ¥Î»ÖÃ
+        if(!gm.IsOpenPlayerBag)
         setMenu3DPosition();
     }
-    public void setMenu2DPosition(RectTransform targetTrans)
+    public void setMenu2DPosition(Transform targetTrans)
     {
         if (isMenuOpened)
         {
-            menuTransform.GetComponent<RectTransform>().anchoredPosition = targetTrans.anchoredPosition;
+            menuTransform.position = targetTrans.position;
         }
     }
 
