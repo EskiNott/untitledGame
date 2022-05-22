@@ -144,15 +144,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba0882b0fe45e614b8c2e0dc55e1a763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interact: 000000000000
+  ItemName: 
+  ResID: 5
+  sprite: {fileID: 21300000, guid: c4a4638ba1ee5d54890467d2362d73da, type: 3}
+  interact: 010100000001
   thisInvestigate: 0
   checkDistance: 4
+  minCheckDistance: 1
+  maxCheckDistance: 10
+  checkSpeed: 2
   maxRotation_Y: 15
   minRotation_Y: -15
   maxRotation_Z: 15
   minRotation_Z: -15
-  minCheckDistance: 1
-  maxCheckDistance: 10
   isSizeBig: 0
   childParts:
   - {fileID: 416433618571129989}

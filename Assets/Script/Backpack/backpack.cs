@@ -2,13 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public class backpack : MonoBehaviour
 {
-    static string jsonAddress = "Prefabs\\Resources\\ItemList";
+    static string jsonPath = "Prefabs\\Resources\\ItemList";
+    static string ItemSpritePath = "Sprites\\Items";
+
     public List<Resource> playerBag;
     public GlobalManager gm;
     public GameObject BackpackPanel;
+
+    [SerializeField]
+    private GameObject SlotParent;
+    [SerializeField]
+    private GameObject SlotPrefab;
 
     private bool IsOpenPlayerBag = false;
 
@@ -21,22 +29,24 @@ public class backpack : MonoBehaviour
     public float PanelMovingSpeed = 10.0f;
 
     public float playerBagMassMax = 10;
+    [SerializeField]
     private float playerBagMassNow = 0;
     public float playerBagVolumeMax = 10;
+    [SerializeField]
     private float playerBagVolumeNow = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerBag = ParseTextJSON.ParseResourceListJSON(jsonAddress);
+        playerBag = ParseTextJSON.ParseResourceListJSON(jsonPath);
     }
 
     // Update is called once per frame
     void Update()
     {
-        playerBagPanelControl();
+        panelControl_Appear();
     }
-    private void playerBagPanelControl()
+    private void panelControl_Appear()
     {
         if (gm.canOpenBag)
         {
@@ -54,6 +64,27 @@ public class backpack : MonoBehaviour
                 _movingTarget = _BackpackCloseTrans.position;
             }
             playerBagPanelRectTrans.position = Vector3.Lerp(playerBagPanelRectTrans.position, _movingTarget, Time.deltaTime * PanelMovingSpeed);
+        }
+    }
+
+    private void panelControl_ItemList()
+    {
+        GameObject _Slot;
+        Transform _SlotTrans;
+        if (IsOpenPlayerBag)
+        {
+            foreach(Resource res in playerBag)
+            {
+                for(int i = 0; i < res.Amount; i++)
+                {
+                    _Slot = Instantiate(SlotPrefab, SlotParent.transform);
+                    _SlotTrans = _Slot.GetComponent<Transform>();
+                    foreach(Transform _t in _SlotTrans)
+                    {
+                        _t.GetComponent<Image>().sprite = FindItemSpriteWithName(res.prefabName);
+                    }
+                }
+            }
         }
     }
 
@@ -118,6 +149,10 @@ public class backpack : MonoBehaviour
         playerBagVolumeMax += Volume;
     }
 
+    public Sprite FindItemSpriteWithName(String PrefabName)
+    {
+        return Resources.Load<Sprite>(ItemSpritePath + "\\" + PrefabName);
+    }
     public Resource _ResourceFindInPlayerBag(int id)
     {
         foreach (Resource tempRes in playerBag)

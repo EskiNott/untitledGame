@@ -10,11 +10,18 @@ public class ItemManager : MonoBehaviour
     private CameraManager cm;
     [SerializeField]
     private backpack bpm;
+    [SerializeField]
     private investigateMenuManager iMM;
-    private Vector3 tempRotationDragging;
-    private Vector3 tempPositionDragging;
-    private Vector2 MousePos1;
-    private Vector2 MousePos2;
+
+    private float mouseX;
+    private float mouseY;
+
+    private float mouseYaw;
+    private float mousePitch;
+
+    private Rigidbody goRB = null;
+    private bool _usingGravity = false;
+
     private int options;
     private item goItem;
     private Transform goTrans;
@@ -26,10 +33,8 @@ public class ItemManager : MonoBehaviour
     [HideInInspector]
     public GameObject go;
 
-
     private void Start()
     {
-        iMM = GetComponent<investigateMenuManager>();
         options = -1;
     }
 
@@ -49,7 +54,6 @@ public class ItemManager : MonoBehaviour
                     _itemCheckClose();
                     cm.camStop(gm.isInvestigate);
                 }
-
                 break;
             case 2:
                 break;
@@ -58,14 +62,28 @@ public class ItemManager : MonoBehaviour
             case 4:
                 break;
             case 5:
+                
                 break;
         }
+    }
+    public void itemInteract()
+    {
+        goItem = go.GetComponent<item>();
+        goTrans = go.GetComponent<Transform>();
+        options = 0;
+        iMM.clearButton();
     }
 
     public void itemCheck()
     {
         goItem = go.GetComponent<item>();
         goTrans = go.GetComponent<Transform>();
+        if (goTrans.GetComponent<Rigidbody>())
+        {
+            goRB = goTrans.GetComponent<Rigidbody>();
+            _usingGravity = goRB.useGravity;
+        }
+
         //拿起检查
         if (!goItem.isSizeBig)
 
@@ -74,13 +92,17 @@ public class ItemManager : MonoBehaviour
             {
                 ItemPrePosition = new Vector3(goTrans.position.x, goTrans.position.y, goTrans.position.z);
                 ItemPreRotation = new Quaternion(goTrans.rotation.x, goTrans.rotation.y, goTrans.rotation.z, goTrans.rotation.w);
+                if (_usingGravity)
+                {
+                    goRB.useGravity = false;
+                }
+
                 goItem.thisInvestigate = true;
                 go.GetComponent<Outline>().enabled = false;
                 gm.isInvestigate = true;
                 gm.investigateItem = go;
                 goTrans.position = cm.oTrans.position + cm.oTrans.rotation*(new Vector3(0, 0, 1)).normalized * goItem.checkDistance;
                 goTrans.LookAt(cm.oTrans.position);
-                tempRotationDragging = goTrans.rotation.eulerAngles;
             }
         }
         else
@@ -94,36 +116,43 @@ public class ItemManager : MonoBehaviour
                 gm.investigateItem = go;
                 cm.setCamPos(goTrans.position + goTrans.forward * goItem.checkDistance);
                 cm.cam.transform.LookAt(goTrans.position);
-                tempPositionDragging = cm.cam.transform.position;
-                tempRotationDragging = cm.cam.transform.rotation.eulerAngles;
             }
         }
         options = 1;
         iMM.clearButton();
     }
-
+    public void itemEat()
+    {
+        goItem = go.GetComponent<item>();
+        goTrans = go.GetComponent<Transform>();
+        options = 3;
+        iMM.clearButton();
+    }
     public void itemAttack()
     {
-        options = 0;
+        goItem = go.GetComponent<item>();
+        goTrans = go.GetComponent<Transform>();
+        options = 2;
+        iMM.clearButton();
     }
     public void itemTalk()
     {
-
-    }
-
-    public void itemInteract()
-    {
-
-    }
-
-    public void itemEat()
-    {
-
+        goItem = go.GetComponent<item>();
+        goTrans = go.GetComponent<Transform>();
+        options = 4;
+        iMM.clearButton();
     }
 
     public void itemTake()
     {
+        goItem = go.GetComponent<item>();
+        goTrans = go.GetComponent<Transform>();
 
+        bpm.playerBag_Add(goItem.ResID);
+        go.SetActive(false);
+
+        options = 5;
+        iMM.clearButton();
     }
 
 
@@ -143,12 +172,11 @@ public class ItemManager : MonoBehaviour
                 RaycastHit hit;
 
                 //拖动逻辑--------------------------------------------------------------------------------------------------------↓
-                //拖动开始判定
-                if (Input.GetMouseButtonDown(1) && Physics.Raycast(ray, out hit)
-                    && ((hit.collider.gameObject == go) || isRayHitThis(hit, goItem.childParts)))
+                if (Input.GetMouseButton(1))
                 {
-                    MousePos1 = Input.mousePosition;
-                    isDragging = true;
+                    goTrans.eulerAngles += new Vector3(-Input.GetAxis("Mouse Y") * goItem.checkSpeed * 2.0f
+                                            , -Input.GetAxis("Mouse X") * goItem.checkSpeed * 2.0f
+                                            , 0);
                 }
                 //退出检查判定
                 else if (Input.GetMouseButtonDown(0) && Physics.Raycast(ray, out hit) && !isDragging)
@@ -162,19 +190,13 @@ public class ItemManager : MonoBehaviour
                             goItem.thisInvestigate = false;
                             gm.isInvestigate = false;
                             gm.investigateItem = null;
+                            if (_usingGravity == true && goTrans.GetComponent<Rigidbody>())
+                            {
+                                goRB.useGravity = true;
+                                _usingGravity = false;
+                            }
                         }
                     }
-                }
-                //拖动逻辑
-                else if (Input.GetMouseButton(1))
-                {
-                    MousePos2 = Input.mousePosition;
-                    goTrans.eulerAngles = new Vector3(tempRotationDragging.x + (MousePos1.y - MousePos2.y) * rotateSpeed, tempRotationDragging.y + (MousePos1.x - MousePos2.x) * rotateSpeed, 0);
-                }
-                //结束拖动判定
-                if (Input.GetMouseButtonUp(1))
-                {
-                    isDragging = false;
                 }
                 //拖动逻辑--------------------------------------------------------------------------------------------------------↑
             }
@@ -190,23 +212,42 @@ public class ItemManager : MonoBehaviour
         Transform camTrans = cm.cam.transform;
         //主要逻辑
         if (gm.isInvestigate
-            && goItem.thisInvestigate
-            && (Input.GetMouseButtonDown(0)
-            || Input.GetMouseButton(1)
-            || Input.GetMouseButtonDown(1)
-            || Input.GetMouseButtonUp(1))) 
+            && goItem.thisInvestigate) 
         {
             Ray ray = cm.cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             //拖动逻辑--------------------------------------------------------------------------------------------------------↓
-            //拖动开始判定
-            if (Input.GetMouseButtonDown(1) && Physics.Raycast(ray, out hit)
-                && ((hit.collider.gameObject == go) || isRayHitThis(hit, goItem.childParts)))
+            if (Input.GetMouseButton(1))
             {
-                MousePos1 = Input.mousePosition;
-                isDragging = true;
+                mouseX = Input.GetAxis("Mouse X");
+                mouseY = Input.GetAxis("Mouse Y");
+                mousePitch += mouseY;
+                mouseYaw += mouseX;
+                if (mousePitch > goItem.maxRotation_Y)
+                {
+                    mousePitch = goItem.maxRotation_Y;
+                }else if (mousePitch < goItem.minRotation_Y)
+                {
+                    mousePitch = goItem.minRotation_Y;
+                }
+
+                if (mouseYaw > goItem.maxRotation_Z)
+                {
+                    mouseYaw = goItem.maxRotation_Z;
+                }
+                else if (mouseYaw < goItem.minRotation_Z)
+                {
+                    mouseYaw = goItem.minRotation_Z;
+                }
+
+                Quaternion tempRotate = Quaternion.Euler(new Vector3(
+                                        -mousePitch
+                                        , mouseYaw
+                                        , -mousePitch
+                                        ));
+                camTrans.position = goTrans.position + tempRotate * goTrans.forward.normalized * goItem.checkDistance;
+                camTrans.LookAt(goTrans);
             }
-            //退出检查判定
             else if (Input.GetMouseButtonDown(0) && Physics.Raycast(ray, out hit) && !isDragging)
             {
                 if (hit.collider.gameObject != go)
@@ -220,45 +261,10 @@ public class ItemManager : MonoBehaviour
                     }
                 }
             }
-            //拖动逻辑
-            else if (Input.GetMouseButton(1))
-            {
-                MousePos2 = Input.mousePosition;
-                float rotateY = MousePos2.x - MousePos1.x;
-                float rotateZ = MousePos1.y - MousePos2.y;
-                if (rotateY > goItem.maxRotation_Y) 
-                {
-                    rotateY = goItem.maxRotation_Y;
-                }else if (rotateY < goItem.minRotation_Y)
-                {
-                    rotateY = goItem.minRotation_Y;
-                }
-                if(rotateZ > goItem.maxRotation_Z)
-                {
-                    rotateZ = goItem.maxRotation_Z;
-                }else if(rotateZ < goItem.minRotation_Z)
-                {
-                    rotateZ = goItem.minRotation_Z;
-                }
-
-                Quaternion tempRotate = Quaternion.Euler(new Vector3(
-                    0
-                    , rotateY
-                    , rotateZ
-                    ));
-
-                camTrans.position = goTrans.position + tempRotate * (tempPositionDragging - goTrans.position).normalized * goItem.checkDistance;
-                camTrans.LookAt(goTrans);
-                
-            }
-            //结束拖动判定
-            if (Input.GetMouseButtonUp(1))
-            {
-                isDragging = false;
-            }
             //拖动逻辑--------------------------------------------------------------------------------------------------------↑
+            scrollZoom(goTrans, cm.cam.transform);
         }
-        scrollZoom(goTrans, cm.cam.transform);
+
     }
 
     private void scrollZoom(Transform stabledItem, Transform movingItem)

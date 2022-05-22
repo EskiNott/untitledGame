@@ -27,6 +27,7 @@ public class SituationManager : MonoBehaviour
 
         foreach(Character tempCha in crt)
         {
+            tempCha.SituationManage();
             tempCha.NutritionManage();
             if (Input.GetKeyDown(KeyCode.Tab) && tempCha.ID == 1)
             {

@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 212347673927214522}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: 4.85, z: 0}
   m_LocalScale: {x: 79.81481, y: 79.81481, z: 79.81481}
   m_Children: []
   m_Father: {fileID: 193596129729657144}
@@ -144,15 +144,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba0882b0fe45e614b8c2e0dc55e1a763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interact: 000000000000
+  ItemName: 
+  ResID: 3
+  sprite: {fileID: 21300000, guid: 5c4ee73daa9cbf2449f5fb57184606f5, type: 3}
+  interact: 000100010001
   thisInvestigate: 0
   checkDistance: 4
+  minCheckDistance: 1
+  maxCheckDistance: 10
+  checkSpeed: 2
   maxRotation_Y: 15
   minRotation_Y: -15
   maxRotation_Z: 15
   minRotation_Z: -15
-  minCheckDistance: 1
-  maxCheckDistance: 10
   isSizeBig: 0
   childParts:
   - {fileID: 212347673927214522}

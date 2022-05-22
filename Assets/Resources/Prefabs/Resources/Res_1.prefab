@@ -143,11 +143,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: 
-  interact: 000000010000
+  ResID: 1
+  sprite: {fileID: 21300000, guid: 346be9e6becaff746a4f9c08a09c731f, type: 3}
+  interact: 000000000001
   thisInvestigate: 0
   checkDistance: 2
   minCheckDistance: 1
   maxCheckDistance: 3
+  checkSpeed: 2
   maxRotation_Y: 15
   minRotation_Y: -15
   maxRotation_Z: 15
