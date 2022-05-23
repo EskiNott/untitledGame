@@ -47,11 +47,12 @@ public class item : MonoBehaviour
     public GameObject[] childParts;
     public enum interactType
     {
+        Interact,
         Check,
-        Take,
-        Eat,
         Attack,
+        Eat,
         Talk,
-        Interact
+        Take,
+        Equip
     }
 }
