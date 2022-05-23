@@ -73,7 +73,7 @@ public class ItemManager : MonoBehaviour
     {
         goItem = go.GetComponent<item>();
         goTrans = go.GetComponent<Transform>();
-        bpm.HandControl_Equip(goItem);
+        bpm.HandControl_Equip(goItem, goTrans);
         options = 6;
         iMM.showButton(false);
     }

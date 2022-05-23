@@ -43,6 +43,13 @@ public class investigateMenuManager : MonoBehaviour
 
     public void set2DMenu(item itemAttribute)
     {
+        foreach (GameObject child in investigateMenu)
+        {
+            if (child.name != "ItemName")
+            {
+                child.SetActive(false);
+            }
+        }
         MenuItemNameGO.GetComponentInChildren<Text>().text = itemAttribute.ItemName;
         MenuItemNameGO.SetActive(true);
         myItemM.go = itemAttribute.gameObject;
@@ -133,8 +140,15 @@ public class investigateMenuManager : MonoBehaviour
     //²Ëµ¥¹Ø±Õ
     public void closeMenu()
     {
-        if (Input.GetMouseButtonDown(0) && !RaycastMenuUI() && isMenuOpened)
+        if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.B)) && !RaycastMenuUI() && isMenuOpened) 
         {
+            foreach (GameObject child in investigateMenu)
+            {
+                if (child.name != "ItemName")
+                {
+                    child.SetActive(false);
+                }
+            }
             isMenuOpened = false;
             showButton(false);
             if (Menu3d)

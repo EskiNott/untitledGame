@@ -13,13 +13,13 @@ public class backpack : MonoBehaviour
     public List<Resource> playerBag;
 
     public Resource Handing;
-    [SerializeField]
-    private GameObject Handgo;
 
     public GlobalManager gm;
     public GameObject BackpackPanel;
     public investigateMenuManager iMM;
 
+    [SerializeField]
+    private Transform EquipSlotParent;
     [SerializeField]
     private GameObject SlotParent;
     [SerializeField]
@@ -56,16 +56,28 @@ public class backpack : MonoBehaviour
         panelControl_Appear();
         panelControl_Progress();
     }
-
-    public void HandControl_Equip(item Item)
+    public void HandControl_Equip(item Item, Transform goTrans)
     {
         Resource res = FindResource(Item.ResID);
-        
-        if (Item.interact[5] && res != null) 
+        if(goTrans.parent.parent.gameObject.name != "EquipSlot")
         {
-            playerBag_Decrease(res.id);
-            Handing = res;
+            if(Handing != null)
+            {
+                playerBag_Add(Handing.id);
+                Handing = null;
+            }
+            if (res != null)
+            {
+                playerBag_Decrease(res.id);
+                Handing = res;
+            }
         }
+        else
+        {
+            playerBag_Add(res.id);
+            Handing = null;
+        }
+        panelControl_Refresh();
     }
 
     private void panelControl_Appear()
@@ -113,6 +125,10 @@ public class backpack : MonoBehaviour
     }
     private void panelControl_Refresh()
     {
+        foreach(Transform item in EquipSlotParent)
+        {
+            Destroy(item.gameObject);
+        }
         foreach(Transform item in SlotParentTrans)
         {
             Destroy(item.gameObject);
@@ -147,10 +163,23 @@ public class backpack : MonoBehaviour
         Image _ChildImage = null;
         if (gm.IsOpenPlayerBag)
         {
-            _Slot = Handgo;
+            _Slot = Instantiate(SlotPrefab, EquipSlotParent.transform);
+            _Slot.name = "EquipSlot";
             _SlotTrans = _Slot.GetComponent<Transform>();
+            foreach (Transform _tempGo in _SlotTrans)
+            {
+                Transform _tempGoTrans = _tempGo.transform;
+                foreach (Transform _temp in _tempGoTrans)
+                {
+                    if(_temp.name == "AmountBottom" || _temp.name == "Amount")
+                    {
+                        _temp.gameObject.SetActive(false);
+                    }
+                }
+            }
+
             if (Handing != null) 
-            panelControl_setSlot(Handing, Handgo, _SlotTrans, _ChildImage);
+            panelControl_setSlot(Handing, _Slot, _SlotTrans, _ChildImage);
             foreach (Resource res in playerBag)
             {
                  _Slot = Instantiate(SlotPrefab, SlotParent.transform);
