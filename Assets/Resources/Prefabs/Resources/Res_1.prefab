@@ -145,7 +145,7 @@ MonoBehaviour:
   ItemName: "\u5F00\u7F50\u5668"
   ResID: 1
   sprite: {fileID: 21300000, guid: 346be9e6becaff746a4f9c08a09c731f, type: 3}
-  interact: 00000000000100
+  interact: 00000000000101
   thisInvestigate: 0
   checkDistance: 2
   minCheckDistance: 1
