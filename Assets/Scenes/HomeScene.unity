@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1535489, g: 0.1542539, b: 0.16319549, a: 1}
+  m_IndirectSpecularColor: {r: 0.15381995, g: 0.15452304, b: 0.16344833, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2678,12 +2678,28 @@ MonoBehaviour:
   Water: 500
   Protein: 500
   Carbohydrate: 500
-  Fat: 500
   Blood: 1000
   Pest: 0
   CellHealth: 1000
-  UpdateSpeed: 5
+  UpdateSpeed: 100
   Situations: 
+  sickTable:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
 --- !u!1 &924205815
 GameObject:
   m_ObjectHideFlags: 0
@@ -6991,7 +7007,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1284528573724488361
 Transform:
   m_ObjectHideFlags: 0
@@ -7117,10 +7133,10 @@ RectTransform:
   m_Father: {fileID: 366994283}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -150, y: -180}
-  m_SizeDelta: {x: 400, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!1 &1350492296826441642
 GameObject:

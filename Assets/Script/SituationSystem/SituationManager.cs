@@ -29,6 +29,7 @@ public class SituationManager : MonoBehaviour
         {
             tempCha.SituationManage();
             tempCha.NutritionManage();
+            tempCha.SituationTableManage();
             if (Input.GetKeyDown(KeyCode.Tab) && tempCha.ID == 1)
             {
                 presentSituationOnWatch(tempCha);

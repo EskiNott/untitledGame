@@ -41,8 +41,6 @@ public class Character : MonoBehaviour
     public float Protein = 500;
     [Header("糖类")]
     public float Carbohydrate = 500;
-    [Header("脂肪")]
-    public float Fat = 500;
     [Header("血液量")]
     public float Blood = 1000;
     [Header("有害生物量")]
@@ -53,6 +51,7 @@ public class Character : MonoBehaviour
     public float UpdateSpeed = 5.0f;
 
     public List<Sickness> Situations;
+    public float[] sickTable = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
     public enum Sickness
     {
@@ -85,7 +84,6 @@ public class Character : MonoBehaviour
             WaterManage();
             ProteinManage();
             CarbohydrateManage();
-            FatManage();
             BloodManage();
             PestManage();
             CellHealthManage();
@@ -103,7 +101,6 @@ public class Character : MonoBehaviour
             || Water < Constitution * 0.01
             || Protein < Constitution * 0.01
             || Carbohydrate < Constitution * 0.01
-            || Fat < Constitution * 0.01
             || Blood < Constitution * 0.01
             ) 
         {
@@ -111,11 +108,7 @@ public class Character : MonoBehaviour
         }
         else if(Pest > Constitution*0.4 || CellHealth < Constitution* 0.3)
         {
-            ChangePerSecond(ref Constitution, -10f);
-        }
-        else if(Fat > Constitution * 0.9)
-        {
-            ChangePerSecond(ref Constitution, -1f);
+            ChangePerSecond(ref Constitution, -5f);
         }
         else 
         {
@@ -169,14 +162,7 @@ public class Character : MonoBehaviour
     private void ProteinManage()
     {
         _NutritionMaxCheck(ref Protein);
-        if (Fat < Constitution * 0.1)
-        {
-            ChangePerSecond(ref Protein, -2f);
-        }
-        else
-        {
-            ChangePerSecond(ref Protein, -0.2f);
-        }
+        ChangePerSecond(ref Protein, -0.2f);
     }
 
     private void CarbohydrateManage()
@@ -186,10 +172,7 @@ public class Character : MonoBehaviour
         {
             ChangePerSecond(ref Carbohydrate, -10f);
         }
-        else if (Carbohydrate < Constitution*0.1 && Fat > Constitution * 0.3)
-        {
-            ChangePerSecond(ref Carbohydrate, 8f);
-        }else if (Carbohydrate < Constitution * 0.1)
+        else if (Carbohydrate < Constitution * 0.1)
         {
             ChangePerSecond(ref Carbohydrate, -0.25f);
         }
@@ -199,28 +182,11 @@ public class Character : MonoBehaviour
         }
     }
 
-    private void FatManage()
-    {
-        _NutritionMaxCheck(ref Fat);
-        if (Carbohydrate > Constitution * 0.9)
-        {
-            ChangePerSecond(ref Fat, 2f);
-        }else if ( Carbohydrate < Constitution * 0.1)
-        {
-            ChangePerSecond(ref Fat, -2f);
-        }
-        else
-        {
-            ChangePerSecond(ref Fat, -0.2f);
-        }
-    }
-
     private void BloodManage()
     {
         _NutritionMaxCheck(ref Blood);
         if (Carbohydrate > Constitution*0.1 
-            && Protein > Constitution*0.1 
-            && Fat > Constitution * 0.1)
+            && Protein > Constitution*0.1)
         {
             ChangePerSecond(ref Blood, 1f);
         }
@@ -230,8 +196,7 @@ public class Character : MonoBehaviour
     {
         _NutritionMaxCheck(ref Pest);
         if (Carbohydrate > Constitution * 0.3
-            && Protein > Constitution * 0.3
-            && Fat > Constitution * 0.3)
+            && Protein > Constitution * 0.3)
         {
             ChangePerSecond(ref Pest, -1f);
         }
@@ -247,7 +212,6 @@ public class Character : MonoBehaviour
         }
         if (Water < Constitution * 0.1
             || Carbohydrate < Constitution * 0.1
-            || Fat < Constitution * 0.1
             || Vitamin < Constitution * 0.1) 
         {
             ChangePerSecond(ref CellHealth, -2f);
@@ -262,59 +226,57 @@ public class Character : MonoBehaviour
             //状态添加
             if (Constitution <= 0)
             {
-                SituationAdd(Sickness.Death); //死亡唯一入口
+                ChangePerSecond(ref sickTable[(int)Sickness.Death], +25f); ; //死亡唯一入口
             }
 
             if (StomachVolume > Constitution * 0.9
                 || Vitamin > Constitution * 0.95
                 || Water > Constitution * 0.9
-                || Carbohydrate < Constitution * 0.1
-                || Fat < Constitution * 0.1)
+                || Carbohydrate < Constitution * 0.1)
             {
-                SituationAdd(Sickness.Nausea);
+                ChangePerSecond(ref sickTable[(int)Sickness.Nausea], +25f);
             }
 
             if (StomachVolume < Constitution * 0.15)
             {
-                SituationAdd(Sickness.Hunger);
+                ChangePerSecond(ref sickTable[(int)Sickness.Hunger], +25f);
             }
 
             if (Vitamin > Constitution * 0.95)
             {
-                SituationAdd(Sickness.Diarrhoea);
+                ChangePerSecond(ref sickTable[(int)Sickness.Diarrhoea], +25f);
             }
 
             if (Vitamin > Constitution * 0.95)
             {
-                SituationAdd(Sickness.CoagulationDisorder);
+                ChangePerSecond(ref sickTable[(int)Sickness.CoagulationDisorder], +25f);
             }
 
             if (Vitamin < Constitution * 0.15)
             {
-                SituationAdd(Sickness.Scurvy);
+                ChangePerSecond(ref sickTable[(int)Sickness.Scurvy], +25f);
             }
 
             if (Vitamin < Constitution * 0.15)
             {
-                SituationAdd(Sickness.NightBlindness);
+                ChangePerSecond(ref sickTable[(int)Sickness.NightBlindness], +25f);
             }
 
             if (Vitamin < Constitution * 0.15)
             {
-                SituationAdd(Sickness.Fatigue);
+                ChangePerSecond(ref sickTable[(int)Sickness.Fatigue], +25f);
             }
 
             if (Water < Constitution * 0.1
                 || Blood < Constitution * 0.3)
             {
-                SituationAdd(Sickness.Shock);
+                ChangePerSecond(ref sickTable[(int)Sickness.Shock], +25f);
             }
 
-            if (Pest > Constitution * 0.2)
+            if (Pest > Constitution * 0.3)
             {
-                SituationAdd(Sickness.Fever);
+                ChangePerSecond(ref sickTable[(int)Sickness.Fever], +25f);
             }
-            //状态移除
 
 
             //状态效果
@@ -341,8 +303,8 @@ public class Character : MonoBehaviour
                 ChangePerSecond(ref Blood, -3f);
                 ChangePerSecond(ref Pest, -10f);
                 ChangePerSecond(ref CellHealth, -10f);
-                SituationAdd(Sickness.CoagulationDisorder);
-                SituationAdd(Sickness.Osteoporosis);
+                ChangePerSecond(ref sickTable[(int)Sickness.CoagulationDisorder], +25f);
+                ChangePerSecond(ref sickTable[(int)Sickness.Osteoporosis], +25f);
             }
             if (IsStateExist(Sickness.Scurvy))
             {
@@ -350,8 +312,10 @@ public class Character : MonoBehaviour
             }
             if (IsStateExist(Sickness.Diarrhoea))
             {
-                ChangePerSecond(ref Water, -10f);
-                ChangePerSecond(ref Protein, -3f);
+                ChangePerSecond(ref Water, -2f);
+                ChangePerSecond(ref Protein, -2f);
+                ChangePerSecond(ref Vitamin, -2f);
+                ChangePerSecond(ref StomachVolume, -5f);
             }
             if (IsStateExist(Sickness.NightBlindness))
             {
@@ -375,9 +339,8 @@ public class Character : MonoBehaviour
                 ChangePerSecond(ref Water, -5f);
                 ChangePerSecond(ref Protein, -3f);
                 ChangePerSecond(ref Carbohydrate, -5f);
-                ChangePerSecond(ref Fat, -5f);
-                ChangePerSecond(ref Pest, -3f);
-                SituationAdd(Sickness.Nausea);
+                ChangePerSecond(ref Pest, -10f);
+                ChangePerSecond(ref sickTable[(int)Sickness.Nausea], +25f);
             }
             if (IsStateExist(Sickness.Shock))
             {
@@ -387,9 +350,34 @@ public class Character : MonoBehaviour
             {
                 ChangePerSecond(ref CellHealth, -1f);
             }
-            if (IsStateExist(Sickness.Death))
-            {
+        }
+    }
 
+    public void SituationTableManage()
+    {
+        for(int i = 0; i < sickTable.Length; i++)
+        {
+            if (sickTable[i] >= 100)
+            {
+                SituationAdd((Sickness)i);
+            }
+            else
+            {
+                SituationRemove((Sickness)i);
+            }
+
+            if(sickTable[i] > 110)
+            {
+                sickTable[i] = 110;
+            }
+
+            if (sickTable[i] > 0)
+            {
+                ChangePerSecond(ref sickTable[i], -5f);
+            }
+            else
+            {
+                sickTable[i] = 0;
             }
         }
     }
