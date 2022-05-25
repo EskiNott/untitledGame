@@ -9,6 +9,7 @@ public class GlobalManager : MonoBehaviour
     public bool isCameraEqualOrigin;
     public GameObject CameraManagerGO;
     public bool canSituationCheck;
+    public bool IsOpenPlayerBag;
 
     //EventControl
     public bool canOpenBag = true;
@@ -16,6 +17,7 @@ public class GlobalManager : MonoBehaviour
     private CameraManager cm;
     void Start()
     {
+        IsOpenPlayerBag = false;
         isInvestigate = false;
         isCameraEqualOrigin = false;
         canSituationCheck = true;

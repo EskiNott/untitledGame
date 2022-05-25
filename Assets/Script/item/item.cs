@@ -18,8 +18,8 @@ public class item : MonoBehaviour
     [Header("Sprite")]
     public Sprite sprite;
 
-    [Header("交互 检查 攻击 食用 交谈 取走")]
-    public bool[] interact = { false, false, false, false, false, false};
+    [Header("交互 检查 攻击 食用 交谈 取走 装备")]
+    public bool[] interact = { false, false, false, false, false, false, false };
 
     [HideInInspector]
     public bool thisInvestigate = false;
@@ -47,11 +47,12 @@ public class item : MonoBehaviour
     public GameObject[] childParts;
     public enum interactType
     {
+        Interact,
         Check,
-        Take,
-        Eat,
         Attack,
+        Eat,
         Talk,
-        Interact
+        Take,
+        Equip
     }
 }

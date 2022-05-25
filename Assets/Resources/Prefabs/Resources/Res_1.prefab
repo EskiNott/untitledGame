@@ -142,10 +142,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba0882b0fe45e614b8c2e0dc55e1a763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemName: 
+  ItemName: "\u5F00\u7F50\u5668"
   ResID: 1
   sprite: {fileID: 21300000, guid: 346be9e6becaff746a4f9c08a09c731f, type: 3}
-  interact: 000000000001
+  interact: 00000000000101
   thisInvestigate: 0
   checkDistance: 2
   minCheckDistance: 1

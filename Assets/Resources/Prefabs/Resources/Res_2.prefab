@@ -50,7 +50,7 @@ MonoBehaviour:
   ItemName: "\u5348\u9910\u8089\u7F50\u5934"
   ResID: 2
   sprite: {fileID: 21300000, guid: ec50d378cdc8f1e44b0700bae461142f, type: 3}
-  interact: 010100000001
+  interact: 01010001000101
   thisInvestigate: 0
   checkDistance: 1
   minCheckDistance: 1

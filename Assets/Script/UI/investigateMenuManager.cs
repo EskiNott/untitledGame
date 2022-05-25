@@ -11,34 +11,86 @@ public class investigateMenuManager : MonoBehaviour
     public bool isMenuOpened;
     public CameraManager cm;
     public GlobalManager gm;
+    public backpack bp;
     public GameObject MenuItemNameGO;
 
-    [SerializeField]
+    private bool showButtons = false;
+
+    private Ray ray;
+    private RaycastHit hit;
+
     private Transform hitTransform;
+    private bool Menu3d;
+    [SerializeField]
     private Transform menuTransform;
+    [SerializeField]
     private ItemManager myItemM;
+
     // Start is called before the first frame update
     void Start()
     {
-        menuTransform = GameObject.Find("investigateMenu").GetComponent<Transform>();
         isMenuOpened = false;
-        myItemM = GetComponent<ItemManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
+        ray = cam.ScreenPointToRay(Input.mousePosition);
+        closeMenu();
+        set3DMenu();
+        showButton();
+    }
 
-        //菜单关闭逻辑
-        if (Input.GetMouseButtonDown(0) && !RaycastUI() && isMenuOpened)
+    public void set2DMenu(item itemAttribute)
+    {
+        foreach (GameObject child in investigateMenu)
         {
-            isMenuOpened = false;
-            clearButton();
+            if (child.name != "ItemName")
+            {
+                child.SetActive(false);
+            }
         }
+        MenuItemNameGO.GetComponentInChildren<Text>().text = itemAttribute.ItemName;
+        MenuItemNameGO.SetActive(true);
+        myItemM.go = itemAttribute.gameObject;
+        for (int i = 2; i < itemAttribute.interact.Length; i++)
+        {
+            if (itemAttribute.interact[i] && i != 5) 
+            {
+                investigateMenu[i].SetActive(true);
+            }
+            showButton(true);
+        }
+        isMenuOpened = true;
+        Menu3d = false;
+    }
+
+    private void GraduallyAppear(CanvasGroup canvasgGroup, bool setAppear)
+    {
+        bool isFinish = false;
+        int targetAlpha;
+        targetAlpha = setAppear ? 1 : 0;
+
+        if(!isFinish)
+        {
+            canvasgGroup.alpha = Mathf.Lerp(canvasgGroup.alpha, targetAlpha, Time.deltaTime * 20);
+            if (targetAlpha < 0.0001 && !setAppear)
+            {
+                isFinish = true;
+
+            }else if (targetAlpha > 0.9999 & setAppear)
+            {
+                isFinish = true;
+            }
+            canvasgGroup.gameObject.SetActive((canvasgGroup.alpha > 0.01) ? true : false);
+        }
+
+    }
+
+    private void set3DMenu()
+    {
         //菜单开启逻辑
-        if (Physics.Raycast(ray, out hit) && !isMenuOpened && !gm.isInvestigate)
+        if (Physics.Raycast(ray, out hit) && !isMenuOpened && !gm.isInvestigate && !gm.IsOpenPlayerBag)
         {
             if (Input.GetMouseButtonDown(0))
             {
@@ -57,12 +109,26 @@ public class investigateMenuManager : MonoBehaviour
                             investigateMenu[i].SetActive(true);
                         }
                     }
+                    showButton(true);
                     isMenuOpened = true;
+                    Menu3d = true;
                 }
             }
-
         }
         //设置菜单位置
+        if(!gm.IsOpenPlayerBag)
+        setMenu3DPosition();
+    }
+    public void setMenu2DPosition(Transform targetTrans)
+    {
+        if (isMenuOpened)
+        {
+            menuTransform.position = targetTrans.position;
+        }
+    }
+
+    public void setMenu3DPosition()
+    {
         if (isMenuOpened)
         {
             menuTransform.position = new Vector3(cam.WorldToScreenPoint(hitTransform.position).x,
@@ -72,19 +138,46 @@ public class investigateMenuManager : MonoBehaviour
     }
 
     //菜单关闭
-    public void clearButton()
+    public void closeMenu()
     {
-        while (GameObject.FindWithTag("itemInvestigateOption"))
+        if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.B)) && !RaycastMenuUI() && isMenuOpened) 
         {
-            GameObject.FindWithTag("itemInvestigateOption").SetActive(false);
+            foreach (GameObject child in investigateMenu)
+            {
+                if (child.name != "ItemName")
+                {
+                    child.SetActive(false);
+                }
+            }
+            isMenuOpened = false;
+            showButton(false);
+            if (Menu3d)
+            {
+                hitTransform.GetComponent<OutlinePointerEvent>().forceOn = false;
+                hitTransform.GetComponent<Outline>().enabled = false;
+                cm.camRevert();
+            }
+
         }
-        hitTransform.GetComponent<OutlinePointerEvent>().forceOn = false;
-        hitTransform.GetComponent<Outline>().enabled = false;
-        cm.camRevert();
+    }
+    public void showButton()
+    {
+        if (!showButtons)
+        {
+            GraduallyAppear(menuTransform.GetComponent<CanvasGroup>(), false);
+        }
+        else
+        {
+            GraduallyAppear(menuTransform.GetComponent<CanvasGroup>(), true);
+        }
+    }
+    public void showButton(bool ifShow)
+    {
+        showButtons = ifShow;
     }
 
-    //检测鼠标是否在UI上
-    public static bool RaycastUI()
+    //检测鼠标是否在菜单UI上
+    public static bool RaycastMenuUI()
     {
         if (EventSystem.current == null)
             return false;

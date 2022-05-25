@@ -64,14 +64,26 @@ public class ItemManager : MonoBehaviour
             case 5:
                 
                 break;
+            case 6:
+                break;
         }
     }
+
+    public void itemEquip()
+    {
+        goItem = go.GetComponent<item>();
+        goTrans = go.GetComponent<Transform>();
+        bpm.HandControl_Equip(goItem, goTrans);
+        options = 6;
+        iMM.showButton(false);
+    }
+
     public void itemInteract()
     {
         goItem = go.GetComponent<item>();
         goTrans = go.GetComponent<Transform>();
         options = 0;
-        iMM.clearButton();
+        iMM.showButton(false);
     }
 
     public void itemCheck()
@@ -86,7 +98,6 @@ public class ItemManager : MonoBehaviour
 
         //ÄÃÆð¼ì²é
         if (!goItem.isSizeBig)
-
         {
             if (!gm.isInvestigate)
             {
@@ -119,30 +130,29 @@ public class ItemManager : MonoBehaviour
             }
         }
         options = 1;
-        iMM.clearButton();
+        iMM.showButton(false);
     }
     public void itemEat()
     {
         goItem = go.GetComponent<item>();
         goTrans = go.GetComponent<Transform>();
         options = 3;
-        iMM.clearButton();
+        iMM.showButton(false);
     }
     public void itemAttack()
     {
         goItem = go.GetComponent<item>();
         goTrans = go.GetComponent<Transform>();
         options = 2;
-        iMM.clearButton();
+        iMM.showButton(false);
     }
     public void itemTalk()
     {
         goItem = go.GetComponent<item>();
         goTrans = go.GetComponent<Transform>();
         options = 4;
-        iMM.clearButton();
+        iMM.showButton(false);
     }
-
     public void itemTake()
     {
         goItem = go.GetComponent<item>();
@@ -152,7 +162,7 @@ public class ItemManager : MonoBehaviour
         go.SetActive(false);
 
         options = 5;
-        iMM.clearButton();
+        iMM.showButton(false);
     }
 
 
