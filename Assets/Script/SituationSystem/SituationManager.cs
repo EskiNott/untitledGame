@@ -78,8 +78,8 @@ public class SituationManager : MonoBehaviour
 
     private void fistMoving(Transform target, float movingSpeed)
     {
-        playerfist.position = Vector3.Lerp(playerfist.position, target.position, Time.deltaTime * movingSpeed);
-        playerfist.rotation = Quaternion.Lerp(playerfist.rotation, target.rotation, Time.deltaTime * movingSpeed);
+        playerfist.localPosition = Vector3.Lerp(playerfist.localPosition, target.localPosition, Time.deltaTime * movingSpeed);
+        playerfist.localRotation = Quaternion.Lerp(playerfist.localRotation, target.localRotation, Time.deltaTime * movingSpeed);
     }
 
     private Color GetSituationColor()
