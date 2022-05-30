@@ -59,7 +59,7 @@ public class backpack : MonoBehaviour
     public void HandControl_Equip(item Item, Transform goTrans)
     {
         Resource res = FindResource(Item.ResID);
-        if(goTrans.parent.parent.gameObject.name != "EquipSlot")
+        if (!isTransHasGrandParent(goTrans) || goTrans.parent.parent.gameObject.name != "EquipSlot")
         {
             if(Handing != null)
             {
@@ -68,7 +68,14 @@ public class backpack : MonoBehaviour
             }
             if (res != null)
             {
-                playerBag_Decrease(res.id);
+                if(isTransHasGrandParent(goTrans) && goTrans.parent.parent.CompareTag("BackpackSlot"))
+                {
+                    playerBag_Decrease(res.id);
+                }
+                else
+                {
+                    goTrans.gameObject.SetActive(false);
+                }
                 Handing = res;
             }
         }
@@ -310,9 +317,20 @@ public class backpack : MonoBehaviour
     {
         return Resources.Load<Sprite>(ItemSpritePath + "\\" + PrefabName);
     }
-
+    static public bool isTransHasGrandParent(Transform trans)
+    {
+        return (trans.parent != null && trans.parent.parent != null);
+    }
     static public bool isThisResourceInBackpack(item Item)
     {
-        return Item.transform.parent.parent.CompareTag("BackpackSlot");
+        if (isTransHasGrandParent(Item.transform))
+        {
+            return Item.transform.parent.parent.CompareTag("BackpackSlot");
+        }
+        else
+        {
+            return false;
+        }
+
     }
 }

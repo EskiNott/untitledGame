@@ -7,11 +7,11 @@
     "Amount": 5,
     "Mass": 0.08,
     "Volume": 0.02,
-    "Vitamin": 0,
-    "Water": 0,
-    "Protein": 0,
-    "Carbohydrate": 0,
-    "Pest": 0
+    "Vitamin": 1,
+    "Water": 2,
+    "Protein": 3,
+    "Carbohydrate": 4,
+    "Pest": 5
   },
   {
     "id": 2,
@@ -20,7 +20,7 @@
     "Type": "food",
     "Amount": 5,
     "Mass": 0.25,
-    "Volume": 0.2
+    "Volume": 0.2,
     "Vitamin": 0,
     "Water": 0,
     "Protein": 0,
@@ -34,7 +34,7 @@
     "Type": "food",
     "Amount": 4,
     "Mass": 0.25,
-    "Volume": 0.2
+    "Volume": 0.2,
     "Vitamin": 0,
     "Water": 0,
     "Protein": 0,

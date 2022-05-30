@@ -6704,6 +6704,11 @@ MonoBehaviour:
     Amount: 0
     Mass: 0
     Volume: 0
+    Vitamin: 0
+    Water: 0
+    Protein: 0
+    Carbohydrate: 0
+    Pest: 0
     type: 0
   gm: {fileID: 1991459500}
   BackpackPanel: {fileID: 710494506}

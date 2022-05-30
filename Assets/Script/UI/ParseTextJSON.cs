@@ -72,14 +72,14 @@ public class ParseTextJSON
                     tempType = Resource.resourceType.food;
                     break;
             }
-            int tempAmount = temp["Amount"].intValue;
-            float tempMass = temp["Mass"].floatValue;
-            float tempVolume = temp["Volume"].floatValue;
-            float tempVitamin = temp["Vitamin"].floatValue;
-            float tempWater = temp["Water"].floatValue;
-            float tempProtein = temp["Protein"].floatValue;
-            float tempCarbohydrate = temp["Carbohydrate"].floatValue;
-            float tempPest = temp["Pest"].floatValue;
+            int tempAmount = temp["Amount"].isNull ? 0 : temp["Amount"].intValue;
+            float tempMass = temp["Mass"].isNull ? 0 : temp["Mass"].floatValue;
+            float tempVolume = temp["Volume"].isNull ? 0 : temp["Volume"].floatValue;
+            float tempVitamin = temp["Vitamin"].isNull ? 0 : temp["Vitamin"].floatValue;
+            float tempWater = temp["Water"].isNull ? 0 : temp["Water"].floatValue;
+            float tempProtein = temp["Protein"].isNull ? 0 : temp["Protein"].floatValue;
+            float tempCarbohydrate = temp["Carbohydrate"].isNull ? 0 : temp["Carbohydrate"].floatValue;
+            float tempPest = temp["Pest"].isNull ? 0 : temp["Pest"].floatValue;
 
             Resource r = new Resource();
             r.id = tempID;
