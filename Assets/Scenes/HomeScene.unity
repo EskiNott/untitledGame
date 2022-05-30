@@ -7288,6 +7288,7 @@ MonoBehaviour:
   cm: {fileID: 2084032347}
   bpm: {fileID: 1549047058}
   iMM: {fileID: 88066517}
+  playerChara: {fileID: 911137419}
   rotateSpeed: 1
   isDragging: 0
   go: {fileID: 0}

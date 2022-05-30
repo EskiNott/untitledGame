@@ -12,6 +12,8 @@ public class ItemManager : MonoBehaviour
     private backpack bpm;
     [SerializeField]
     private investigateMenuManager iMM;
+    [SerializeField]
+    private Character playerChara;
 
     private float mouseX;
     private float mouseY;
