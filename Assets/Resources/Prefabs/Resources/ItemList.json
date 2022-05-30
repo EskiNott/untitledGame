@@ -6,7 +6,12 @@
     "Type": "tool",
     "Amount": 5,
     "Mass": 0.08,
-    "Volume": 0.02
+    "Volume": 0.02,
+    "Vitamin": 0,
+    "Water": 0,
+    "Protein": 0,
+    "Carbohydrate": 0,
+    "Pest": 0
   },
   {
     "id": 2,
@@ -16,6 +21,11 @@
     "Amount": 5,
     "Mass": 0.25,
     "Volume": 0.2
+    "Vitamin": 0,
+    "Water": 0,
+    "Protein": 0,
+    "Carbohydrate": 0,
+    "Pest": 0
   },
   {
     "id": 3,
@@ -25,5 +35,10 @@
     "Amount": 4,
     "Mass": 0.25,
     "Volume": 0.2
+    "Vitamin": 0,
+    "Water": 0,
+    "Protein": 0,
+    "Carbohydrate": 0,
+    "Pest": 0
   }
 ]

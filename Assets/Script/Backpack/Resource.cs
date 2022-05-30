@@ -11,6 +11,11 @@ public class Resource
     public uint Amount;
     public float Mass;
     public float Volume;
+    public float Vitamin;
+    public float Water;
+    public float Protein;
+    public float Carbohydrate;
+    public float Pest;
     public enum resourceType{food,drink,medicine,equipment,gun,meeleWeapon,questItem,tool}
     public resourceType type;
 

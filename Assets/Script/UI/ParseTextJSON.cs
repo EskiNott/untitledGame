@@ -75,6 +75,11 @@ public class ParseTextJSON
             int tempAmount = temp["Amount"].intValue;
             float tempMass = temp["Mass"].floatValue;
             float tempVolume = temp["Volume"].floatValue;
+            float tempVitamin = temp["Vitamin"].floatValue;
+            float tempWater = temp["Water"].floatValue;
+            float tempProtein = temp["Protein"].floatValue;
+            float tempCarbohydrate = temp["Carbohydrate"].floatValue;
+            float tempPest = temp["Pest"].floatValue;
 
             Resource r = new Resource();
             r.id = tempID;
@@ -84,6 +89,11 @@ public class ParseTextJSON
             r.Amount = (uint)tempAmount;
             r.Mass = tempMass;
             r.Volume = tempVolume;
+            r.Vitamin = tempVitamin;
+            r.Water = tempWater;
+            r.Protein = tempProtein;
+            r.Carbohydrate = tempCarbohydrate;
+            r.Pest = tempPest;
             BP.Add(r);
         }
         return BP;

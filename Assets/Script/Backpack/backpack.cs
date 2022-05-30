@@ -310,4 +310,9 @@ public class backpack : MonoBehaviour
     {
         return Resources.Load<Sprite>(ItemSpritePath + "\\" + PrefabName);
     }
+
+    static public bool isThisResourceInBackpack(item Item)
+    {
+        return Item.transform.parent.parent.CompareTag("BackpackSlot");
+    }
 }
