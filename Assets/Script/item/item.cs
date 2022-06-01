@@ -45,6 +45,7 @@ public class item : MonoBehaviour
 
     [Header("×Ó¶ÔÏó")]
     public GameObject[] childParts;
+
     public enum interactType
     {
         Interact,
