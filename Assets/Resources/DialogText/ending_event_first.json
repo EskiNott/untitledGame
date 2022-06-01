@@ -1,0 +1,158 @@
+[
+  {
+    "id": 0,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "老工人",
+      "DialogText": "你听说了吗？之前从外面来的那个人。"
+    },
+    "en_US": {
+      "ObjectNameText": "Old worker",
+      "DialogText": "Have you heard? The man who came from outside before."
+    }
+  },
+  {
+    "id": 1,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "就是那个一来就嚷嚷着让我们快跑的？"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "Is that the one who yells for us to run?"
+    }
+  },
+  {
+    "id": 2,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "老工人",
+      "DialogText": "很倒霉的是，后来又来了一些人都是这么说的。"
+    },
+    "en_US": {
+      "ObjectNameText": "Old worker",
+      "DialogText": "Unfortunately, some people later said so."
+    }
+  },
+    {
+    "id": 3,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "嗯？"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "en？"
+    }
+  },
+    {
+    "id": 4,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "老工人",
+      "DialogText": "一场暴风雪要来了"
+    },
+    "en_US": {
+      "ObjectNameText": "Old worker",
+      "DialogText": "A snowstorm is coming"
+    }
+  },
+    {
+    "id": 5,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "暴风雪？在这里？"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "snowstorm? here?"
+    }
+  },
+    {
+    "id": 6,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "老工人",
+      "DialogText": "这个冬天确实格外的冷。"
+    },
+    "en_US": {
+      "ObjectNameText": "Old worker",
+      "DialogText": "This winter is really very cold."
+    }
+  },
+    {
+    "id": 7,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "但我们也不能就这么走啊，什么准备都没做。"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "But we can't just go. We haven't made any preparations."
+    }
+  },
+    {
+    "id": 8,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "你看那些来我们这的人，吃的喝的，什么都没有"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "Look at the people who come to us. They have nothing to eat or drink"
+    }
+  },
+    {
+    "id": 9,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "要不是我们在这里，估计要饿死在路上了。"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "If we hadn't been here, we would have starved to death on the road."
+    }
+  },
+    {
+    "id": 10,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "老工人",
+      "DialogText": "唉，我人老了，脑子不灵光，你来想想办法吧。"
+    },
+    "en_US": {
+      "ObjectNameText": "Old worker",
+      "DialogText": "Alas, I'm old and I'm not smart. You can do something about it."
+    }
+  },
+  {
+  "id": 11,
+  "nameExist": false,
+  "zh_CN": {
+    "ObjectNameText": "",
+    "DialogText": "公社主席留下一个大难题，就这么走了。"
+  },
+  "en_US": {
+    "ObjectNameText": "",
+    "DialogText": "The Commune chairman left a big problem and left."
+  }
+},
+{
+"id": 12,
+"nameExist": false,
+"zh_CN": {
+  "ObjectNameText": "",
+  "DialogText": "除了出去到处找东西以外也没什么事情，就稍微研究研究吧"
+},
+"en_US": {
+  "ObjectNameText": "",
+  "DialogText": "There's nothing to do except go out and look for things. Just study it a little."
+}
+}
+]

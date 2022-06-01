@@ -1,0 +1,98 @@
+[
+  {
+    "id": 0,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "公社冒险者",
+      "DialogText": "你最近看到那个大肚子的女人了吗？"
+    },
+    "en_US": {
+      "ObjectNameText": "Commune adventurer",
+      "DialogText": "Have you seen that woman with a big belly recently?"
+    }
+  },
+  {
+    "id": 1,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "说起来很久没看到她了。"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "I haven't seen her for a long time."
+    }
+  },
+  {
+    "id": 2,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "公社冒险者",
+      "DialogText": "啊,她好像已经死了。"
+    },
+    "en_US": {
+      "ObjectNameText": "Commune adventurer",
+      "DialogText": "Ah, she seems to be dead."
+    }
+  },
+    {
+    "id": 3,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "什么？"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "What?"
+    }
+  },
+    {
+    "id": 4,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "公社冒险者",
+      "DialogText": "她遭受的辐射比想象中的严重，然后流产了，再后来就悄悄地...你懂吧"
+    },
+    "en_US": {
+      "ObjectNameText": "Commune adventurer",
+      "DialogText": "She suffered more radiation than expected, then miscarried, and then quietly ...You know ."
+    }
+  },
+  {
+  "id": 5,
+  "nameExist": true,
+  "zh_CN": {
+    "ObjectNameText": "你",
+    "DialogText": "我只能说，我已经警告过她了。"
+  },
+  "en_US": {
+    "ObjectNameText": "You",
+    "DialogText": "I can only say that I have warned her."
+  }
+},
+{
+"id": 6,
+"nameExist": true,
+"zh_CN": {
+  "ObjectNameText": "公社冒险者",
+  "DialogText": "至少你已经帮过她了，但总觉得干了件没有意义的事情。"
+},
+"en_US": {
+  "ObjectNameText": "Commune adventurer",
+  "DialogText": "At least you have helped her, but we always feel that we have done something meaningless."
+}
+},
+  {
+    "id": 7,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "好了好了，我知道了，别说了...."
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "All right, all right, I see. Stop talking."
+    }
+  }
+]

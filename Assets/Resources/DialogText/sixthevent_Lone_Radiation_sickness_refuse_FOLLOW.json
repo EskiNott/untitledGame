@@ -1,0 +1,97 @@
+[
+  {
+    "id": 0,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "邻居",
+      "DialogText": "你最近看到那个大肚子的女人了吗？"
+    },
+    "en_US": {
+      "ObjectNameText": "neighbor",
+      "DialogText": "Have you seen that woman with a big belly recently?"
+    }
+  },
+  {
+    "id": 1,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "说起来很久没看到她了。"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "I haven't seen her for a long time."
+    }
+  },
+  {
+    "id": 2,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "邻居",
+      "DialogText": "啊,她好像几天前自己一个人溜出去了。"
+    },
+    "en_US": {
+      "ObjectNameText": "neighbor",
+      "DialogText": "Ah, she seems to have slipped out by herself a few days ago."
+    }
+  },
+    {
+    "id": 3,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "什么？"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "What?"
+    }
+  },
+    {
+    "id": 4,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "邻居",
+      "DialogText": "我说，她自己一个人....."
+    },
+    "en_US": {
+      "ObjectNameText": "neighbor",
+      "DialogText": "I said, she seems to have slipped out....."
+    }
+  },
+    {
+    "id": 5,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "好了好了，我知道了，别说了...."
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "All right, all right, I see. Stop talking."
+    }
+  },{
+    "id": 6,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "邻居",
+      "DialogText": "挺庆幸的，没有在她浪费太多物资。"
+    },
+    "en_US": {
+      "ObjectNameText": "neighbor",
+      "DialogText": "Fortunately, she didn't waste too much materials."
+    }
+  },
+  {
+  "id": 7,
+  "nameExist": true,
+  "zh_CN": {
+    "ObjectNameText": "你",
+    "DialogText": "别再说了。"
+  },
+  "en_US": {
+    "ObjectNameText": "You",
+    "DialogText": " Stop talking this."
+  }
+}
+]

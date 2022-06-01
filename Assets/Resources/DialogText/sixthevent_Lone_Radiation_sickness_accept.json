@@ -1,0 +1,122 @@
+[
+  {
+    "id": 0,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "我这没什么东西，只能给你一些"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "I have nothing here. I can only give you some"
+    }
+  },
+  {
+    "id": 1,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "孕妇",
+      "DialogText": "谢谢，谢谢，真的，你是这个孩子的救命恩人。"
+    },
+    "en_US": {
+      "ObjectNameText": "pregnant woman",
+      "DialogText": "Thank you, thank you, really, you are the Savior of this child."
+    }
+  },
+  {
+    "id": 2,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "所以，你现在能告诉我为什么对他这么执着了吗？"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "So, can you tell me why you are so persistent to him now?"
+    }
+  },
+    {
+    "id": 3,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "孕妇",
+      "DialogText": "好吧...他是我的...爱人的孩子。"
+    },
+    "en_US": {
+      "ObjectNameText": "pregnant woman",
+      "DialogText": "ok, He is my Husband's children."
+    }
+  },
+    {
+    "id": 4,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "孕妇",
+      "DialogText": "就在爆炸发生后不久，他被高处掉下来的碎片砸死了...而我还活着"
+    },
+    "en_US": {
+      "ObjectNameText": "pregnant woman",
+      "DialogText": "Shortly after the explosion, he was killed by falling debris And I'm still alive"
+    }
+  },
+    {
+    "id": 5,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "孕妇",
+      "DialogText": "我觉得对不起他...因为孩子...哦不，不对，孩子他..."
+    },
+    "en_US": {
+      "ObjectNameText": "pregnant woman",
+      "DialogText": "I feel sorry for him ...Because the child ...Oh, no, no,... child he is..."
+    }
+  },
+    {
+    "id": 6,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "是因为你觉得孩子可能并不是你爱人的？"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "Is it because you think the child may not belong to your Husband?"
+    }
+  },
+    {
+    "id": 7,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "孕妇",
+      "DialogText": "不要，别说了...."
+    },
+    "en_US": {
+      "ObjectNameText": "pregnant woman",
+      "DialogText": "No, stop it..."
+    }
+  },
+    {
+    "id": 8,
+    "nameExist": false,
+    "zh_CN": {
+      "ObjectNameText": "",
+      "DialogText": "她哭着跑开了，看着在昏暗的地下消失的她，心里总觉得....."
+    },
+    "en_US": {
+      "ObjectNameText": "",
+      "DialogText": "She ran away crying. Looking at her disappearing in the dark underground, she always felt"
+    }
+  },
+    {
+    "id": 9,
+    "nameExist": false,
+    "zh_CN": {
+      "ObjectNameText": "",
+      "DialogText": "算了，总归是帮了一个人...."
+    },
+    "en_US": {
+      "ObjectNameText": "",
+      "DialogText": "After all, I helped someone"
+    }
+  }
+]

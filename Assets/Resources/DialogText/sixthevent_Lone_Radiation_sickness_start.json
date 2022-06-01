@@ -1,0 +1,158 @@
+[
+  {
+    "id": 0,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "孕妇",
+      "DialogText": "求你行行好吧，这里只有你能帮我了。"
+    },
+    "en_US": {
+      "ObjectNameText": "pregnant woman",
+      "DialogText": "Please, please.....Only you can help me here."
+    }
+  },
+  {
+    "id": 1,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "所以你就是这么一路乞讨过来的？"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "So that's how you begged all the way?"
+    }
+  },
+  {
+    "id": 2,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "孕妇",
+      "DialogText": "我这不也是没有办法吗？"
+    },
+    "en_US": {
+      "ObjectNameText": "pregnant woman",
+      "DialogText": "Don't I have no choice?"
+    }
+  },
+    {
+    "id": 3,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "你知道，现在大概是最艰苦的时候了，附近的食物什么的都已经找完了。"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "You know, it's probably the hardest time now. We've found all the food nearby."
+    }
+  },
+    {
+    "id": 4,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "我倒是很想知道，你为什么对这个.....胎儿，这么执着。"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "I'd like to know why you're interested in this Fetus, so persistent."
+    }
+  },
+    {
+    "id": 5,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "孕妇",
+      "DialogText": "我...我也不知道，但是这是我唯一的精神支柱了。"
+    },
+    "en_US": {
+      "ObjectNameText": "pregnant woman",
+      "DialogText": "I... I don't know, but it's my only spiritual pillar."
+    }
+  },
+    {
+    "id": 6,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "最近辐射尘埃的浓度又上升了，我说真的，两年以内都不太可能能生下一个健康的孩子"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "The concentration of radioactive dust has risen again recently. I'm serious. It's unlikely to have a healthy child within two years"
+    }
+  },
+    {
+    "id": 7,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "孕妇",
+      "DialogText": "没了这个，那我怎么办？"
+    },
+    "en_US": {
+      "ObjectNameText": "pregnant woman",
+      "DialogText": "Without this, What can I do?"
+    }
+  },
+    {
+    "id": 8,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "啊？所以为什么你对这个孩子这么执着？"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "Ah? So why are you so attached to this child?"
+    }
+  },
+    {
+    "id": 9,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "孕妇",
+      "DialogText": "啊...不...."
+    },
+    "en_US": {
+      "ObjectNameText": "pregnant woman",
+      "DialogText": "Ah.... no...."
+    }
+  },
+    {
+    "id": 10,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "是你丈夫留下的？"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "Your husband left it?"
+    }
+  },
+    {
+    "id": 11,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "孕妇",
+      "DialogText": "哎，我不知道怎么和你说，但是我真的很爱他，不...不是...."
+    },
+    "en_US": {
+      "ObjectNameText": "pregnant woman",
+      "DialogText": "Hey, I don't know how to tell you, but I really love him, no .....but...."
+    }
+  },
+  {
+  "id": 12,
+  "nameExist": true,
+  "zh_CN": {
+    "ObjectNameText": "你",
+    "DialogText": "算了算了，让我想想我还有没有多余的物资。"
+  },
+  "en_US": {
+    "ObjectNameText": "You",
+    "DialogText": "Forget it, let me see if I have any extra supplies."
+  }
+}
+]

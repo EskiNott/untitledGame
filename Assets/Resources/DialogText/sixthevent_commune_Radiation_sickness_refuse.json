@@ -1,0 +1,170 @@
+[
+  {
+    "id": 0,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "听着，我不会帮你的。"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "Listen, I won't help you."
+    }
+  },
+  {
+    "id": 1,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "孕妇",
+      "DialogText": "为什么，难道你不是已经帮了很多的人了吗？"
+    },
+    "en_US": {
+      "ObjectNameText": "pregnant woman",
+      "DialogText": "Why, haven't you helped a lot of people?"
+    }
+  },
+  {
+    "id": 2,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "我这不也是没有办法吗？难道我可以直接消除放射尘吗？"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "Don't I have no choice? Can I eliminate radioactive dust directly?"
+    }
+  },
+    {
+    "id": 3,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "你要知道，这里能出去找冒险找食物和药的人真的不多。"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "You know, there are really not many people here who can go out and take risks to find food and medicine."
+    }
+  },
+    {
+    "id": 4,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "如果我要帮你，我就必须给你食物，和更多的抗辐射药。"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "If I want to help you, I must give you food and more anti radiation drugs."
+    }
+  },
+    {
+    "id": 5,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "最后这个避难所能得到什么？一个畸形的胎儿？"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "What can this shelter get in the end? A deformed fetus?"
+    }
+  },
+    {
+    "id": 6,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "孕妇",
+      "DialogText": "那我会找找其他人碰碰运气的。"
+    },
+    "en_US": {
+      "ObjectNameText": "pregnant woman",
+      "DialogText": "Then I'll try my luck with someone else."
+    }
+  },
+    {
+    "id": 7,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "你",
+      "DialogText": "我想这里的人都是这样想的吧。"
+    },
+    "en_US": {
+      "ObjectNameText": "You",
+      "DialogText": "I think people here think so."
+    }
+  },
+    {
+    "id": 8,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "孕妇",
+      "DialogText": "这是我最后的支柱了...."
+    },
+    "en_US": {
+      "ObjectNameText": "pregnant woman",
+      "DialogText": "This is my last pillar......."
+    }
+  },
+    {
+    "id": 9,
+    "nameExist": true,
+    "zh_CN": {
+      "ObjectNameText": "孕妇",
+      "DialogText": "啊...我以为你是个善良的人...."
+    },
+    "en_US": {
+      "ObjectNameText": "pregnant woman",
+      "DialogText": "Ah .....I thought you were a kind man....."
+    }
+  },
+    {
+    "id": 10,
+    "nameExist": false,
+    "zh_CN": {
+      "ObjectNameText": "",
+      "DialogText": "孕妇踏着拖沓的脚步，一瘸一拐地离开了这里"
+    },
+    "en_US": {
+      "ObjectNameText": "",
+      "DialogText": "The pregnant woman limped out of here with a shuffle"
+    }
+  },
+    {
+    "id": 11,
+    "nameExist": false,
+    "zh_CN": {
+      "ObjectNameText": "",
+      "DialogText": "大家都会拒绝她的吧？如果我们想生存下去，现在生孩子可不是一个好选择。"
+    },
+    "en_US": {
+      "ObjectNameText": "",
+      "DialogText": "Will everyone refuse her? If we want to survive, having children now is not a good choice."
+    }
+  },
+  {
+  "id": 12,
+  "nameExist": false,
+  "zh_CN": {
+    "ObjectNameText": "",
+    "DialogText": "为了....大家的生存...."
+  },
+  "en_US": {
+    "ObjectNameText": "",
+    "DialogText": "For..... Everyone's survival...."
+  }
+},
+{
+  "id": 13,
+  "nameExist": false,
+  "zh_CN": {
+    "ObjectNameText": "",
+    "DialogText": "我可不能把珍贵的资源浪费在毫无希望的事情上。"
+  },
+  "en_US": {
+    "ObjectNameText": "",
+    "DialogText": "I can't waste precious resources on hopeless things."
+  }
+}
+]
