@@ -3,21 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 /*
 ÓÐ¹Ø½ÇÉ«Ö¢×´situationµÄÃèÊö:
-01:Õý³£
-02:Á÷Ñª
-03:¹ÇÕÛ
-04:¼¢¶ö
-05:¿Ú¿Ê
-06:·øÉä²¡
-07:»µÑªÖ¢
-08:¸¹Ðº
-09:Ò¹Ã¤Ö¢
-10:ÄýÑªÕÏ°­
-11:¹ÇÖÊÊèËÉ
-12:·´Î¸
-13:·¢ÈÈ
-14:Ê§ÑªÐÔÐÝ¿Ë
-15:Æ£ÀÍ
+01:Á÷Ñª
+02:¹ÇÕÛ
+03:¼¢¶ö
+04:¿Ú¿Ê
+05:·øÉä²¡
+06:»µÑªÖ¢
+07:¸¹Ðº
+08:Ò¹Ã¤Ö¢
+09:ÄýÑªÕÏ°­
+10:¹ÇÖÊÊèËÉ
+11:·´Î¸
+12:·¢ÈÈ
+13:Ê§ÑªÐÔÐÝ¿Ë
+14:Æ£ÀÍ
 */
 
 [System.Serializable]
@@ -41,8 +40,6 @@ public class Character : MonoBehaviour
     public float Protein = 500;
     [Header("ÌÇÀà")]
     public float Carbohydrate = 500;
-    [Header("Ö¬·¾")]
-    public float Fat = 500;
     [Header("ÑªÒºÁ¿")]
     public float Blood = 1000;
     [Header("ÓÐº¦ÉúÎïÁ¿")]
@@ -53,12 +50,12 @@ public class Character : MonoBehaviour
     public float UpdateSpeed = 5.0f;
 
     public List<Sickness> Situations;
+    public float[] sickTable = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
     public enum Sickness
     {
-        Normal,
         Bleed,
-        Fracture,
+        Fracture, //¹ÇÕÛ
         Hunger,
         Thirst,
         RadiationSickness,
@@ -85,7 +82,6 @@ public class Character : MonoBehaviour
             WaterManage();
             ProteinManage();
             CarbohydrateManage();
-            FatManage();
             BloodManage();
             PestManage();
             CellHealthManage();
@@ -103,7 +99,6 @@ public class Character : MonoBehaviour
             || Water < Constitution * 0.01
             || Protein < Constitution * 0.01
             || Carbohydrate < Constitution * 0.01
-            || Fat < Constitution * 0.01
             || Blood < Constitution * 0.01
             ) 
         {
@@ -111,11 +106,7 @@ public class Character : MonoBehaviour
         }
         else if(Pest > Constitution*0.4 || CellHealth < Constitution* 0.3)
         {
-            ChangePerSecond(ref Constitution, -10f);
-        }
-        else if(Fat > Constitution * 0.9)
-        {
-            ChangePerSecond(ref Constitution, -1f);
+            ChangePerSecond(ref Constitution, -5f);
         }
         else 
         {
@@ -169,14 +160,7 @@ public class Character : MonoBehaviour
     private void ProteinManage()
     {
         _NutritionMaxCheck(ref Protein);
-        if (Fat < Constitution * 0.1)
-        {
-            ChangePerSecond(ref Protein, -2f);
-        }
-        else
-        {
-            ChangePerSecond(ref Protein, -0.2f);
-        }
+        ChangePerSecond(ref Protein, -0.2f);
     }
 
     private void CarbohydrateManage()
@@ -186,10 +170,7 @@ public class Character : MonoBehaviour
         {
             ChangePerSecond(ref Carbohydrate, -10f);
         }
-        else if (Carbohydrate < Constitution*0.1 && Fat > Constitution * 0.3)
-        {
-            ChangePerSecond(ref Carbohydrate, 8f);
-        }else if (Carbohydrate < Constitution * 0.1)
+        else if (Carbohydrate < Constitution * 0.1)
         {
             ChangePerSecond(ref Carbohydrate, -0.25f);
         }
@@ -199,28 +180,11 @@ public class Character : MonoBehaviour
         }
     }
 
-    private void FatManage()
-    {
-        _NutritionMaxCheck(ref Fat);
-        if (Carbohydrate > Constitution * 0.9)
-        {
-            ChangePerSecond(ref Fat, 2f);
-        }else if ( Carbohydrate < Constitution * 0.1)
-        {
-            ChangePerSecond(ref Fat, -2f);
-        }
-        else
-        {
-            ChangePerSecond(ref Fat, -0.2f);
-        }
-    }
-
     private void BloodManage()
     {
         _NutritionMaxCheck(ref Blood);
         if (Carbohydrate > Constitution*0.1 
-            && Protein > Constitution*0.1 
-            && Fat > Constitution * 0.1)
+            && Protein > Constitution*0.1)
         {
             ChangePerSecond(ref Blood, 1f);
         }
@@ -230,8 +194,7 @@ public class Character : MonoBehaviour
     {
         _NutritionMaxCheck(ref Pest);
         if (Carbohydrate > Constitution * 0.3
-            && Protein > Constitution * 0.3
-            && Fat > Constitution * 0.3)
+            && Protein > Constitution * 0.3)
         {
             ChangePerSecond(ref Pest, -1f);
         }
@@ -247,7 +210,6 @@ public class Character : MonoBehaviour
         }
         if (Water < Constitution * 0.1
             || Carbohydrate < Constitution * 0.1
-            || Fat < Constitution * 0.1
             || Vitamin < Constitution * 0.1) 
         {
             ChangePerSecond(ref CellHealth, -2f);
@@ -257,139 +219,160 @@ public class Character : MonoBehaviour
     //×´Ì¬¹ÜÀí
     public void SituationManage()
     {
-        if (!IsStateExist(Sickness.Death))
+        //×´Ì¬Ìí¼Ó
+        if (Constitution <= 0)
         {
-            //×´Ì¬Ìí¼Ó
-            if (Constitution <= 0)
-            {
-                SituationAdd(Sickness.Death); //ËÀÍöÎ¨Ò»Èë¿Ú
-            }
+            ChangePerSecond(ref sickTable[(int)Sickness.Death], +25f); ; //ËÀÍöÎ¨Ò»Èë¿Ú
+        }
 
-            if (StomachVolume > Constitution * 0.9
-                || Vitamin > Constitution * 0.95
-                || Water > Constitution * 0.9
-                || Carbohydrate < Constitution * 0.1
-                || Fat < Constitution * 0.1)
-            {
-                SituationAdd(Sickness.Nausea);
-            }
+        if (StomachVolume > Constitution * 0.9
+            || Vitamin > Constitution * 0.95
+            || Water > Constitution * 0.9
+            || Carbohydrate < Constitution * 0.1)
+        {
+            ChangePerSecond(ref sickTable[(int)Sickness.Nausea], +25f);
+        }
 
-            if (StomachVolume < Constitution * 0.15)
-            {
-                SituationAdd(Sickness.Hunger);
-            }
+        if (StomachVolume < Constitution * 0.15)
+        {
+            ChangePerSecond(ref sickTable[(int)Sickness.Hunger], +25f);
+        }
 
-            if (Vitamin > Constitution * 0.95)
-            {
-                SituationAdd(Sickness.Diarrhoea);
-            }
+        if (Vitamin > Constitution * 0.95)
+        {
+            ChangePerSecond(ref sickTable[(int)Sickness.Diarrhoea], +25f);
+        }
 
-            if (Vitamin > Constitution * 0.95)
-            {
-                SituationAdd(Sickness.CoagulationDisorder);
-            }
+        if (Vitamin > Constitution * 0.95)
+        {
+            ChangePerSecond(ref sickTable[(int)Sickness.CoagulationDisorder], +25f);
+        }
 
-            if (Vitamin < Constitution * 0.15)
-            {
-                SituationAdd(Sickness.Scurvy);
-            }
+        if (Vitamin < Constitution * 0.15)
+        {
+            ChangePerSecond(ref sickTable[(int)Sickness.Scurvy], +25f);
+        }
 
-            if (Vitamin < Constitution * 0.15)
-            {
-                SituationAdd(Sickness.NightBlindness);
-            }
+        if (Vitamin < Constitution * 0.15)
+        {
+            ChangePerSecond(ref sickTable[(int)Sickness.NightBlindness], +25f);
+        }
 
-            if (Vitamin < Constitution * 0.15)
-            {
-                SituationAdd(Sickness.Fatigue);
-            }
+        if (Vitamin < Constitution * 0.15)
+        {
+            ChangePerSecond(ref sickTable[(int)Sickness.Fatigue], +25f);
+        }
 
-            if (Water < Constitution * 0.1
-                || Blood < Constitution * 0.3)
-            {
-                SituationAdd(Sickness.Shock);
-            }
+        if (Water < Constitution * 0.1
+            || Blood < Constitution * 0.3)
+        {
+            ChangePerSecond(ref sickTable[(int)Sickness.Shock], +25f);
+        }
 
-            if (Pest > Constitution * 0.2)
-            {
-                SituationAdd(Sickness.Fever);
-            }
-            //×´Ì¬ÒÆ³ý
+        if (Pest > Constitution * 0.3)
+        {
+            ChangePerSecond(ref sickTable[(int)Sickness.Fever], +25f);
+        }
 
 
-            //×´Ì¬Ð§¹û
-            if (IsStateExist(Sickness.Bleed))
-            {
-                ChangePerSecond(ref Protein, -3f);
-                ChangePerSecond(ref Blood, -5f);
-            }
-            if (IsStateExist(Sickness.Fracture))
-            {
-                ChangePerSecond(ref Protein, -3f);
-            }
-            if (IsStateExist(Sickness.Hunger))
-            {
-                ChangePerSecond(ref CellHealth, -1f);
-            }
-            if (IsStateExist(Sickness.Thirst))
-            {
-                ChangePerSecond(ref CellHealth, -1f);
-            }
-            if (IsStateExist(Sickness.RadiationSickness))
-            {
-                ChangePerSecond(ref Protein, -9f);
-                ChangePerSecond(ref Blood, -3f);
-                ChangePerSecond(ref Pest, -10f);
-                ChangePerSecond(ref CellHealth, -10f);
-                SituationAdd(Sickness.CoagulationDisorder);
-                SituationAdd(Sickness.Osteoporosis);
-            }
-            if (IsStateExist(Sickness.Scurvy))
-            {
-                ChangePerSecond(ref Blood, -3f);
-            }
-            if (IsStateExist(Sickness.Diarrhoea))
-            {
-                ChangePerSecond(ref Water, -10f);
-                ChangePerSecond(ref Protein, -3f);
-            }
-            if (IsStateExist(Sickness.NightBlindness))
-            {
+        //×´Ì¬Ð§¹û
+        if (IsStateExist(Sickness.Bleed))
+        {
+            ChangePerSecond(ref Protein, -3f);
+            ChangePerSecond(ref Blood, -5f);
+        }
+        if (IsStateExist(Sickness.Fracture))
+        {
+            ChangePerSecond(ref Protein, -3f);
+        }
+        if (IsStateExist(Sickness.Hunger))
+        {
+            ChangePerSecond(ref CellHealth, -1f);
+        }
+        if (IsStateExist(Sickness.Thirst))
+        {
+            ChangePerSecond(ref CellHealth, -1f);
+        }
+        if (IsStateExist(Sickness.RadiationSickness))
+        {
+            ChangePerSecond(ref Protein, -9f);
+            ChangePerSecond(ref Blood, -3f);
+            ChangePerSecond(ref Pest, -10f);
+            ChangePerSecond(ref CellHealth, -10f);
+            ChangePerSecond(ref sickTable[(int)Sickness.CoagulationDisorder], +25f);
+            ChangePerSecond(ref sickTable[(int)Sickness.Osteoporosis], +25f);
+        }
+        if (IsStateExist(Sickness.Scurvy))
+        {
+            ChangePerSecond(ref Blood, -3f);
+        }
+        if (IsStateExist(Sickness.Diarrhoea))
+        {
+            ChangePerSecond(ref Water, -2f);
+            ChangePerSecond(ref Protein, -2f);
+            ChangePerSecond(ref Vitamin, -2f);
+            ChangePerSecond(ref StomachVolume, -5f);
+        }
+        if (IsStateExist(Sickness.NightBlindness))
+        {
 
-            }
-            if (IsStateExist(Sickness.CoagulationDisorder))
-            {
-                ChangePerSecond(ref Protein, -2f);
-                ChangePerSecond(ref Carbohydrate, -2f);
-            }
-            if (IsStateExist(Sickness.Osteoporosis))
-            {
+        }
+        if (IsStateExist(Sickness.CoagulationDisorder))
+        {
+            ChangePerSecond(ref Protein, -2f);
+            ChangePerSecond(ref Carbohydrate, -2f);
+        }
+        if (IsStateExist(Sickness.Osteoporosis))
+        {
 
-            }
-            if (IsStateExist(Sickness.Nausea))
-            {
+        }
+        if (IsStateExist(Sickness.Nausea))
+        {
 
-            }
-            if (IsStateExist(Sickness.Fever))
-            {
-                ChangePerSecond(ref Water, -5f);
-                ChangePerSecond(ref Protein, -3f);
-                ChangePerSecond(ref Carbohydrate, -5f);
-                ChangePerSecond(ref Fat, -5f);
-                ChangePerSecond(ref Pest, -3f);
-                SituationAdd(Sickness.Nausea);
-            }
-            if (IsStateExist(Sickness.Shock))
-            {
+        }
+        if (IsStateExist(Sickness.Fever))
+        {
+            ChangePerSecond(ref Water, -5f);
+            ChangePerSecond(ref Protein, -3f);
+            ChangePerSecond(ref Carbohydrate, -5f);
+            ChangePerSecond(ref Pest, -10f);
+            ChangePerSecond(ref sickTable[(int)Sickness.Nausea], +25f);
+        }
+        if (IsStateExist(Sickness.Shock))
+        {
 
-            }
-            if (IsStateExist(Sickness.Fatigue))
-            {
-                ChangePerSecond(ref CellHealth, -1f);
-            }
-            if (IsStateExist(Sickness.Death))
-            {
+        }
+        if (IsStateExist(Sickness.Fatigue))
+        {
+            ChangePerSecond(ref CellHealth, -1f);
+        }
+    }
 
+    public void SituationTableManage()
+    {
+        for (int i = 0; i < sickTable.Length; i++)
+        {
+            if (sickTable[i] >= 100)
+            {
+                SituationAdd((Sickness)i);
+            }
+            else
+            {
+                SituationRemove((Sickness)i);
+            }
+
+            if (sickTable[i] > 110)
+            {
+                sickTable[i] = 110;
+            }
+
+            if (sickTable[i] > 0)
+            {
+                ChangePerSecond(ref sickTable[i], -5f);
+            }
+            else
+            {
+                sickTable[i] = 0;
             }
         }
     }
@@ -409,23 +392,32 @@ public class Character : MonoBehaviour
 
     public void SituationAdd(Sickness situ)
     {
-        if (!IsStateExist(situ))
+        if (!IsStateExist(Sickness.Death))
         {
-            Situations.Add(situ);
+            if (!IsStateExist(situ))
+            {
+                Situations.Add(situ);
+            }
         }
     }
 
     public void SituationRemove(Sickness situ)
     {
-        if (IsStateExist(situ))
+        if (!IsStateExist(Sickness.Death))
         {
-            Situations.Remove(situ);
+            if (IsStateExist(situ))
+            {
+                Situations.Remove(situ);
+            }
         }
     }
 
     private void ChangePerSecond(ref float Nutrition, float delta)
     {
-        Nutrition = Nutrition + delta * Time.deltaTime * 0.01f * UpdateSpeed;
+        if (!IsStateExist(Sickness.Death))
+        {
+            Nutrition = Nutrition + delta * Time.deltaTime * 0.01f * UpdateSpeed;
+        }
     }
     private void _NutritionMaxCheck(ref float Nutrition)
     {

@@ -10,6 +10,7 @@ TagManager:
   - item
   - GlobalManager
   - CameraPosition
+  - BackpackSlot
   layers:
   - Default
   - TransparentFX

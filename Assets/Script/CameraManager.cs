@@ -42,7 +42,7 @@ public class CameraManager : MonoBehaviour
         }
         if (!camPause)
         {
-            if (camMove)
+            if (camMove && targetTrans != null)
             {
                 Vector3 dir;
                 dir = targetTrans.position - camTrans.position;
